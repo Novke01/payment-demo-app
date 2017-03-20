@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="30T-Rw-q3E">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="qLQ-0T-hTS">
+            <objects>
+                <navigationController id="30T-Rw-q3E" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GcR-Vv-uA3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="EHS-Gj-76J"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ozg-7V-Th1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-665" y="137"/>
+        </scene>
+        <!--Payment Demo-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController title="Nesto" id="BYZ-38-t0r" userLabel="Payment Demo" customClass="MainViewController" customModule="PaymentModuleDemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tYg-YV-HKM">
+                                <rect key="frame" x="16" y="226" width="343" height="216"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ciD-cx-h4x">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="80"/>
+                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="2MQ-ZL-bmV"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                        <state key="normal" title="Make Payment">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="X7B-Up-XK7" kind="show" identifier="goToNewPayment" id="9qd-gw-iHz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ci4-U9-l50">
+                                        <rect key="frame" x="0.0" y="136" width="343" height="80"/>
+                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="fWo-EN-W7L"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                        <state key="normal" title="Add New Card">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="M8J-w5-1GS" kind="show" identifier="goToNewCard" id="3uR-D0-fZ7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Ci4-U9-l50" secondAttribute="trailing" id="B7b-GM-ava"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ci4-U9-l50" secondAttribute="bottom" id="LAl-wB-gTE"/>
+                                    <constraint firstItem="Ci4-U9-l50" firstAttribute="leading" secondItem="tYg-YV-HKM" secondAttribute="leading" id="esp-Zb-AY6"/>
+                                    <constraint firstAttribute="trailing" secondItem="ciD-cx-h4x" secondAttribute="trailing" id="fyO-fD-R4j"/>
+                                    <constraint firstItem="ciD-cx-h4x" firstAttribute="leading" secondItem="tYg-YV-HKM" secondAttribute="leading" id="jHG-HN-Plj"/>
+                                    <constraint firstItem="ciD-cx-h4x" firstAttribute="top" secondItem="tYg-YV-HKM" secondAttribute="top" id="tLi-EW-wpf"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="tYg-YV-HKM" secondAttribute="trailing" id="4h2-Yy-vbH"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tYg-YV-HKM" secondAttribute="bottom" constant="225" id="91P-DF-fab"/>
+                            <constraint firstItem="tYg-YV-HKM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="162" id="JBG-AB-WGe"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="tYg-YV-HKM" secondAttribute="leading" id="ikn-qB-zWL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Payment Demo" id="Ik6-Kh-xDJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
+        </scene>
+        <!-- New Payment-->
+        <scene sceneID="U8w-A8-1We">
+            <objects>
+                <viewController id="X7B-Up-XK7" customClass="NewPaymentViewController" customModule="PaymentModuleDemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dJj-pz-sey"/>
+                        <viewControllerLayoutGuide type="bottom" id="uN0-hc-Zcu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hQm-AE-M2W">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHf-4S-M8R">
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="4OW-SD-NSk"/>
+                                </constraints>
+                                <edgeInsets key="layoutMargins" top="0.0" left="8" bottom="8" right="8"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                <state key="normal" title="Proceed">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="proceed:" destination="X7B-Up-XK7" eventType="touchUpInside" id="5tK-bo-oUh"/>
+                                </connections>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AgO-06-K4c">
+                                <rect key="frame" x="0.0" y="64" width="375" height="543"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="70q-Ts-TBN">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="544"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Shipping Postalcode" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nqp-XX-AkU" userLabel="Shipping Postalcode">
+                                                <rect key="frame" x="8" y="8" width="359" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="ewx-qM-zOo"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Cart Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YAu-3a-usz">
+                                                <rect key="frame" x="8" y="46" width="359" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="bUv-oG-bXm"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="YAu-3a-usz" firstAttribute="leading" secondItem="70q-Ts-TBN" secondAttribute="leading" constant="8" id="5Hr-ID-ORu"/>
+                                            <constraint firstAttribute="trailing" secondItem="YAu-3a-usz" secondAttribute="trailing" constant="8" id="IMn-C2-5Pm"/>
+                                            <constraint firstItem="YAu-3a-usz" firstAttribute="top" secondItem="Nqp-XX-AkU" secondAttribute="bottom" constant="8" id="hhu-jG-ear"/>
+                                            <constraint firstItem="Nqp-XX-AkU" firstAttribute="leading" secondItem="70q-Ts-TBN" secondAttribute="leading" constant="8" id="lx9-Id-VgK"/>
+                                            <constraint firstItem="Nqp-XX-AkU" firstAttribute="top" secondItem="70q-Ts-TBN" secondAttribute="top" constant="8" id="nxB-eo-bHf"/>
+                                            <constraint firstAttribute="trailing" secondItem="Nqp-XX-AkU" secondAttribute="trailing" constant="8" id="ucU-en-M5j"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="70q-Ts-TBN" secondAttribute="trailing" id="LaD-zB-5Sd"/>
+                                    <constraint firstItem="70q-Ts-TBN" firstAttribute="top" secondItem="AgO-06-K4c" secondAttribute="top" id="lwQ-gr-IsV"/>
+                                    <constraint firstAttribute="bottom" secondItem="70q-Ts-TBN" secondAttribute="bottom" id="mZn-x6-4L2"/>
+                                    <constraint firstItem="70q-Ts-TBN" firstAttribute="leading" secondItem="AgO-06-K4c" secondAttribute="leading" id="mbl-CE-X87"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="70q-Ts-TBN" firstAttribute="leading" secondItem="hQm-AE-M2W" secondAttribute="leadingMargin" constant="-16" id="6Jn-WF-6Vy"/>
+                            <constraint firstAttribute="trailing" secondItem="DHf-4S-M8R" secondAttribute="trailing" id="9Uv-AE-pDI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AgO-06-K4c" secondAttribute="trailing" constant="-16" id="JZ3-bF-uFj"/>
+                            <constraint firstItem="uN0-hc-Zcu" firstAttribute="top" secondItem="DHf-4S-M8R" secondAttribute="bottom" id="Kqp-H6-4v2"/>
+                            <constraint firstItem="AgO-06-K4c" firstAttribute="top" secondItem="dJj-pz-sey" secondAttribute="bottom" id="UV9-Zp-tDI"/>
+                            <constraint firstItem="AgO-06-K4c" firstAttribute="leading" secondItem="hQm-AE-M2W" secondAttribute="leadingMargin" constant="-16" id="ZNj-ol-Mbz"/>
+                            <constraint firstItem="DHf-4S-M8R" firstAttribute="leading" secondItem="hQm-AE-M2W" secondAttribute="leading" id="er5-rg-TCG"/>
+                            <constraint firstItem="70q-Ts-TBN" firstAttribute="top" secondItem="dJj-pz-sey" secondAttribute="bottom" id="gga-Ny-eHH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="70q-Ts-TBN" secondAttribute="trailing" constant="-16" id="inK-dC-FHg"/>
+                            <constraint firstItem="DHf-4S-M8R" firstAttribute="top" secondItem="70q-Ts-TBN" secondAttribute="bottom" constant="-1" id="j6n-1H-2dj"/>
+                            <constraint firstItem="uN0-hc-Zcu" firstAttribute="top" secondItem="AgO-06-K4c" secondAttribute="bottom" constant="60" id="mC0-uu-3pn"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title=" New Payment" id="r7q-gH-y4y"/>
+                    <connections>
+                        <segue destination="uqf-7S-bXu" kind="show" identifier="goToCardSelection" id="oPH-nd-JtC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1b3-z3-Krw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="944.79999999999995" y="136.28185907046478"/>
+        </scene>
+        <!--Card Selection-->
+        <scene sceneID="J8L-xo-Bde">
+            <objects>
+                <viewController id="uqf-7S-bXu" customClass="CardSelectionViewController" customModule="PaymentModuleDemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HeZ-vH-OqE"/>
+                        <viewControllerLayoutGuide type="bottom" id="E1R-CW-KI0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WbU-Gk-dby">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ca5-qZ-DWw">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Card Selection" id="Ybd-nS-zo0">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="D82-D9-eL2">
+                            <connections>
+                                <action selector="addNewCard:" destination="uqf-7S-bXu" id="goM-iQ-QUR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cardsList" destination="Ca5-qZ-DWw" id="xrU-nu-W20"/>
+                        <segue destination="akN-k9-KeA" kind="show" identifier="goToPaymentPreview" id="LVz-oq-cwa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3QN-Hp-9pF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1733.5999999999999" y="135.38230884557723"/>
+        </scene>
+        <!--Payment Preview-->
+        <scene sceneID="zu1-Pn-4gn">
+            <objects>
+                <viewController title="Payment Preview" id="akN-k9-KeA" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KAN-IN-YDO"/>
+                        <viewControllerLayoutGuide type="bottom" id="4kJ-nB-tB5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7pl-CF-bpi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gRd-wz-X1e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2575" y="136"/>
+        </scene>
+        <!--New Card-->
+        <scene sceneID="gaa-oK-gTd">
+            <objects>
+                <viewController id="M8J-w5-1GS" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pXu-qw-qQm"/>
+                        <viewControllerLayoutGuide type="bottom" id="RXw-uz-FuR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cnq-mR-zQ4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Card" id="7iS-TK-6hz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AMs-mg-CzD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137" y="872"/>
+        </scene>
+    </scenes>
+</document>

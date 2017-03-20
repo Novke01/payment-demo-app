@@ -1,0 +1,318 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DD6141E51E7BEC4600CB84C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6141E41E7BEC4600CB84C8 /* AppDelegate.swift */; };
+		DD6141E71E7BEC4600CB84C8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6141E61E7BEC4600CB84C8 /* MainViewController.swift */; };
+		DD6141EA1E7BEC4600CB84C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD6141E81E7BEC4600CB84C8 /* Main.storyboard */; };
+		DD6141EC1E7BEC4600CB84C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD6141EB1E7BEC4600CB84C8 /* Assets.xcassets */; };
+		DD6141EF1E7BEC4600CB84C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD6141ED1E7BEC4600CB84C8 /* LaunchScreen.storyboard */; };
+		DD779A2A1E7FC21D00FBF902 /* NewPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD779A291E7FC21D00FBF902 /* NewPaymentViewController.swift */; };
+		DD779A2C1E7FE16F00FBF902 /* CardSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD779A2B1E7FE16F00FBF902 /* CardSelectionViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DD6141E11E7BEC4600CB84C8 /* PaymentModuleDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaymentModuleDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD6141E41E7BEC4600CB84C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DD6141E61E7BEC4600CB84C8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		DD6141E91E7BEC4600CB84C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DD6141EB1E7BEC4600CB84C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DD6141EE1E7BEC4600CB84C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DD6141F01E7BEC4600CB84C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD779A291E7FC21D00FBF902 /* NewPaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPaymentViewController.swift; sourceTree = "<group>"; };
+		DD779A2B1E7FE16F00FBF902 /* CardSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardSelectionViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DD6141DE1E7BEC4600CB84C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DD6141D81E7BEC4600CB84C8 = {
+			isa = PBXGroup;
+			children = (
+				DD6141E31E7BEC4600CB84C8 /* PaymentModuleDemoApp */,
+				DD6141E21E7BEC4600CB84C8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DD6141E21E7BEC4600CB84C8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DD6141E11E7BEC4600CB84C8 /* PaymentModuleDemoApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DD6141E31E7BEC4600CB84C8 /* PaymentModuleDemoApp */ = {
+			isa = PBXGroup;
+			children = (
+				DD6141E41E7BEC4600CB84C8 /* AppDelegate.swift */,
+				DD6141E61E7BEC4600CB84C8 /* MainViewController.swift */,
+				DD779A291E7FC21D00FBF902 /* NewPaymentViewController.swift */,
+				DD779A2B1E7FE16F00FBF902 /* CardSelectionViewController.swift */,
+				DD6141E81E7BEC4600CB84C8 /* Main.storyboard */,
+				DD6141EB1E7BEC4600CB84C8 /* Assets.xcassets */,
+				DD6141ED1E7BEC4600CB84C8 /* LaunchScreen.storyboard */,
+				DD6141F01E7BEC4600CB84C8 /* Info.plist */,
+			);
+			path = PaymentModuleDemoApp;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DD6141E01E7BEC4600CB84C8 /* PaymentModuleDemoApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD6141F31E7BEC4600CB84C8 /* Build configuration list for PBXNativeTarget "PaymentModuleDemoApp" */;
+			buildPhases = (
+				DD6141DD1E7BEC4600CB84C8 /* Sources */,
+				DD6141DE1E7BEC4600CB84C8 /* Frameworks */,
+				DD6141DF1E7BEC4600CB84C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PaymentModuleDemoApp;
+			productName = PaymentModuleDemoApp;
+			productReference = DD6141E11E7BEC4600CB84C8 /* PaymentModuleDemoApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DD6141D91E7BEC4600CB84C8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = Execom;
+				TargetAttributes = {
+					DD6141E01E7BEC4600CB84C8 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = PH7K4ADL7R;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = DD6141DC1E7BEC4600CB84C8 /* Build configuration list for PBXProject "PaymentModuleDemoApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DD6141D81E7BEC4600CB84C8;
+			productRefGroup = DD6141E21E7BEC4600CB84C8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DD6141E01E7BEC4600CB84C8 /* PaymentModuleDemoApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DD6141DF1E7BEC4600CB84C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD6141EF1E7BEC4600CB84C8 /* LaunchScreen.storyboard in Resources */,
+				DD6141EC1E7BEC4600CB84C8 /* Assets.xcassets in Resources */,
+				DD6141EA1E7BEC4600CB84C8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DD6141DD1E7BEC4600CB84C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD6141E71E7BEC4600CB84C8 /* MainViewController.swift in Sources */,
+				DD779A2C1E7FE16F00FBF902 /* CardSelectionViewController.swift in Sources */,
+				DD6141E51E7BEC4600CB84C8 /* AppDelegate.swift in Sources */,
+				DD779A2A1E7FC21D00FBF902 /* NewPaymentViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DD6141E81E7BEC4600CB84C8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD6141E91E7BEC4600CB84C8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DD6141ED1E7BEC4600CB84C8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD6141EE1E7BEC4600CB84C8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DD6141F11E7BEC4600CB84C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DD6141F21E7BEC4600CB84C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DD6141F41E7BEC4600CB84C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = PH7K4ADL7R;
+				INFOPLIST_FILE = PaymentModuleDemoApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.execom.PaymentModuleDemoApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		DD6141F51E7BEC4600CB84C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = PH7K4ADL7R;
+				INFOPLIST_FILE = PaymentModuleDemoApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.execom.PaymentModuleDemoApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DD6141DC1E7BEC4600CB84C8 /* Build configuration list for PBXProject "PaymentModuleDemoApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD6141F11E7BEC4600CB84C8 /* Debug */,
+				DD6141F21E7BEC4600CB84C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD6141F31E7BEC4600CB84C8 /* Build configuration list for PBXNativeTarget "PaymentModuleDemoApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD6141F41E7BEC4600CB84C8 /* Debug */,
+				DD6141F51E7BEC4600CB84C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DD6141D91E7BEC4600CB84C8 /* Project object */;
+}
