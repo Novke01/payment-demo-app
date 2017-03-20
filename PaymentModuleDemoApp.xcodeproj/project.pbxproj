@@ -14,6 +14,8 @@
 		DD6141EF1E7BEC4600CB84C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD6141ED1E7BEC4600CB84C8 /* LaunchScreen.storyboard */; };
 		DD779A2A1E7FC21D00FBF902 /* NewPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD779A291E7FC21D00FBF902 /* NewPaymentViewController.swift */; };
 		DD779A2C1E7FE16F00FBF902 /* CardSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD779A2B1E7FE16F00FBF902 /* CardSelectionViewController.swift */; };
+		DDB68AEB1E800E65008C9E20 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB68AEA1E800E65008C9E20 /* BaseViewController.swift */; };
+		DDB68AED1E800EDA008C9E20 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB68AEC1E800EDA008C9E20 /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		DD6141F01E7BEC4600CB84C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD779A291E7FC21D00FBF902 /* NewPaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPaymentViewController.swift; sourceTree = "<group>"; };
 		DD779A2B1E7FE16F00FBF902 /* CardSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardSelectionViewController.swift; sourceTree = "<group>"; };
+		DDB68AEA1E800E65008C9E20 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		DDB68AEC1E800EDA008C9E20 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +62,12 @@
 		DD6141E31E7BEC4600CB84C8 /* PaymentModuleDemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				DDB68AEA1E800E65008C9E20 /* BaseViewController.swift */,
 				DD6141E41E7BEC4600CB84C8 /* AppDelegate.swift */,
 				DD6141E61E7BEC4600CB84C8 /* MainViewController.swift */,
 				DD779A291E7FC21D00FBF902 /* NewPaymentViewController.swift */,
 				DD779A2B1E7FE16F00FBF902 /* CardSelectionViewController.swift */,
+				DDB68AEC1E800EDA008C9E20 /* SignInViewController.swift */,
 				DD6141E81E7BEC4600CB84C8 /* Main.storyboard */,
 				DD6141EB1E7BEC4600CB84C8 /* Assets.xcassets */,
 				DD6141ED1E7BEC4600CB84C8 /* LaunchScreen.storyboard */,
@@ -143,7 +149,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDB68AEB1E800E65008C9E20 /* BaseViewController.swift in Sources */,
 				DD6141E71E7BEC4600CB84C8 /* MainViewController.swift in Sources */,
+				DDB68AED1E800EDA008C9E20 /* SignInViewController.swift in Sources */,
 				DD779A2C1E7FE16F00FBF902 /* CardSelectionViewController.swift in Sources */,
 				DD6141E51E7BEC4600CB84C8 /* AppDelegate.swift in Sources */,
 				DD779A2A1E7FC21D00FBF902 /* NewPaymentViewController.swift in Sources */,

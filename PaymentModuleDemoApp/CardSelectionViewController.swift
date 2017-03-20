@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CardSelectionViewController: UIViewController {
+class CardSelectionViewController: BaseViewController {
 
     @IBOutlet weak var cardsList: UITableView!
     
