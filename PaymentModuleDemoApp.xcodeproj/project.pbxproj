@@ -12,6 +12,7 @@
 		DD6141EA1E7BEC4600CB84C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD6141E81E7BEC4600CB84C8 /* Main.storyboard */; };
 		DD6141EC1E7BEC4600CB84C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD6141EB1E7BEC4600CB84C8 /* Assets.xcassets */; };
 		DD6141EF1E7BEC4600CB84C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD6141ED1E7BEC4600CB84C8 /* LaunchScreen.storyboard */; };
+		DD7607211E8015D300EF3E1E /* PaymentPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7607201E8015D300EF3E1E /* PaymentPreviewViewController.swift */; };
 		DD779A2A1E7FC21D00FBF902 /* NewPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD779A291E7FC21D00FBF902 /* NewPaymentViewController.swift */; };
 		DD779A2C1E7FE16F00FBF902 /* CardSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD779A2B1E7FE16F00FBF902 /* CardSelectionViewController.swift */; };
 		DDB68AEB1E800E65008C9E20 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB68AEA1E800E65008C9E20 /* BaseViewController.swift */; };
@@ -26,6 +27,7 @@
 		DD6141EB1E7BEC4600CB84C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD6141EE1E7BEC4600CB84C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD6141F01E7BEC4600CB84C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD7607201E8015D300EF3E1E /* PaymentPreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentPreviewViewController.swift; sourceTree = "<group>"; };
 		DD779A291E7FC21D00FBF902 /* NewPaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPaymentViewController.swift; sourceTree = "<group>"; };
 		DD779A2B1E7FE16F00FBF902 /* CardSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardSelectionViewController.swift; sourceTree = "<group>"; };
 		DDB68AEA1E800E65008C9E20 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				DD779A291E7FC21D00FBF902 /* NewPaymentViewController.swift */,
 				DD779A2B1E7FE16F00FBF902 /* CardSelectionViewController.swift */,
 				DDB68AEC1E800EDA008C9E20 /* SignInViewController.swift */,
+				DD7607201E8015D300EF3E1E /* PaymentPreviewViewController.swift */,
 				DD6141E81E7BEC4600CB84C8 /* Main.storyboard */,
 				DD6141EB1E7BEC4600CB84C8 /* Assets.xcassets */,
 				DD6141ED1E7BEC4600CB84C8 /* LaunchScreen.storyboard */,
@@ -149,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD7607211E8015D300EF3E1E /* PaymentPreviewViewController.swift in Sources */,
 				DDB68AEB1E800E65008C9E20 /* BaseViewController.swift in Sources */,
 				DD6141E71E7BEC4600CB84C8 /* MainViewController.swift in Sources */,
 				DDB68AED1E800EDA008C9E20 /* SignInViewController.swift in Sources */,
