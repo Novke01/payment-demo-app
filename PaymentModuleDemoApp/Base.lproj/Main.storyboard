@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -66,7 +65,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="M8J-w5-1GS" kind="show" identifier="goToNewCard" id="3uR-D0-fZ7"/>
+                                            <action selector="addNewCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bmp-fd-BPR"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -90,6 +89,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Payment Demo" id="Ik6-Kh-xDJ"/>
+                    <connections>
+                        <segue destination="M8J-w5-1GS" kind="show" identifier="goToAddNewCard" id="XDR-mS-idV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -388,33 +390,37 @@
         <!--New Card-->
         <scene sceneID="gaa-oK-gTd">
             <objects>
-                <viewController id="M8J-w5-1GS" sceneMemberID="viewController">
+                <viewController id="M8J-w5-1GS" customClass="NewCardViewController" customModule="PaymentModuleDemoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pXu-qw-qQm"/>
                         <viewControllerLayoutGuide type="bottom" id="RXw-uz-FuR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cnq-mR-zQ4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P6W-fd-frB">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="RXw-uz-FuR" firstAttribute="top" secondItem="P6W-fd-frB" secondAttribute="bottom" id="EtI-7p-lT6"/>
-                            <constraint firstItem="P6W-fd-frB" firstAttribute="leading" secondItem="cnq-mR-zQ4" secondAttribute="leading" id="LV6-cE-pph"/>
-                            <constraint firstAttribute="trailing" secondItem="P6W-fd-frB" secondAttribute="trailing" id="peh-az-TGI"/>
-                            <constraint firstItem="P6W-fd-frB" firstAttribute="top" secondItem="pXu-qw-qQm" secondAttribute="bottom" id="s0i-mN-0R6"/>
+                            <constraint firstItem="P6W-fd-frB" firstAttribute="leading" secondItem="cnq-mR-zQ4" secondAttribute="leading" id="F76-Em-vsD"/>
+                            <constraint firstAttribute="trailing" secondItem="P6W-fd-frB" secondAttribute="trailing" id="PMK-9P-vhV"/>
+                            <constraint firstItem="RXw-uz-FuR" firstAttribute="top" secondItem="P6W-fd-frB" secondAttribute="bottom" id="Tsc-Uw-9lS"/>
+                            <constraint firstItem="P6W-fd-frB" firstAttribute="top" secondItem="pXu-qw-qQm" secondAttribute="bottom" id="aeT-lV-JwC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Card" id="7iS-TK-6hz"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="addNewCardWebView" destination="P6W-fd-frB" id="cq9-9O-P3r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AMs-mg-CzD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="871.21439280359823"/>
+            <point key="canvasLocation" x="183" y="999"/>
         </scene>
     </scenes>
 </document>

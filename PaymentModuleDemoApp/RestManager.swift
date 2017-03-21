@@ -35,7 +35,7 @@ class RestManager {
         
         headers = [
             "Authorization": authorizationToken,
-            "Accept": "application/json"
+//            "Accept": "application/json"
         ]
         
     }
@@ -46,7 +46,7 @@ class RestManager {
         print("Headers: \(headers)")
         headers = [
             "Authorization": authorizationToken,
-            "Accept": "application/json"
+//            "Accept": "application/json"
         ]
 
     }
@@ -55,9 +55,12 @@ class RestManager {
         let encodedUrl = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
         
         
-        self.manager.request(encodedUrl!, method: HTTPMethod.post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate()
+        self.manager.request(encodedUrl!, method: HTTPMethod.post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).debugLog()
+
             .responseJSON(completionHandler: { (response) -> Void in
                 
+                print("Response: \(response)")
+
                 switch response.result {
                 case .success:
                     print("Alamofire Automatic validation successful")

@@ -149,47 +149,72 @@ public class DataManager {
         }
     }
 
-    
     ///Add new card
-    public func addCard(email: String, completion: @escaping (CardsResponse)->Void){
-        let url = API.cards + "?userUID=\(email)"
+    public func addCard(completion: @escaping (_ checkoutId: String?)->Void){
+        let url = API.allSecureCheckout
         
-//            + "authentication.userId=\(self.userId)"
-//            + "&authentication.password=\(self.password)"
-//            + "&authentication.entityId=\(self.entityIdTopLavel)"
-//            + "&amount=\(Constants.minAmountForPA)"
-//            + "&currency=\(Constants.paCurrency)"
-//            + "&paymentType=\(self.paymentType)"
-//            + "&createRegistration=true"
-//            + "&customParameters[accidentId]=\(accidentIDifNUll)"
-//            + "&customParameters[userId]=\(Preferences().GetUserId()!)"
-//
+        let postBody = ""
+            + "authentication.userId=8a82941758447b880158498cb4cf35f2"
+            + "&authentication.password=h43rCBBsFR"
+            + "&authentication.entityId=8a82941758447b880158498cb4cf35f6"
+            + "&amount=1.00"
+            + "&currency=RSD"
+            + "&paymentType=PA"
+            + "&createRegistration=true"
         
-        RestManager.sharedInstance.GET(url: url) { (json, data, success) in
+        let request = NSMutableURLRequest(url: URL(string: url)!)
+        request.httpMethod = "POST"
+        
+        request.httpBody = postBody.data(using: String.Encoding.utf8)
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+            data, response, error in
             
-            if success {
-                if let jsonData = json, let jsonDictionary = jsonData as? [String:Any] {
-                    
-                    if let code = jsonDictionary["code"] as? Int, let message = jsonDictionary["message"] as? String {
-                        if Array(200..<300).contains(code) {
-                            if let jsonArray = jsonDictionary["data"] as? [[String:Any]], let cards = ParseManager.sharedInstance.parseCards(jsonArray) {
-                                completion(CardsResponse(success: true, cards: cards, error: nil, message: "Ok"))
-                            }else{
-                                completion(CardsResponse(success: false, cards: nil, error: nil, message: "Nije dobro"))
-                            }
-                        }else{
-                            completion(CardsResponse(success: false, cards: nil, error: nil, message: "Card getting fail reason: \(message), Error code: \(code)"))
-                        }
-                    }else{
-                        completion(CardsResponse(success: false, cards: nil, error: nil, message: "Card getting failed"))
-                    }
+            if error != nil {
+                print("error=\(error)")
+                return
+            }
+            do {
+                let json : [String: Any] = try JSONSerialization.jsonObject(with: data!, options: []) as! [String : Any]
+                if let checkOutId = json["id"] as? String {
+                    completion(checkOutId)
                 }else{
-                    completion(CardsResponse(success: false, cards: nil, error: nil, message: "Response not parsed"))
+                    completion(nil)
                 }
-            }else{
-                completion(CardsResponse(success: false, cards: nil, error: nil, message: "HTTP Request failed"))
+                
+            }catch {
+                print(error.localizedDescription)
             }
         }
+        task.resume()
+        
+    }
+    
+    public func getWebView(checkoutId: String, completion: @escaping (_ webString: String?)->Void){
+        
+        let url = API.allSecurePaymentWidget + "?checkoutId=\(checkoutId)"
+        print("URL: \(url)")
+        
+        let request = NSMutableURLRequest(url: URL(string: url)!)
+        request.httpMethod = "GET"
+        
+//        request.httpBody = postBody.data(using: String.Encoding.utf8)
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+            data, response, error in
+            
+            if error != nil {
+                print("error=\(error)")
+                return
+            }
+            print("response = \(response)")
+            
+            if let responseString = String(data: data!, encoding: String.Encoding.utf8) {
+                print("responseString = \(responseString)")
+                completion(responseString)
+            }else{
+                completion(nil)
+            }
+        }
+        task.resume()
     }
 
 }

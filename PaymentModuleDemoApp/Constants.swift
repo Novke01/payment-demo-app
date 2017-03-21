@@ -15,5 +15,7 @@ struct API {
     static let cards = mdhlBase + "cards"
     static let channels = mdhlBase + "channels"
 
-    static let asBase = "https://test.oppwa.com/"
+    static let allSecureBase = "https://test.oppwa.com/v1/"
+    static let allSecureCheckout = allSecureBase + "checkouts"
+    static let allSecurePaymentWidget = allSecureBase + "paymentWidgets.js"
 }

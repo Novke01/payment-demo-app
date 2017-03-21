@@ -12,6 +12,23 @@ class MainViewController: UIViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var user = User()
+    var webString : String = ""
+    
+//    paymentType	PA
+//    customer.merchantCustomerId	marko.stajic@gmail.com
+//    customParameters[SHOPPER_action]	createCard
+//    customer.email	marko.stajic@gmail.com
+//    billing.postcode	0
+//    amount	1.00
+//    billing.country	RS
+//    createRegistration	true
+//    currency	RSD
+//    customer.phone	+38166066068
+//    customer.givenName	Marko Stajic
+//    customParameters[SHOPPER_customerId]	marko.stajic@gmail.com
+//    authentication.entityId	8a82941758447b880158498cb4cf35f2
+//    authentication.password	h43rCBBsFR
+//    authentication.userId	8a82941758447b880158498cb4cf35f6
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +45,7 @@ class MainViewController: UIViewController {
 //        }
         
         //login and get cards
-        DataManager.sharedInstance.login(user: user, pin: "8734", pushToken: appDelegate.deviceToken) { (LoginResponse) in
+        DataManager.sharedInstance.login(user: user, pin: "8511", pushToken: appDelegate.deviceToken) { (LoginResponse) in
             if LoginResponse.success {
                 print("\(LoginResponse.user!.toString())")
                 self.user = LoginResponse.user!
@@ -64,6 +81,36 @@ class MainViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToAddNewCard" {
+            if let destVC = segue.destination as? NewCardViewController {
+                destVC.webString = self.webString
+            }
+        }
+    }
+    
+    @IBAction func addNewCard(_ sender: UIButton) {
+        
+        DataManager.sharedInstance.addCard { (checkoutId) in
+            if let id = checkoutId {
+                print("Checkout id: \(id)")
+                
+                DataManager.sharedInstance.getWebView(checkoutId: id) { (webString) in
+                    if let webString = webString {
+
+                        DispatchQueue.main.sync {
+                            self.webString = webString
+                            self.performSegue(withIdentifier: "goToAddNewCard", sender: self)
+
+                        }
+                    }
+                }
+//                self.performSegue(withIdentifier: "goToNewCard", sender: self)
+            }
+        }
+    }
+    
     
 }
 
