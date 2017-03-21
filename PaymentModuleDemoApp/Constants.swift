@@ -9,8 +9,11 @@
 import Foundation
 
 struct API {
-    static let base = "http://mdhl.cloudapp.net/MobilePaymentAPI/"
-    static let login = base + "authentication/pin"
-    static let register = base + "register/user"
-    static let cards = base + "cards"
+    static let mdhlBase = "http://mdhl.cloudapp.net/MobilePaymentAPI/"
+    static let login = mdhlBase + "authentication/pin"
+    static let register = mdhlBase + "register/user"
+    static let cards = mdhlBase + "cards"
+    static let channels = mdhlBase + "channels"
+
+    static let asBase = "https://test.oppwa.com/"
 }

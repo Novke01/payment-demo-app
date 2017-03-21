@@ -21,4 +21,18 @@ public struct LoginResponse {
     public let message: String
 }
 
+public struct CardsResponse {
+    public let success: Bool
+    public let cards: [Card]?
+    public let error: Error?
+    public let message: String
+}
+
+public struct ChannelsResponse {
+    public let success: Bool
+    public let channels: [Channel]?
+    public let error: Error?
+    public let message: String
+}
+
 

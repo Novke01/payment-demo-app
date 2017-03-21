@@ -15,6 +15,10 @@ public class User: NSObject, Mappable {
     var imei : String = ""
     var name : String = ""
     var phone : String = ""
+    var address : String?
+    var company : String?
+    var postalNumber : String?
+    var number : Int?
     
     override init() {
     }

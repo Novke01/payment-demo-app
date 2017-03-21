@@ -26,5 +26,24 @@ public class ParseManager {
             return nil
         }
     }
+    open func parseCards(_ jsonArray: [[String:Any]]) -> [Card]? {
+        var cards = [Card]()
+        for json in jsonArray {
+            if let card = Mapper<Card>().map(JSONObject: json){
+                cards.append(card)
+            }
+        }
+        return cards.count>0 ? cards:nil
+    }
+    open func parseChannels(_ jsonArray: [[String:Any]]) -> [Channel]? {
+        var channels = [Channel]()
+        for json in jsonArray {
+            if let channel = Mapper<Channel>().map(JSONObject: json){
+                channels.append(channel)
+            }
+        }
+        return channels.count>0 ? channels:nil
+    }
+
 }
 

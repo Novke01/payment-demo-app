@@ -28,14 +28,30 @@ class MainViewController: UIViewController {
 //        }
         
         //login and get cards
-        DataManager.sharedInstance.login(user: user, pin: "8220", pushToken: appDelegate.deviceToken) { (LoginResponse) in
+        DataManager.sharedInstance.login(user: user, pin: "8734", pushToken: appDelegate.deviceToken) { (LoginResponse) in
             if LoginResponse.success {
                 print("\(LoginResponse.user!.toString())")
                 self.user = LoginResponse.user!
                 
-                DataManager.sharedInstance.getCards(email: self.user.email, completion: { (GeneralResponse) in
-                    print("\(GeneralResponse.message)")
+                DataManager.sharedInstance.getCards(email: self.user.email, completion: { (CardsResponse) in
+                    if CardsResponse.success {
+                        for card in CardsResponse.cards! {
+                            print("\(card.toString())")
+                        }
+                    }
                 })
+                
+                DataManager.sharedInstance.getChannels(completion: { (ChannelsResponse) in
+                    if ChannelsResponse.success {
+                        for channel in ChannelsResponse.channels! {
+                            print("\(channel.toString())")
+                        }
+                    }
+                })
+                
+//                DataManager.sharedInstance.getCards(email: self.user.email, completion: { (GeneralResponse) in
+//                    print("\(GeneralResponse.message)")
+//                })
                 
             }else{
                 print("Error: \(LoginResponse.message)")

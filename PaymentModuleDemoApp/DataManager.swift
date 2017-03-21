@@ -88,7 +88,7 @@ public class DataManager {
     }
     
     ///Get user cards
-    public func getCards(email: String, completion: @escaping (GeneralResponse)->Void){
+    public func getCards(email: String, completion: @escaping (CardsResponse)->Void){
         let url = API.cards + "?userUID=\(email)"
         
         RestManager.sharedInstance.GET(url: url) { (json, data, success) in
@@ -98,23 +98,96 @@ public class DataManager {
                     
                     if let code = jsonDictionary["code"] as? Int, let message = jsonDictionary["message"] as? String {
                         if Array(200..<300).contains(code) {
-                            if let data = jsonDictionary["data"] as? [[String:Any]] {
-                                print("Data: \(data)")
-                                completion(GeneralResponse(success: true, error: nil, message: "Ok"))
+                            if let jsonArray = jsonDictionary["data"] as? [[String:Any]], let cards = ParseManager.sharedInstance.parseCards(jsonArray) {
+                                completion(CardsResponse(success: true, cards: cards, error: nil, message: "Ok"))
                             }else{
-                                completion(GeneralResponse(success: false, error: nil, message: "Nije dobro"))
+                                completion(CardsResponse(success: false, cards: nil, error: nil, message: "Nije dobro"))
                             }
                         }else{
-                            completion(GeneralResponse(success: false, error: nil, message: "Card getting fail reason: \(message), Error code: \(code)"))
+                            completion(CardsResponse(success: false, cards: nil, error: nil, message: "Card getting fail reason: \(message), Error code: \(code)"))
                         }
                     }else{
-                        completion(GeneralResponse(success: false, error: nil, message: "Card getting failed"))
+                        completion(CardsResponse(success: false, cards: nil, error: nil, message: "Card getting failed"))
                     }
                 }else{
-                    completion(GeneralResponse(success: false, error: nil, message: "Response not parsed"))
+                    completion(CardsResponse(success: false, cards: nil, error: nil, message: "Response not parsed"))
                 }
             }else{
-                completion(GeneralResponse(success: false, error: nil, message: "HTTP Request failed"))
+                completion(CardsResponse(success: false, cards: nil, error: nil, message: "HTTP Request failed"))
+            }
+        }
+    }
+    
+    ///Get user cards
+    public func getChannels(completion: @escaping (ChannelsResponse)->Void){
+        let url = API.channels
+        
+        RestManager.sharedInstance.GET(url: url) { (json, data, success) in
+            
+            if success {
+                if let jsonData = json, let jsonDictionary = jsonData as? [String:Any] {
+                    
+                    if let code = jsonDictionary["code"] as? Int, let message = jsonDictionary["message"] as? String {
+                        if Array(200..<300).contains(code) {
+                            if let jsonArray = jsonDictionary["data"] as? [[String:Any]], let channels = ParseManager.sharedInstance.parseChannels(jsonArray) {
+                                completion(ChannelsResponse(success: true, channels: channels, error: nil, message: "Ok"))
+                            }else{
+                                completion(ChannelsResponse(success: false, channels: nil, error: nil, message: "Nije dobro"))
+                            }
+                        }else{
+                            completion(ChannelsResponse(success: false, channels: nil, error: nil, message: "Card getting fail reason: \(message), Error code: \(code)"))
+                        }
+                    }else{
+                        completion(ChannelsResponse(success: false, channels: nil, error: nil, message: "Card getting failed"))
+                    }
+                }else{
+                    completion(ChannelsResponse(success: false, channels: nil, error: nil, message: "Response not parsed"))
+                }
+            }else{
+                completion(ChannelsResponse(success: false, channels: nil, error: nil, message: "HTTP Request failed"))
+            }
+        }
+    }
+
+    
+    ///Add new card
+    public func addCard(email: String, completion: @escaping (CardsResponse)->Void){
+        let url = API.cards + "?userUID=\(email)"
+        
+//            + "authentication.userId=\(self.userId)"
+//            + "&authentication.password=\(self.password)"
+//            + "&authentication.entityId=\(self.entityIdTopLavel)"
+//            + "&amount=\(Constants.minAmountForPA)"
+//            + "&currency=\(Constants.paCurrency)"
+//            + "&paymentType=\(self.paymentType)"
+//            + "&createRegistration=true"
+//            + "&customParameters[accidentId]=\(accidentIDifNUll)"
+//            + "&customParameters[userId]=\(Preferences().GetUserId()!)"
+//
+        
+        RestManager.sharedInstance.GET(url: url) { (json, data, success) in
+            
+            if success {
+                if let jsonData = json, let jsonDictionary = jsonData as? [String:Any] {
+                    
+                    if let code = jsonDictionary["code"] as? Int, let message = jsonDictionary["message"] as? String {
+                        if Array(200..<300).contains(code) {
+                            if let jsonArray = jsonDictionary["data"] as? [[String:Any]], let cards = ParseManager.sharedInstance.parseCards(jsonArray) {
+                                completion(CardsResponse(success: true, cards: cards, error: nil, message: "Ok"))
+                            }else{
+                                completion(CardsResponse(success: false, cards: nil, error: nil, message: "Nije dobro"))
+                            }
+                        }else{
+                            completion(CardsResponse(success: false, cards: nil, error: nil, message: "Card getting fail reason: \(message), Error code: \(code)"))
+                        }
+                    }else{
+                        completion(CardsResponse(success: false, cards: nil, error: nil, message: "Card getting failed"))
+                    }
+                }else{
+                    completion(CardsResponse(success: false, cards: nil, error: nil, message: "Response not parsed"))
+                }
+            }else{
+                completion(CardsResponse(success: false, cards: nil, error: nil, message: "HTTP Request failed"))
             }
         }
     }
