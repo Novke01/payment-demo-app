@@ -1,5 +1,5 @@
 //
-//  NewPaymentViewController.swift
+//  SignInViewController.swift
 //  PaymentModuleDemoApp
 //
 //  Created by Aleksandar Novakovic on 3/20/17.
@@ -8,9 +8,12 @@
 
 import UIKit
 
-class NewPaymentViewController: UIViewController {
+class SignInViewController: BaseViewController {
     
-    let cardSelectionSegueId = "goToCardSelection"
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var pinTextField: UITextField!
+    
+    let paymentDemoSegueId = "goToPaymentDemo"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +25,10 @@ class NewPaymentViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    @IBAction func proceed(_ sender: Any) {
-        performSegue(withIdentifier: cardSelectionSegueId, sender: nil)
+    
+    @IBAction func signIn(_ sender: Any) {
+        performSegue(withIdentifier: paymentDemoSegueId, sender: nil)
     }
+    
 
 }
