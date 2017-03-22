@@ -205,10 +205,8 @@ public class DataManager {
                 print("error=\(error)")
                 return
             }
-            print("response = \(response)")
             
             if let responseString = String(data: data!, encoding: String.Encoding.utf8) {
-                print("responseString = \(responseString)")
                 completion(responseString)
             }else{
                 completion(nil)

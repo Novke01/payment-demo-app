@@ -96,17 +96,17 @@ class MainViewController: UIViewController {
             if let id = checkoutId {
                 print("Checkout id: \(id)")
                 
-                DataManager.sharedInstance.getWebView(checkoutId: id) { (webString) in
-                    if let webString = webString {
+                
+                //Ovaj url vraca JavaScript code koji treba ubaciti u tu nasu formu za dodavanje
+                //kartice. 
+                let url = API.allSecurePaymentWidget + "?checkoutId=\(id)"
 
-                        DispatchQueue.main.sync {
-                            self.webString = webString
-                            self.performSegue(withIdentifier: "goToAddNewCard", sender: self)
-
-                        }
-                    }
+                DispatchQueue.main.sync {
+                    
+                    self.webString = url
+                    self.performSegue(withIdentifier: "goToAddNewCard", sender: self)
+                    
                 }
-//                self.performSegue(withIdentifier: "goToNewCard", sender: self)
             }
         }
     }
