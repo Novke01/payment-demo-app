@@ -13,6 +13,7 @@ class SignInViewController: BaseViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var pinTextField: UITextField!
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let paymentDemoSegueId = "goToPaymentDemo"
 
     override func viewDidLoad() {
@@ -26,8 +27,29 @@ class SignInViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == paymentDemoSegueId {
+            let mainViewController = segue.destination as! MainViewController
+            mainViewController.user = sender as! User
+        }
+    }
+    
     @IBAction func signIn(_ sender: Any) {
-        performSegue(withIdentifier: paymentDemoSegueId, sender: nil)
+        if let email = emailTextField.text {
+            if let pin = pinTextField.text {
+                let user = User(email: email, imei: "355330084909367", name: "Marko Stajic", phone: "+38166066068")
+                DataManager.sharedInstance.login(user: user, pin: pin, pushToken: appDelegate.deviceToken, completion: { loginResponse in
+                    if loginResponse.success {
+                        print("\(loginResponse.user!.toString())")
+                        self.performSegue(withIdentifier: self.paymentDemoSegueId, sender: loginResponse.user!)
+                    }
+                    else {
+                        print("Error: \(loginResponse.message)")
+                    }
+                })
+            }
+        }
+        
     }
     
 

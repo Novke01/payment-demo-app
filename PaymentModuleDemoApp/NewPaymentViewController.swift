@@ -11,6 +11,7 @@ import UIKit
 class NewPaymentViewController: UIViewController {
     
     let cardSelectionSegueId = "goToCardSelection"
+    var user: User!
 
     override func viewDidLoad() {
         super.viewDidLoad()

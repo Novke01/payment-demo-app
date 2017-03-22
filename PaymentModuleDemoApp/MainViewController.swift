@@ -10,8 +10,10 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    let newPaymentSegueId = "goToNewPayment"
+    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    var user = User()
+    var user: User!
     var webString : String = ""
     
 //    paymentType	PA
@@ -33,7 +35,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let user = User(email: "marko.stajic@gmail.com", imei: "355330084909367", name: "Marko Stajic", phone: "+38166066068")
+//        let user = User(email: "marko.stajic@gmail.com", imei: "355330084909367", name: "Marko Stajic", phone: "+38166066068")
         
         //register:
 //        DataManager.sharedInstance.register(user: user) { (GeneralResponse) in
@@ -45,35 +47,35 @@ class MainViewController: UIViewController {
 //        }
         
         //login and get cards
-        DataManager.sharedInstance.login(user: user, pin: "8511", pushToken: appDelegate.deviceToken) { (LoginResponse) in
-            if LoginResponse.success {
-                print("\(LoginResponse.user!.toString())")
-                self.user = LoginResponse.user!
-                
-                DataManager.sharedInstance.getCards(email: self.user.email, completion: { (CardsResponse) in
-                    if CardsResponse.success {
-                        for card in CardsResponse.cards! {
-                            print("\(card.toString())")
-                        }
-                    }
-                })
-                
-                DataManager.sharedInstance.getChannels(completion: { (ChannelsResponse) in
-                    if ChannelsResponse.success {
-                        for channel in ChannelsResponse.channels! {
-                            print("\(channel.toString())")
-                        }
-                    }
-                })
-                
-//                DataManager.sharedInstance.getCards(email: self.user.email, completion: { (GeneralResponse) in
-//                    print("\(GeneralResponse.message)")
+//        DataManager.sharedInstance.login(user: user, pin: "6341", pushToken: appDelegate.deviceToken) { (LoginResponse) in
+//            if LoginResponse.success {
+//                print("\(LoginResponse.user!.toString())")
+//                self.user = LoginResponse.user!
+//                
+//                DataManager.sharedInstance.getCards(email: self.user.email, completion: { (CardsResponse) in
+//                    if CardsResponse.success {
+//                        for card in CardsResponse.cards! {
+//                            print("\(card.toString())")
+//                        }
+//                    }
 //                })
-                
-            }else{
-                print("Error: \(LoginResponse.message)")
-            }
-        }
+//                
+//                DataManager.sharedInstance.getChannels(completion: { (ChannelsResponse) in
+//                    if ChannelsResponse.success {
+//                        for channel in ChannelsResponse.channels! {
+//                            print("\(channel.toString())")
+//                        }
+//                    }
+//                })
+//                
+////                DataManager.sharedInstance.getCards(email: self.user.email, completion: { (GeneralResponse) in
+////                    print("\(GeneralResponse.message)")
+////                })
+//                
+//            }else{
+//                print("Error: \(LoginResponse.message)")
+//            }
+//        }
         
     }
 
@@ -83,7 +85,11 @@ class MainViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToAddNewCard" {
+        if segue.identifier == newPaymentSegueId {
+            let newPaymentController = segue.destination as! NewPaymentViewController
+            newPaymentController.user = sender as! User
+        }
+        else if segue.identifier == "goToAddNewCard" {
             if let destVC = segue.destination as? NewCardViewController {
                 destVC.webString = self.webString
             }
@@ -111,6 +117,9 @@ class MainViewController: UIViewController {
         }
     }
     
+    @IBAction func makePayment(_ sender: Any) {
+        performSegue(withIdentifier: newPaymentSegueId, sender: user)
+    }
     
 }
 

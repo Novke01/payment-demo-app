@@ -13,7 +13,7 @@
         <scene sceneID="qLQ-0T-hTS">
             <objects>
                 <navigationController id="30T-Rw-q3E" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GcR-Vv-uA3">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="GcR-Vv-uA3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -51,7 +51,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="X7B-Up-XK7" kind="show" identifier="goToNewPayment" id="9qd-gw-iHz"/>
+                                            <action selector="makePayment:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rMF-9R-9d8"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ci4-U9-l50">
@@ -91,6 +91,7 @@
                     <navigationItem key="navigationItem" title="Payment Demo" id="Ik6-Kh-xDJ"/>
                     <connections>
                         <segue destination="M8J-w5-1GS" kind="show" identifier="goToAddNewCard" id="XDR-mS-idV"/>
+                        <segue destination="X7B-Up-XK7" kind="show" identifier="goToNewPayment" id="JcD-xC-pGu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
