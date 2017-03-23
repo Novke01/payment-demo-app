@@ -9,23 +9,24 @@
 import UIKit
 
 class PaymentPreviewViewController: UIViewController {
-
-    @IBOutlet weak var paymentPreviewCollection: UICollectionView!
     
-    let reusableCellId = "cell"
+    @IBOutlet weak var billIdLabel: UILabel!
+    @IBOutlet weak var currencyLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var cardLabel: UILabel!
     
     var user: User!
     var card: Card!
     var price: String!
     var currency: String!
+    var billId: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        paymentPreviewCollection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reusableCellId)
-        paymentPreviewCollection.delegate = self
-        paymentPreviewCollection.dataSource = self
+        billIdLabel.text = billId
+        currencyLabel.text = currency
+        priceLabel.text = price
+        cardLabel.text = "xxxx-xxxx-xxxx-" + card.last4Digits
         
     }
 
@@ -34,22 +35,4 @@ class PaymentPreviewViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-}
-
-extension PaymentPreviewViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let newCell = paymentPreviewCollection.dequeueReusableCell(withReuseIdentifier: reusableCellId, for: indexPath)
-        // TODO: Add some logic
-        return newCell
-    }
-    
 }

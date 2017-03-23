@@ -37,7 +37,7 @@ class NewCardViewController: UIViewController {
         let req = URLRequest(url:url!)
         
         
-        webView?.load(req)
+        let _ = webView?.load(req)
         
         webView?.evaluateJavaScript(js, completionHandler: nil)
         

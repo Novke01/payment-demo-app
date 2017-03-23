@@ -10,6 +10,7 @@ import UIKit
 
 class NewPaymentViewController: BaseViewController {
     
+    @IBOutlet weak var billIdTextField: UITextField!
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var currencyTextField: UITextField!
     
@@ -17,6 +18,7 @@ class NewPaymentViewController: BaseViewController {
     var user: User!
     var price: String?
     var currency: String?
+    var billId: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,14 +38,18 @@ class NewPaymentViewController: BaseViewController {
             cardSelectionController.user = newPaymentViewController.user
             cardSelectionController.price = newPaymentViewController.price
             cardSelectionController.currency = newPaymentViewController.currency
+            cardSelectionController.billId = newPaymentViewController.billId
         }
     }
 
     @IBAction func proceed(_ sender: Any) {
-        if let price = priceTextField?.text, let currency = currencyTextField?.text {
+        if let price = priceTextField?.text,
+           let currency = currencyTextField?.text,
+           let billId = billIdTextField?.text {
             if price != "" && currency != "" {
                 self.price = price
                 self.currency = currency
+                self.billId = billId
                 performSegue(withIdentifier: cardSelectionSegueId, sender: self)
             }
         }

@@ -99,7 +99,7 @@ class MainViewController: UIViewController {
     
     @IBAction func addNewCard(_ sender: UIButton) {
         
-        DataManager.sharedInstance.addCard { (checkoutId) in
+        DataManager.sharedInstance.addCard(completion: { (checkoutId) in
             if let id = checkoutId {
                 print("Checkout id: \(id)")
 
@@ -110,7 +110,7 @@ class MainViewController: UIViewController {
                     
                 }
             }
-        }
+        })
     }
     
     @IBAction func makePayment(_ sender: Any) {

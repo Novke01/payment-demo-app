@@ -19,7 +19,10 @@ class CardSelectionViewController: BaseViewController {
     var user: User!
     var price: String!
     var currency: String!
+    var billId: String!
+    
     var selectedCard: Card?
+    
     var cards = [Card]()
     
     override func viewDidLoad() {
@@ -56,6 +59,7 @@ class CardSelectionViewController: BaseViewController {
             paymentPreviewController.card = self.selectedCard
             paymentPreviewController.price = self.price
             paymentPreviewController.currency = self.currency
+            paymentPreviewController.billId = self.billId
         }
     }
     
