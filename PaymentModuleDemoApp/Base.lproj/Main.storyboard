@@ -13,7 +13,7 @@
         <scene sceneID="qLQ-0T-hTS">
             <objects>
                 <navigationController id="30T-Rw-q3E" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="GcR-Vv-uA3">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GcR-Vv-uA3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -186,6 +186,8 @@
                     </view>
                     <navigationItem key="navigationItem" title=" New Payment" id="r7q-gH-y4y"/>
                     <connections>
+                        <outlet property="currencyTextField" destination="YAu-3a-usz" id="qt8-iH-IhU"/>
+                        <outlet property="priceTextField" destination="Nqp-XX-AkU" id="IxL-xK-Tir"/>
                         <segue destination="uqf-7S-bXu" kind="show" identifier="goToCardSelection" id="oPH-nd-JtC"/>
                     </connections>
                 </viewController>

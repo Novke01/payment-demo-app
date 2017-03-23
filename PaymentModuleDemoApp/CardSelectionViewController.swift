@@ -12,11 +12,14 @@ class CardSelectionViewController: BaseViewController {
 
     @IBOutlet weak var cardsList: UITableView!
     
+    let paymentPreviewSegueId = "goToPaymentPreview"
     let payWithNewCardSegueId = "goToPayWithNewCard"
     let reusableCellIdentifier = "cell"
     
     var user: User!
-    
+    var price: String!
+    var currency: String!
+    var selectedCard: Card?
     var cards = [Card]()
     
     override func viewDidLoad() {
@@ -46,6 +49,16 @@ class CardSelectionViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == paymentPreviewSegueId {
+            let paymentPreviewController = segue.destination as! PaymentPreviewViewController
+            paymentPreviewController.user = self.user
+            paymentPreviewController.card = self.selectedCard
+            paymentPreviewController.price = self.price
+            paymentPreviewController.currency = self.currency
+        }
+    }
+    
     @IBAction func addNewCard(_ sender: Any) {
         performSegue(withIdentifier: payWithNewCardSegueId, sender: nil)
     }
@@ -65,7 +78,8 @@ extension CardSelectionViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO
+        selectedCard = cards[indexPath.row]
+        performSegue(withIdentifier: paymentPreviewSegueId, sender: self)
     }
     
 }

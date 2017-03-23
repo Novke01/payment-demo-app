@@ -11,6 +11,7 @@ import UIKit
 class MainViewController: UIViewController {
     
     let newPaymentSegueId = "goToNewPayment"
+    let addNewCardSegueId = "goToAddNewCard"
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var user: User!
@@ -87,9 +88,9 @@ class MainViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == newPaymentSegueId {
             let newPaymentController = segue.destination as! NewPaymentViewController
-            newPaymentController.user = sender as! User
+            newPaymentController.user = self.user
         }
-        else if segue.identifier == "goToAddNewCard" {
+        else if segue.identifier == addNewCardSegueId {
             if let destVC = segue.destination as? NewCardViewController {
                 destVC.checkoutId = self.checkoutId
             }
@@ -105,7 +106,7 @@ class MainViewController: UIViewController {
                 DispatchQueue.main.sync {
                     
                     self.checkoutId = id
-                    self.performSegue(withIdentifier: "goToAddNewCard", sender: self)
+                    self.performSegue(withIdentifier: self.addNewCardSegueId, sender: self)
                     
                 }
             }

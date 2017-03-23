@@ -25,7 +25,7 @@ class NewCardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        checkoutId = "5E59501FFADC3FCF6C6DFA1014313F35.sbg-vm-tx01"
+//        checkoutId = "E1D80D156CA242D1B192F99ACC0824FE.sbg-vm-tx01"
         
         let url = URL(string:"http://mdhl.cloudapp.net/allPay/pay_form_new.html")
         let js = "var android = { " +
