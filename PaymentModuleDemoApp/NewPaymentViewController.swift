@@ -23,9 +23,17 @@ class NewPaymentViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == cardSelectionSegueId {
+            let cardSelectionController = segue.destination as! CardSelectionViewController
+            let newPaymentViewController = sender as! NewPaymentViewController
+            cardSelectionController.user = newPaymentViewController.user
+        }
+    }
 
     @IBAction func proceed(_ sender: Any) {
-        performSegue(withIdentifier: cardSelectionSegueId, sender: nil)
+        performSegue(withIdentifier: cardSelectionSegueId, sender: self)
     }
 
 }

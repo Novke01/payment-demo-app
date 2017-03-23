@@ -15,7 +15,9 @@ class CardSelectionViewController: BaseViewController {
     let payWithNewCardSegueId = "goToPayWithNewCard"
     let reusableCellIdentifier = "cell"
     
-    var cards = [String]()
+    var user: User!
+    
+    var cards = [Card]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +28,12 @@ class CardSelectionViewController: BaseViewController {
         cardsList.delegate = self;
         cardsList.dataSource = self;
         
-        cards = ["1", "2", "3"]
+        DataManager.sharedInstance.getCards(email: user.email, completion: { (cardsResponse) in
+            if cardsResponse.success {
+                self.cards = cardsResponse.cards!
+                self.cardsList.reloadData()
+            }
+        })
         
     }
     
@@ -53,7 +60,7 @@ extension CardSelectionViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let newCell: UITableViewCell = cardsList.dequeueReusableCell(withIdentifier: reusableCellIdentifier, for: indexPath) as UITableViewCell!
-        newCell.textLabel?.text = cards[indexPath.row]
+        newCell.textLabel?.text = "xxxx-xxxx-xxxx-" + cards[indexPath.row].last4Digits
         return newCell
     }
     

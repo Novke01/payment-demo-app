@@ -14,7 +14,7 @@ class MainViewController: UIViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var user: User!
-    var webString : String = ""
+    var checkoutId = ""
     
 //    paymentType	PA
 //    customer.merchantCustomerId	marko.stajic@gmail.com
@@ -91,7 +91,7 @@ class MainViewController: UIViewController {
         }
         else if segue.identifier == "goToAddNewCard" {
             if let destVC = segue.destination as? NewCardViewController {
-                destVC.webString = self.webString
+                destVC.checkoutId = self.checkoutId
             }
         }
     }
@@ -101,15 +101,10 @@ class MainViewController: UIViewController {
         DataManager.sharedInstance.addCard { (checkoutId) in
             if let id = checkoutId {
                 print("Checkout id: \(id)")
-                
-                
-                //Ovaj url vraca JavaScript code koji treba ubaciti u tu nasu formu za dodavanje
-                //kartice. 
-                let url = API.allSecurePaymentWidget + "?checkoutId=\(id)"
 
                 DispatchQueue.main.sync {
                     
-                    self.webString = url
+                    self.checkoutId = id
                     self.performSegue(withIdentifier: "goToAddNewCard", sender: self)
                     
                 }

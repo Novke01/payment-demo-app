@@ -205,13 +205,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ca5-qZ-DWw">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ca5-qZ-DWw">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ca5-qZ-DWw" firstAttribute="leading" secondItem="WbU-Gk-dby" secondAttribute="leading" id="LbD-hH-B12"/>
+                            <constraint firstItem="Ca5-qZ-DWw" firstAttribute="top" secondItem="WbU-Gk-dby" secondAttribute="top" id="Uq8-TK-rtG"/>
+                            <constraint firstAttribute="trailing" secondItem="Ca5-qZ-DWw" secondAttribute="trailing" id="WDw-jo-Xfp"/>
+                            <constraint firstItem="E1R-CW-KI0" firstAttribute="top" secondItem="Ca5-qZ-DWw" secondAttribute="bottom" id="Z7a-Jy-gxb"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Card Selection" id="Ybd-nS-zo0">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="D82-D9-eL2">

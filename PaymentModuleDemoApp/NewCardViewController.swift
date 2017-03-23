@@ -12,7 +12,7 @@ import WebKit
 class NewCardViewController: UIViewController {
 
     var webView: WKWebView?
-    var webString : String!
+    var checkoutId : String!
     
     override func loadView() {
         super.loadView()
@@ -25,9 +25,11 @@ class NewCardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        checkoutId = "5E59501FFADC3FCF6C6DFA1014313F35.sbg-vm-tx01"
+        
         let url = URL(string:"http://mdhl.cloudapp.net/allPay/pay_form_new.html")
         let js = "var android = { " +
-                 "    getCheckoutId: function() { return '5E59501FFADC3FCF6C6DFA1014313F35.sbg-vm-tx01'; }," +
+                 "    getCheckoutId: function() { return '\(checkoutId!)'; }," +
                  "    getShopperResultUrl: function() { return 'http://mdhl.cloudapp.net/securepay/shopperResultUrl'; }," +
                  "    startRequest: function() { return 'startRequest'; }," +
                  "    fullPageLoaded: function() { return 'fullPageLoaded'; }" +
