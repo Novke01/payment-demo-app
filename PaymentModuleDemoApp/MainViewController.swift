@@ -16,6 +16,7 @@ class MainViewController: UIViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var user: User!
     var checkoutId = ""
+    var channels = [Channel]()
     
 //    paymentType	PA
 //    customer.merchantCustomerId	marko.stajic@gmail.com
@@ -35,51 +36,21 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        let user = User(email: "marko.stajic@gmail.com", imei: "355330084909367", name: "Marko Stajic", phone: "+38166066068")
-        
-        //register:
-//        DataManager.sharedInstance.register(user: user) { (GeneralResponse) in
-//            if GeneralResponse.success {
-//                print("\(GeneralResponse.message)")
-//            }else{
-//                print("Error: \(GeneralResponse.message)")
-//            }
-//        }
-        
-        //login and get cards
-//        DataManager.sharedInstance.login(user: user, pin: "6341", pushToken: appDelegate.deviceToken) { (LoginResponse) in
-//            if LoginResponse.success {
-//                print("\(LoginResponse.user!.toString())")
-//                self.user = LoginResponse.user!
-//                
-//                DataManager.sharedInstance.getCards(email: self.user.email, completion: { (CardsResponse) in
-//                    if CardsResponse.success {
-//                        for card in CardsResponse.cards! {
-//                            print("\(card.toString())")
-//                        }
-//                    }
-//                })
-//                
-//                DataManager.sharedInstance.getChannels(completion: { (ChannelsResponse) in
-//                    if ChannelsResponse.success {
-//                        for channel in ChannelsResponse.channels! {
-//                            print("\(channel.toString())")
-//                        }
-//                    }
-//                })
-//                
-////                DataManager.sharedInstance.getCards(email: self.user.email, completion: { (GeneralResponse) in
-////                    print("\(GeneralResponse.message)")
-////                })
-//                
-//            }else{
-//                print("Error: \(LoginResponse.message)")
-//            }
-//        }
+        getAllChannels()
         
     }
 
+    func getAllChannels(){
+        DataManager.sharedInstance.getChannels(completion: { (ChannelsResponse) in
+            if ChannelsResponse.success {
+                self.channels = ChannelsResponse.channels!
+                for channel in ChannelsResponse.channels! {
+                    print("\(channel.toString())")
+                }
+            }
+        })
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -99,17 +70,22 @@ class MainViewController: UIViewController {
     
     @IBAction func addNewCard(_ sender: UIButton) {
         
-        DataManager.sharedInstance.addCard { (checkoutId) in
-            if let id = checkoutId {
-                print("Checkout id: \(id)")
+        let channel = self.channels.filter{ $0.channelName == "PARENT" }.first
 
-                DispatchQueue.main.sync {
+        if let channel = channel {
+            
+            DataManager.sharedInstance.addCard(channel: channel, completion: { (checkoutId) in
+                if let id = checkoutId {
+                    print("Checkout id: \(id)")
                     
-                    self.checkoutId = id
-                    self.performSegue(withIdentifier: self.addNewCardSegueId, sender: self)
-                    
+                    DispatchQueue.main.sync {
+                        
+                        self.checkoutId = id
+                        self.performSegue(withIdentifier: self.addNewCardSegueId, sender: self)
+                        
+                    }
                 }
-            }
+            })
         }
     }
     

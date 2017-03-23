@@ -67,6 +67,8 @@ public class DataManager {
                         if Array(200..<300).contains(code) {
                             
                             if let data = jsonDictionary["data"] as? [String:Any], let token = data["token"] as? String, let userJSON = data["user"] as? [String: Any], let user = ParseManager.sharedInstance.parseUser(userJSON) {
+                                
+                                print("• AUTH Token: \(token) •")
                                 RestManager.sharedInstance.updateAuthToken(token: token)
                                 completion(LoginResponse(success: true, user: user, error: nil, message: message))
                             }else{
@@ -150,13 +152,13 @@ public class DataManager {
     }
 
     ///Add new card
-    public func addCard(completion: @escaping (_ checkoutId: String?)->Void){
+    public func addCard(channel: Channel, completion: @escaping (_ checkoutId: String?)->Void){
         let url = API.allSecureCheckout
         
         let postBody = ""
-            + "authentication.userId=8a82941758447b880158498cb4cf35f2"
-            + "&authentication.password=h43rCBBsFR"
-            + "&authentication.entityId=8a82941758447b880158498cb4cf35f6"
+            + "authentication.userId=\(channel.userId)"
+            + "&authentication.password=\(channel.password)"
+            + "&authentication.entityId=\(channel.entityId)"
             + "&amount=1.00"
             + "&currency=RSD"
             + "&paymentType=PA"
@@ -175,6 +177,9 @@ public class DataManager {
             }
             do {
                 let json : [String: Any] = try JSONSerialization.jsonObject(with: data!, options: []) as! [String : Any]
+                
+                print("Add new card response: \n\(json)\n")
+                
                 if let checkOutId = json["id"] as? String {
                     completion(checkOutId)
                 }else{
