@@ -29,9 +29,6 @@ class SignInViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func dismissKeyboard(){
-        self.view.endEditing(true)
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == paymentDemoSegueId {
@@ -46,11 +43,14 @@ class SignInViewController: BaseViewController {
                 let user = User(email: email, imei: "355330084909367", name: "Marko Stajic", phone: "+38166066068")
                 DataManager.sharedInstance.login(user: user, pin: pin, pushToken: appDelegate.deviceToken, completion: { loginResponse in
                     if loginResponse.success {
+                        (UIApplication.shared.delegate as! AppDelegate).user = loginResponse.user!
                         print("\(loginResponse.user!.toString())")
                         self.performSegue(withIdentifier: self.paymentDemoSegueId, sender: loginResponse.user!)
+                        
                     }
                     else {
                         print("Error: \(loginResponse.message)")
+                        self.showAlert(title: "Prijavljivanje nije uspelo", message: loginResponse.message)
                     }
                 })
             }

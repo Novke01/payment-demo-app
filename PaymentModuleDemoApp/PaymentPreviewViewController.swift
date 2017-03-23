@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PaymentPreviewViewController: UIViewController {
+class PaymentPreviewViewController: BaseViewController {
     
     @IBOutlet weak var billIdLabel: UILabel!
     @IBOutlet weak var currencyLabel: UILabel!
@@ -34,5 +34,15 @@ class PaymentPreviewViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
+    @IBAction func oneClickPay(_ sender: UIButton) {
+        DataManager.sharedInstance.oneClickPayment(billId: billId, price: price, currency: currency, card: card.token) { (GeneralResponse) in
+            if GeneralResponse.success {
+                self.showAlert(title: "Proces plaćanja započet", message: "")
+            }else{
+                self.showAlert(title: "Proces plaćanja nije započet", message: GeneralResponse.message)
+            }
+        }
+    }
 }

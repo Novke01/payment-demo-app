@@ -23,6 +23,8 @@ class NewPaymentViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        self.view.addGestureRecognizer(tap)
         // Do any additional setup after loading the view.
     }
 

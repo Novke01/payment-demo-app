@@ -25,6 +25,17 @@ class BaseViewController: UIViewController {
         configAllTextFields(view: view)
     }
     
+    func dismissKeyboard(){
+        self.view.endEditing(true)
+    }
+    
+    func showAlert(title: String, message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: nil)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+
     func configAllTextFields(view: UIView) {
         for subview in view.subviews {
             if let textField = subview as? UITextField {
