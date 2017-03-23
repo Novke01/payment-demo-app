@@ -19,13 +19,28 @@ class NewPaymentViewController: BaseViewController {
     var price: String?
     var currency: String?
     var billId: String?
+    
+    var invoice: Invoice?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        fillInvoiceFields()
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(tap)
         // Do any additional setup after loading the view.
+    }
+    
+    func fillInvoiceFields(){
+        if let invoice = invoice {
+            billIdTextField.text = invoice.transactionId
+            priceTextField.text = invoice.price.format(f: ".2")
+            currencyTextField.text = invoice.currency
+            priceTextField.isUserInteractionEnabled = invoice.priceIsEditable
+            billIdTextField.isUserInteractionEnabled = false
+            currencyTextField.isUserInteractionEnabled = false
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,6 +52,7 @@ class NewPaymentViewController: BaseViewController {
         if segue.identifier == cardSelectionSegueId {
             let cardSelectionController = segue.destination as! CardSelectionViewController
             let newPaymentViewController = sender as! NewPaymentViewController
+            
             cardSelectionController.user = newPaymentViewController.user
             cardSelectionController.price = newPaymentViewController.price
             cardSelectionController.currency = newPaymentViewController.currency

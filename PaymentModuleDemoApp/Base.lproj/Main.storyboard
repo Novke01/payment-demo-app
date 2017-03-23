@@ -25,6 +25,24 @@
             </objects>
             <point key="canvasLocation" x="-1665" y="137"/>
         </scene>
+        <!--Reader-->
+        <scene sceneID="ffo-P7-w1J">
+            <objects>
+                <viewController id="ptn-V6-5Ow" customClass="QRReader" customModule="PaymentModuleDemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xL0-Ef-woP"/>
+                        <viewControllerLayoutGuide type="bottom" id="kvE-gs-pjf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jUT-aG-CcJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="emV-UW-Wb2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="49" y="-610"/>
+        </scene>
         <!--Payment Demo-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -88,10 +106,18 @@
                             <constraint firstAttribute="leadingMargin" secondItem="tYg-YV-HKM" secondAttribute="leading" id="ikn-qB-zWL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Payment Demo" id="Ik6-Kh-xDJ"/>
+                    <navigationItem key="navigationItem" title="Payment Demo" id="Ik6-Kh-xDJ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="Qhd-fv-5EZ">
+                            <color key="tintColor" red="1" green="0.57724332810000001" blue="0.0070654610169999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="scanQRCode:" destination="BYZ-38-t0r" id="hei-yf-4A7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="M8J-w5-1GS" kind="show" identifier="goToAddNewCard" id="XDR-mS-idV"/>
                         <segue destination="X7B-Up-XK7" kind="show" identifier="goToNewPayment" id="JcD-xC-pGu"/>
+                        <segue destination="ptn-V6-5Ow" kind="show" identifier="goToScanQRCode" id="q3S-OB-z8U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -7,32 +7,20 @@
 //
 
 import UIKit
+import AVFoundation
+import AVKit
 
-class MainViewController: UIViewController {
+class MainViewController: BaseViewController {
     
     let newPaymentSegueId = "goToNewPayment"
     let addNewCardSegueId = "goToAddNewCard"
+    let scanQRCodeSegueId = "goToScanQRCode"
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var user: User!
     var checkoutId = ""
     var channels = [Channel]()
-    
-//    paymentType	PA
-//    customer.merchantCustomerId	marko.stajic@gmail.com
-//    customParameters[SHOPPER_action]	createCard
-//    customer.email	marko.stajic@gmail.com
-//    billing.postcode	0
-//    amount	1.00
-//    billing.country	RS
-//    createRegistration	true
-//    currency	RSD
-//    customer.phone	+38166066068
-//    customer.givenName	Marko Stajic
-//    customParameters[SHOPPER_customerId]	marko.stajic@gmail.com
-//    authentication.entityId	8a82941758447b880158498cb4cf35f2
-//    authentication.password	h43rCBBsFR
-//    authentication.userId	8a82941758447b880158498cb4cf35f6
+    var invoice : Invoice?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,11 +48,44 @@ class MainViewController: UIViewController {
         if segue.identifier == newPaymentSegueId {
             let newPaymentController = segue.destination as! NewPaymentViewController
             newPaymentController.user = self.user
+            newPaymentController.invoice = self.invoice
         }
         else if segue.identifier == addNewCardSegueId {
             if let destVC = segue.destination as? NewCardViewController {
                 destVC.checkoutId = self.checkoutId
             }
+        }
+        else if segue.identifier == scanQRCodeSegueId {
+            if let destVC = segue.destination as? QRReader {
+                destVC.delegate = self
+            }
+        }
+    }
+    
+    @IBAction func scanQRCode(_ sender: UIBarButtonItem) {
+        if AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) ==  AVAuthorizationStatus.authorized
+        {
+            // Already Authorized
+            self.performSegue(withIdentifier: scanQRCodeSegueId, sender: self)
+        }
+        else
+        {
+            AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { (granted :Bool) -> Void in
+                if granted == true
+                {
+                    // User granted
+                    DispatchQueue.main.async {
+                        print("User granted")
+                        self.performSegue(withIdentifier: self.scanQRCodeSegueId, sender: self)
+                    }
+                }
+                else
+                {
+                    // User Rejected
+                    print("User rejected")
+                    self.showSettingsAlert(title: "Camera not allowed", message: "Please allow camera usage in order to scan QR code")
+                }
+            });
         }
     }
     
@@ -93,5 +114,14 @@ class MainViewController: UIViewController {
         performSegue(withIdentifier: newPaymentSegueId, sender: user)
     }
     
+}
+
+extension MainViewController : QRReaderDelegate {
+    func scannedQRString(_ string: String) {
+        let invoice = Invoice(qrCodeString: string, separationCharacter: ["|"])
+        self.invoice = invoice
+//        self.showAlert(title: "Invoice", message: invoice.description)
+        self.performSegue(withIdentifier: newPaymentSegueId, sender: self)
+    }
 }
 
