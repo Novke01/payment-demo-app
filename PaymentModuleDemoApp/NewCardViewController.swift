@@ -7,19 +7,38 @@
 //
 
 import UIKit
+import WebKit
 
 class NewCardViewController: UIViewController {
 
-    @IBOutlet weak var addNewCardWebView: UIWebView!
+    var webView: WKWebView?
     var webString : String!
+    
+    override func loadView() {
+        super.loadView()
+        
+        webView = WKWebView()
+        view = webView
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let jString = "<script src=\"\(webString)\"></script></head>"
-            + "<body><h1 class=\"form-title font-regular text-center\">Add New Card</h1><br />"
-            + "<form action=\"\" class=\"paymentWidgets\">VISA MASTER MAESTRO</form></body>"
-        addNewCardWebView.loadHTMLString(jString, baseURL: nil)
+        let url = URL(string:"http://mdhl.cloudapp.net/allPay/pay_form_new.html")
+        let js = "var android = { " +
+                 "    getCheckoutId: function() { return '5E59501FFADC3FCF6C6DFA1014313F35.sbg-vm-tx01'; }," +
+                 "    getShopperResultUrl: function() { return 'http://mdhl.cloudapp.net/securepay/shopperResultUrl'; }," +
+                 "    startRequest: function() { return 'startRequest'; }," +
+                 "    fullPageLoaded: function() { return 'fullPageLoaded'; }" +
+                 "};"
+        let req = URLRequest(url:url!)
+        
+        
+        webView?.load(req)
+        
+        webView?.evaluateJavaScript(js, completionHandler: nil)
+        
     }
 
     override func didReceiveMemoryWarning() {
