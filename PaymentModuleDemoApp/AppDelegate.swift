@@ -20,7 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var deviceToken: String = ""
     let gcmMessageIDKey = "gcm.message_id"
     var user = User()
-    var instanceToken: String!
+    var firstLaunch = true
+    var instanceToken: String = ""
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -57,6 +58,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        if !firstLaunch {
+            showLockScreen()
+        }else{
+            firstLaunch = false
+        }
         connectToFcm()
     }
     
@@ -130,9 +136,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func tokenRefreshNotification(_ notification: Notification) {
-        if let refreshedToken = FIRInstanceID.instanceID().token() {
-            print("Instance token: \(refreshedToken)")
-            self.instanceToken = refreshedToken
+        if let refreshToken = FIRInstanceID.instanceID().token() {
+            print("• FIREBASE Instance token: \(refreshToken)")
+            self.instanceToken = refreshToken
             
             connectToFcm()
         }
@@ -185,6 +191,33 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         completionHandler()
     }
     
+}
+
+extension AppDelegate {
+    
+    func showLockScreen(){
+        if let vc = self.getVisibleViewController() {
+            if !(vc is LockViewController) && !(vc is SignInViewController) {
+                let lockVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "lockViewController") as! UINavigationController
+                vc.present(lockVC, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func getVisibleViewController()->UIViewController? {
+        if var topController = UIApplication.shared.keyWindow?.rootViewController {
+            print("1) Top controller: \(NSStringFromClass(topController.classForCoder).components(separatedBy: ".").last!)")
+            if topController is UINavigationController {
+                topController = (topController as! UINavigationController).visibleViewController!
+                print("2) Top controller: \(NSStringFromClass(topController.classForCoder).components(separatedBy: ".").last!)")
+                return topController
+            }else{
+                return topController
+            }
+        }else{
+            return nil
+        }
+    }
 }
 
 extension AppDelegate: FIRMessagingDelegate {

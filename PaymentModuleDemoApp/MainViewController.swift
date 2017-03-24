@@ -37,6 +37,14 @@ class MainViewController: BaseViewController {
                 }
             }
         })
+    
+        DataManager.sharedInstance.getCards(email: (UIApplication.shared.delegate as! AppDelegate).user.email) { (CardsResponse) in
+            if CardsResponse.success {
+                for i in CardsResponse.cards! {
+                    print("\(i.toString())")
+                }
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {

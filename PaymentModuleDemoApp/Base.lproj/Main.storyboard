@@ -434,7 +434,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iuX-Yz-Z9e">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="543"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="PIN" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ewy-yU-ds5" userLabel="PIN">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2510" placeholder="PIN" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ewy-yU-ds5" userLabel="PIN">
                                                 <rect key="frame" x="8" y="256" width="359" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="pdT-2y-DtA"/>
@@ -443,7 +443,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Efn-Bk-nMb" userLabel="Email">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="marko.stajic@gmail.com" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Efn-Bk-nMb" userLabel="Email">
                                                 <rect key="frame" x="8" y="218" width="359" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="YsM-um-R9D"/>
@@ -498,6 +498,67 @@
             </objects>
             <point key="canvasLocation" x="-724" y="134.48275862068968"/>
         </scene>
+        <!--Lock View Controller-->
+        <scene sceneID="DRR-3J-Gbi">
+            <objects>
+                <viewController id="KIg-t5-COG" customClass="LockViewController" customModule="PaymentModuleDemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uFX-vh-GPP"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ttx-GT-KO1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8gi-u3-Bpb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Hh-9x-ZBN">
+                                <rect key="frame" x="118" y="438" width="138" height="137"/>
+                                <state key="normal" image="touchIcon"/>
+                                <connections>
+                                    <action selector="loginWithTouchId:" destination="KIg-t5-COG" eventType="touchUpInside" id="TFT-0u-L15"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f7J-BA-T2x">
+                                <rect key="frame" x="97" y="325" width="180" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="im0-yq-ZT9"/>
+                                    <constraint firstAttribute="width" constant="180" id="zNh-GN-xOh"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="KIg-t5-COG" id="S79-yR-V6g"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unesite vaš PIN kod:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fS-Yy-HoK">
+                                <rect key="frame" x="16" y="289.5" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1Hh-9x-ZBN" firstAttribute="centerY" secondItem="8gi-u3-Bpb" secondAttribute="centerY" constant="173" id="2jK-lX-9Hp"/>
+                            <constraint firstItem="9fS-Yy-HoK" firstAttribute="centerX" secondItem="f7J-BA-T2x" secondAttribute="centerX" id="Fmk-WE-bVr"/>
+                            <constraint firstItem="f7J-BA-T2x" firstAttribute="top" secondItem="9fS-Yy-HoK" secondAttribute="bottom" constant="14.5" id="JYm-JK-GRt"/>
+                            <constraint firstItem="1Hh-9x-ZBN" firstAttribute="centerX" secondItem="8gi-u3-Bpb" secondAttribute="centerX" id="Ma4-6c-QHG"/>
+                            <constraint firstItem="9fS-Yy-HoK" firstAttribute="leading" secondItem="8gi-u3-Bpb" secondAttribute="leading" constant="16" id="YhY-53-Aen"/>
+                            <constraint firstItem="f7J-BA-T2x" firstAttribute="centerY" secondItem="8gi-u3-Bpb" secondAttribute="centerY" constant="6.5" id="bD3-fg-ICA"/>
+                            <constraint firstAttribute="trailing" secondItem="9fS-Yy-HoK" secondAttribute="trailing" constant="16" id="cOl-5o-W5b"/>
+                            <constraint firstItem="f7J-BA-T2x" firstAttribute="centerX" secondItem="8gi-u3-Bpb" secondAttribute="centerX" id="tZv-WQ-Xlr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="adt-4a-Rmm"/>
+                    <connections>
+                        <outlet property="pinCodeTextField" destination="f7J-BA-T2x" id="8sE-Af-kjk"/>
+                        <outlet property="touchIDButton" destination="1Hh-9x-ZBN" id="0n3-3w-zZT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gjd-17-ruo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-50.399999999999999" y="923.38830584707648"/>
+        </scene>
         <!--New Card-->
         <scene sceneID="gaa-oK-gTd">
             <objects>
@@ -516,7 +577,28 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AMs-mg-CzD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="183" y="999"/>
+            <point key="canvasLocation" x="1120.8" y="998.95052473763121"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xHb-2B-I1Z">
+            <objects>
+                <navigationController storyboardIdentifier="lockViewController" automaticallyAdjustsScrollViewInsets="NO" id="ZeV-7x-FLd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FOG-lP-dtg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KIg-t5-COG" kind="relationship" relationship="rootViewController" id="UN4-iu-JB4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RrJ-3j-r2c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-740" y="924.28785607196414"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="touchIcon" width="138" height="137"/>
+    </resources>
 </document>
