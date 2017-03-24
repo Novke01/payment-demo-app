@@ -33,6 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             name: .firInstanceIDTokenRefresh,
             object: nil)
         
+//        NorificationCenter.default.addObserver(self,
+//            selector: #selector(self.messageSuccessNotification),
+//            name: .FIRMessagingSendSuccess,
+//            object: nil)
+        
         return true
     }
     
@@ -65,6 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.sandbox)
         self.deviceToken = deviceToken.base64EncodedString()
         //        let deviceString = deviceToken.hexEncodedString()
         print("Device string: \(self.deviceToken)")
@@ -124,12 +130,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func tokenRefreshNotification(_ notification: Notification) {
-        if let refreshToken = FIRInstanceID.instanceID().token() {
-            print("Instance token: \(refreshToken)")
-            self.instanceToken = refreshToken
+        if let refreshedToken = FIRInstanceID.instanceID().token() {
+            print("Instance token: \(refreshedToken)")
+            self.instanceToken = refreshedToken
             
             connectToFcm()
         }
+    }
+    
+    func messageSuccessNotification(_ notification: Notification) {
+       
     }
     
     func connectToFcm() {
