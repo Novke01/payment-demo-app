@@ -12,6 +12,7 @@ class SignInViewController: BaseViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var pinTextField: UITextField!
+    let MyKeychainWrapper = KeychainWrapper()
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let paymentDemoSegueId = "goToPaymentDemo"
@@ -37,6 +38,13 @@ class SignInViewController: BaseViewController {
         }
     }
     
+    func saveCredentials(email: String, pin: String){
+        MyKeychainWrapper.mySetObject(pin, forKey: kSecValueData)
+        // 5.
+        MyKeychainWrapper.writeToKeychain()
+        UserDefaults.standard.set(true, forKey: "hasLoginKey")
+    }
+    
     @IBAction func signIn(_ sender: Any) {
         if let email = emailTextField.text {
             if let pin = pinTextField.text {
@@ -46,6 +54,7 @@ class SignInViewController: BaseViewController {
                         (UIApplication.shared.delegate as! AppDelegate).user = loginResponse.user!
                         print("\(loginResponse.user!.toString())")
                         self.performSegue(withIdentifier: self.paymentDemoSegueId, sender: loginResponse.user!)
+                        self.saveCredentials(email: user.email, pin: pin)
                         
                     }
                     else {
@@ -57,6 +66,20 @@ class SignInViewController: BaseViewController {
         }
         
     }
-    
+}
 
+extension UITextField {
+    func setDoneToolbar(){
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        
+        let toolbarRightButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(resignFirstResponder))
+        toolbarRightButton.setTitleTextAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: 17.0)], for: UIControlState.normal)
+        toolbar.barTintColor = UIColor.orange
+        toolbar.isTranslucent = false
+        
+        toolbarRightButton.tintColor = UIColor.white
+        toolbar.items = [flexibleSpace, toolbarRightButton]
+        inputAccessoryView = toolbar
+    }
 }

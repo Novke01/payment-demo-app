@@ -25,6 +25,8 @@
 		021D4FE71E80137700110823 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021D4FE61E80137700110823 /* User.swift */; };
 		021D4FE91E8017C400110823 /* ParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021D4FE81E8017C400110823 /* ParseManager.swift */; };
 		023D39B01E8403AA007C9F52 /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023D39AF1E8403AA007C9F52 /* Invoice.swift */; };
+		025849E41E852B770028A85F /* LockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025849E31E852B770028A85F /* LockViewController.swift */; };
+		025849EC1E8553410028A85F /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 025849EB1E8553410028A85F /* KeychainWrapper.m */; };
 		90EE2D228A80B7913C2DFF15 /* Pods_PaymentModuleDemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88BC833EEC6128B0B0A8A5C8 /* Pods_PaymentModuleDemoApp.framework */; };
 		DD6141E51E7BEC4600CB84C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6141E41E7BEC4600CB84C8 /* AppDelegate.swift */; };
 		DD6141E71E7BEC4600CB84C8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6141E61E7BEC4600CB84C8 /* MainViewController.swift */; };
@@ -55,6 +57,10 @@
 		021D4FE61E80137700110823 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		021D4FE81E8017C400110823 /* ParseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseManager.swift; sourceTree = "<group>"; };
 		023D39AF1E8403AA007C9F52 /* Invoice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Invoice.swift; sourceTree = "<group>"; };
+		025849E31E852B770028A85F /* LockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockViewController.swift; sourceTree = "<group>"; };
+		025849E91E8553400028A85F /* PaymentModuleDemoApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PaymentModuleDemoApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		025849EA1E8553410028A85F /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
+		025849EB1E8553410028A85F /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
 		16A200F8A53C7AE2C93E7182 /* Pods-PaymentModuleDemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaymentModuleDemoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PaymentModuleDemoApp/Pods-PaymentModuleDemoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		88BC833EEC6128B0B0A8A5C8 /* Pods_PaymentModuleDemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PaymentModuleDemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EC3E19E9334B71C6BE563BA /* Pods-PaymentModuleDemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaymentModuleDemoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-PaymentModuleDemoApp/Pods-PaymentModuleDemoApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -168,10 +174,14 @@
 				02139E281E83F0A1009C1DC6 /* QRReader.swift */,
 				DD779A2B1E7FE16F00FBF902 /* CardSelectionViewController.swift */,
 				021D4FDB1E800CE200110823 /* Data Extensions.swift */,
+				025849E31E852B770028A85F /* LockViewController.swift */,
+				025849EA1E8553410028A85F /* KeychainWrapper.h */,
+				025849EB1E8553410028A85F /* KeychainWrapper.m */,
 				DD6141E81E7BEC4600CB84C8 /* Main.storyboard */,
 				DD6141EB1E7BEC4600CB84C8 /* Assets.xcassets */,
 				DD6141ED1E7BEC4600CB84C8 /* LaunchScreen.storyboard */,
 				DD6141F01E7BEC4600CB84C8 /* Info.plist */,
+				025849E91E8553400028A85F /* PaymentModuleDemoApp-Bridging-Header.h */,
 			);
 			path = PaymentModuleDemoApp;
 			sourceTree = "<group>";
@@ -212,6 +222,7 @@
 					DD6141E01E7BEC4600CB84C8 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = PH7K4ADL7R;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplePay = {
@@ -315,11 +326,13 @@
 				02139E291E83F0A1009C1DC6 /* QRReader.swift in Sources */,
 				021D4FDA1E800CD100110823 /* Constants.swift in Sources */,
 				0219E7E61E817BA900A67E2B /* NewCardViewController.swift in Sources */,
+				025849EC1E8553410028A85F /* KeychainWrapper.m in Sources */,
 				DD6141E71E7BEC4600CB84C8 /* MainViewController.swift in Sources */,
 				0219E7E41E812F4F00A67E2B /* Transaction.swift in Sources */,
 				021D4FE11E80107600110823 /* DataManager.swift in Sources */,
 				0219E7DC1E81275700A67E2B /* BaseViewController.swift in Sources */,
 				DD779A2C1E7FE16F00FBF902 /* CardSelectionViewController.swift in Sources */,
+				025849E41E852B770028A85F /* LockViewController.swift in Sources */,
 				DD6141E51E7BEC4600CB84C8 /* AppDelegate.swift in Sources */,
 				021D4FE21E80107600110823 /* ResponseStructures.swift in Sources */,
 				021D4FE71E80137700110823 /* User.swift in Sources */,
@@ -451,6 +464,7 @@
 			baseConfigurationReference = 16A200F8A53C7AE2C93E7182 /* Pods-PaymentModuleDemoApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = PaymentModuleDemoApp/PaymentModuleDemoApp.entitlements;
 				DEVELOPMENT_TEAM = PH7K4ADL7R;
 				INFOPLIST_FILE = PaymentModuleDemoApp/Info.plist;
@@ -458,6 +472,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.execom.mDHL;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PaymentModuleDemoApp/PaymentModuleDemoApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -467,6 +483,7 @@
 			baseConfigurationReference = 9EC3E19E9334B71C6BE563BA /* Pods-PaymentModuleDemoApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = PaymentModuleDemoApp/PaymentModuleDemoApp.entitlements;
 				DEVELOPMENT_TEAM = PH7K4ADL7R;
 				INFOPLIST_FILE = PaymentModuleDemoApp/Info.plist;
@@ -474,6 +491,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.execom.mDHL;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PaymentModuleDemoApp/PaymentModuleDemoApp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
