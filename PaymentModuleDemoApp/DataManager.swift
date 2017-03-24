@@ -240,6 +240,25 @@ public class DataManager {
         
     }
     
+    // Send push token.
+    public func sendPushToken(pushToken: String, userEmail: String, completion: @escaping (GeneralResponse) -> Void) {
+        let url = API.sendPushToken
+        let parameters = ["pushToken": pushToken, "uid": userEmail]
+        
+        RestManager.sharedInstance.PUT(url: url, parameters: parameters, completion: { (json, data, success) in
+            if success {
+                if let jsonData = json, let jsonDictionary = jsonData as? [String: Any] {
+                    if let code = jsonDictionary["code"] as? Int, let message = jsonDictionary["message"] as? String {
+                        if Array(200..<300).contains(code) {
+                            completion(GeneralResponse(success: true, error: nil, message: message))
+                        }
+                    }
+                }
+            }
+        })
+        
+    }
+    
     public func getWebView(checkoutId: String, completion: @escaping (_ webString: String?)->Void){
         
         let url = API.allSecurePaymentWidget + "?checkoutId=\(checkoutId)"

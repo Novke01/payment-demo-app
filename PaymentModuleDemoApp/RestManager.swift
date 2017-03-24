@@ -78,6 +78,29 @@ class RestManager {
             })
     }
     
+    func PUT(url: String, parameters: [String: Any]?=nil, completion: @escaping (_ json: Any?, _ errorData: Data?, _ success: Bool) -> ()) {
+        let encodedUrl = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+        
+        self.manager.request(encodedUrl!, method: HTTPMethod.put, parameters: parameters, encoding: JSONEncoding.default, headers: headers).debugLog()
+            .responseJSON(completionHandler: { (response) -> Void in
+                print("Response: \(response)")
+                switch response.result {
+                case .success:
+                    print("success")
+                    completion(response.result.value, nil, true)
+                case .failure(let error):
+                    print("error: \(error)")
+                    if let data = response.data {
+                        completion(nil, data, false)
+                    }
+                    else{
+                        completion(nil, nil, false)
+                    }
+                }
+            })
+        
+    }
+    
     func GET(url: String, completion: @escaping (_ json: Any?, _ errorData: Data?, _ success: Bool) -> ()) {
         let encodedUrl = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
         

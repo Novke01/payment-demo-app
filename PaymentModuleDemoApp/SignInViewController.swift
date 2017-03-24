@@ -30,7 +30,6 @@ class SignInViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == paymentDemoSegueId {
             let mainViewController = segue.destination as! MainViewController
@@ -49,12 +48,26 @@ class SignInViewController: BaseViewController {
         if let email = emailTextField.text {
             if let pin = pinTextField.text {
                 let user = User(email: email, imei: "355330084909367", name: "Marko Stajic", phone: "+38166066068")
-                DataManager.sharedInstance.login(user: user, pin: pin, pushToken: appDelegate.deviceToken, completion: { loginResponse in
+                DataManager.sharedInstance.login(user: user, pin: pin, pushToken: appDelegate.instanceToken, completion: { loginResponse in
                     if loginResponse.success {
                         (UIApplication.shared.delegate as! AppDelegate).user = loginResponse.user!
+<<<<<<< HEAD
                         print("\(loginResponse.user!.toString())")
                         self.performSegue(withIdentifier: self.paymentDemoSegueId, sender: loginResponse.user!)
                         self.saveCredentials(email: user.email, pin: pin)
+=======
+                        print("USER: \(loginResponse.user!.toString())")
+                        
+                        DataManager.sharedInstance.sendPushToken(pushToken: self.appDelegate.instanceToken!, userEmail: user.email, completion: { generalResponse in
+                            print("SEND PUSH TOKEN: \(generalResponse)")
+                            if generalResponse.success {
+                                self.performSegue(withIdentifier: self.paymentDemoSegueId, sender: loginResponse.user!)
+                            }
+                            else {
+                                print("Error: \(generalResponse.message) ")
+                            }
+                        })
+>>>>>>> c853bad1a7b90e4c14320d84d51db11d6f922cf4
                         
                     }
                     else {

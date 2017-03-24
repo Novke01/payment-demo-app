@@ -15,6 +15,7 @@ struct API {
     static let cards = mdhlBase + "cards"
     static let channels = mdhlBase + "channels"
     static let oneClickPay = mdhlBase + "securepay/oneClickPay"
+    static let sendPushToken = mdhlBase + "authentication/token"
 
     static let allSecureBase = "https://test.oppwa.com/v1/"
     static let allSecureCheckout = allSecureBase + "checkouts"

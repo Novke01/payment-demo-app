@@ -25,7 +25,7 @@ class BaseViewController: UIViewController {
         configAllTextFields(view: view)
     }
     
-    func dismissKeyboard(){
+    func dismissKeyboard() {
         self.view.endEditing(true)
     }
     
