@@ -20,13 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var deviceToken: String = ""
     let gcmMessageIDKey = "gcm.message_id"
     var user = User()
-<<<<<<< HEAD
     var firstLaunch = true
-
-=======
-    var instanceToken: String!
+    var instanceToken: String = ""
     
->>>>>>> c853bad1a7b90e4c14320d84d51db11d6f922cf4
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         registerForPushNotification(application: application)
@@ -57,15 +53,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-<<<<<<< HEAD
         if !firstLaunch {
             showLockScreen()
         }else{
             firstLaunch = false
         }
-=======
         connectToFcm()
->>>>>>> c853bad1a7b90e4c14320d84d51db11d6f922cf4
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
@@ -138,7 +131,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func tokenRefreshNotification(_ notification: Notification) {
         if let refreshToken = FIRInstanceID.instanceID().token() {
-            print("Instance token: \(refreshToken)")
+            print("• FIREBASE Instance token: \(refreshToken)")
             self.instanceToken = refreshToken
             
             connectToFcm()
@@ -190,7 +183,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     
 }
 
-<<<<<<< HEAD
 extension AppDelegate {
     
     func showLockScreen(){
@@ -218,7 +210,6 @@ extension AppDelegate {
     }
 }
 
-=======
 extension AppDelegate: FIRMessagingDelegate {
     
     func applicationReceivedRemoteMessage(_ remoteMessage: FIRMessagingRemoteMessage) {
@@ -226,4 +217,3 @@ extension AppDelegate: FIRMessagingDelegate {
     }
     
 }
->>>>>>> c853bad1a7b90e4c14320d84d51db11d6f922cf4
