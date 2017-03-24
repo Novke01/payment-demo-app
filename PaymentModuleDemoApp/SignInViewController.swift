@@ -40,13 +40,25 @@ class SignInViewController: BaseViewController {
         if let email = emailTextField.text {
             if let pin = pinTextField.text {
                 let user = User(email: email, imei: "355330084909367", name: "Marko Stajic", phone: "+38166066068")
-                DataManager.sharedInstance.login(user: user, pin: pin, pushToken: appDelegate.deviceToken, completion: { loginResponse in
+                DataManager.sharedInstance.login(user: user, pin: pin, pushToken: appDelegate.instanceToken, completion: { loginResponse in
                     if loginResponse.success {
-                        print("\(loginResponse.user!.toString())")
-                        self.performSegue(withIdentifier: self.paymentDemoSegueId, sender: loginResponse.user!)
+                        (UIApplication.shared.delegate as! AppDelegate).user = loginResponse.user!
+                        print("USER: \(loginResponse.user!.toString())")
+                        
+                        DataManager.sharedInstance.sendPushToken(pushToken: self.appDelegate.instanceToken!, userEmail: user.email, completion: { generalResponse in
+                            print("SEND PUSH TOKEN: \(generalResponse)")
+                            if generalResponse.success {
+                                self.performSegue(withIdentifier: self.paymentDemoSegueId, sender: loginResponse.user!)
+                            }
+                            else {
+                                print("Error: \(generalResponse.message) ")
+                            }
+                        })
+                        
                     }
                     else {
                         print("Error: \(loginResponse.message)")
+                        self.showAlert(title: "Prijavljivanje nije uspelo", message: loginResponse.message)
                     }
                 })
             }

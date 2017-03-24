@@ -34,5 +34,3 @@ public struct ChannelsResponse {
     public let error: Error?
     public let message: String
 }
-
-

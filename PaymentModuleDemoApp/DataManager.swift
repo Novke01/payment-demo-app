@@ -163,6 +163,14 @@ public class DataManager {
             + "&currency=RSD"
             + "&paymentType=PA"
             + "&createRegistration=true"
+            + "&customParameters[SHOPPER_action]=createCard"
+            + "&customer.email=\((UIApplication.shared.delegate as! AppDelegate).user.email)"
+            + "&customer.merchantCustomerId=\((UIApplication.shared.delegate as! AppDelegate).user.email)"
+            + "&billing.postcode=0"
+            + "&billing.country=RS"
+            + "&customer.phone=+38166066068"
+            + "&customer.givenName=Marko Stajic"
+
         
         let request = NSMutableURLRequest(url: URL(string: url)!)
         request.httpMethod = "POST"
@@ -191,6 +199,63 @@ public class DataManager {
             }
         }
         task.resume()
+        
+    }
+    
+    //One click payment
+    public func oneClickPayment(billId: String, price: String, currency: String, card: String, completion: @escaping (GeneralResponse)->Void) {
+        
+        let url = API.oneClickPay
+        let parameters = ["amount":price, "track_id": billId, "cart_price": price, "currency": currency, "card_token": card, "user_uid":(UIApplication.shared.delegate as! AppDelegate).user.email, "shipping_postcode":"", "description": "DHL Paket", "delivery_boy":0] as [String : Any]
+        
+        RestManager.sharedInstance.POST(url: url, parameters: parameters, completion: { (json, data, success) in
+            
+            if success {
+                if let jsonData = json, let jsonDictionary = jsonData as? [String:Any] {
+                    
+                    if let code = jsonDictionary["code"] as? Int, let message = jsonDictionary["message"] as? String {
+                        if Array(200..<300).contains(code) {
+                            
+                            if let data = jsonDictionary["data"] as? [String:Any] {
+                                
+                                print("• One click payment: \(data) •")
+                                completion(GeneralResponse(success: true, error: nil, message: message))
+                            }else{
+                                completion(GeneralResponse(success: false, error: nil, message: "One click payment data not parsed"))
+                            }
+                        }else{
+                            completion(GeneralResponse(success: false, error: nil, message: "One click payment fail reason: \(message), Error code: \(code)"))
+                        }
+                    }else{
+                        completion(GeneralResponse(success: false, error: nil, message: "One click payment failed"))
+                    }
+                }else{
+                    completion(GeneralResponse(success: false, error: nil, message: "Response not parsed"))
+                }
+            }else{
+                completion(GeneralResponse(success: false, error: nil, message: "HTTP Request failed"))
+            }
+        })
+
+        
+    }
+    
+    // Send push token.
+    public func sendPushToken(pushToken: String, userEmail: String, completion: @escaping (GeneralResponse) -> Void) {
+        let url = API.sendPushToken
+        let parameters = ["pushToken": pushToken, "uid": userEmail]
+        
+        RestManager.sharedInstance.PUT(url: url, parameters: parameters, completion: { (json, data, success) in
+            if success {
+                if let jsonData = json, let jsonDictionary = jsonData as? [String: Any] {
+                    if let code = jsonDictionary["code"] as? Int, let message = jsonDictionary["message"] as? String {
+                        if Array(200..<300).contains(code) {
+                            completion(GeneralResponse(success: true, error: nil, message: message))
+                        }
+                    }
+                }
+            }
+        })
         
     }
     

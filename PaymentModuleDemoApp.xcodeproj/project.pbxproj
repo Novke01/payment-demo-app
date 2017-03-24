@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02139E291E83F0A1009C1DC6 /* QRReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02139E281E83F0A1009C1DC6 /* QRReader.swift */; };
+		02139E2C1E83F106009C1DC6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02139E2A1E83F106009C1DC6 /* AVFoundation.framework */; };
+		02139E2D1E83F106009C1DC6 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02139E2B1E83F106009C1DC6 /* AVKit.framework */; };
 		0219E7DC1E81275700A67E2B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0219E7D91E81275700A67E2B /* BaseViewController.swift */; };
 		0219E7DD1E81275700A67E2B /* PaymentPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0219E7DA1E81275700A67E2B /* PaymentPreviewViewController.swift */; };
 		0219E7DE1E81275700A67E2B /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0219E7DB1E81275700A67E2B /* SignInViewController.swift */; };
@@ -21,8 +24,8 @@
 		021D4FE31E80107600110823 /* RestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021D4FE01E80107600110823 /* RestManager.swift */; };
 		021D4FE71E80137700110823 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021D4FE61E80137700110823 /* User.swift */; };
 		021D4FE91E8017C400110823 /* ParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021D4FE81E8017C400110823 /* ParseManager.swift */; };
+		023D39B01E8403AA007C9F52 /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023D39AF1E8403AA007C9F52 /* Invoice.swift */; };
 		90EE2D228A80B7913C2DFF15 /* Pods_PaymentModuleDemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88BC833EEC6128B0B0A8A5C8 /* Pods_PaymentModuleDemoApp.framework */; };
-		DD59BD7A1E850B9C007E7D90 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD59BD791E850B9C007E7D90 /* GoogleService-Info.plist */; };
 		DD6141E51E7BEC4600CB84C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6141E41E7BEC4600CB84C8 /* AppDelegate.swift */; };
 		DD6141E71E7BEC4600CB84C8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6141E61E7BEC4600CB84C8 /* MainViewController.swift */; };
 		DD6141EA1E7BEC4600CB84C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD6141E81E7BEC4600CB84C8 /* Main.storyboard */; };
@@ -30,9 +33,13 @@
 		DD6141EF1E7BEC4600CB84C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD6141ED1E7BEC4600CB84C8 /* LaunchScreen.storyboard */; };
 		DD779A2A1E7FC21D00FBF902 /* NewPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD779A291E7FC21D00FBF902 /* NewPaymentViewController.swift */; };
 		DD779A2C1E7FE16F00FBF902 /* CardSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD779A2B1E7FE16F00FBF902 /* CardSelectionViewController.swift */; };
+		DDE63B0B1E8533B100D314EB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDE63B0A1E8533B100D314EB /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02139E281E83F0A1009C1DC6 /* QRReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRReader.swift; sourceTree = "<group>"; };
+		02139E2A1E83F106009C1DC6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		02139E2B1E83F106009C1DC6 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		0219E7D91E81275700A67E2B /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		0219E7DA1E81275700A67E2B /* PaymentPreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentPreviewViewController.swift; sourceTree = "<group>"; };
 		0219E7DB1E81275700A67E2B /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -48,10 +55,10 @@
 		021D4FE01E80107600110823 /* RestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestManager.swift; sourceTree = "<group>"; };
 		021D4FE61E80137700110823 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		021D4FE81E8017C400110823 /* ParseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseManager.swift; sourceTree = "<group>"; };
+		023D39AF1E8403AA007C9F52 /* Invoice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Invoice.swift; sourceTree = "<group>"; };
 		16A200F8A53C7AE2C93E7182 /* Pods-PaymentModuleDemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaymentModuleDemoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PaymentModuleDemoApp/Pods-PaymentModuleDemoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		88BC833EEC6128B0B0A8A5C8 /* Pods_PaymentModuleDemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PaymentModuleDemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EC3E19E9334B71C6BE563BA /* Pods-PaymentModuleDemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaymentModuleDemoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-PaymentModuleDemoApp/Pods-PaymentModuleDemoApp.release.xcconfig"; sourceTree = "<group>"; };
-		DD59BD791E850B9C007E7D90 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DD6141E11E7BEC4600CB84C8 /* PaymentModuleDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaymentModuleDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD6141E41E7BEC4600CB84C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD6141E61E7BEC4600CB84C8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +68,7 @@
 		DD6141F01E7BEC4600CB84C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD779A291E7FC21D00FBF902 /* NewPaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPaymentViewController.swift; sourceTree = "<group>"; };
 		DD779A2B1E7FE16F00FBF902 /* CardSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardSelectionViewController.swift; sourceTree = "<group>"; };
+		DDE63B0A1E8533B100D314EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +76,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02139E2C1E83F106009C1DC6 /* AVFoundation.framework in Frameworks */,
+				02139E2D1E83F106009C1DC6 /* AVKit.framework in Frameworks */,
 				90EE2D228A80B7913C2DFF15 /* Pods_PaymentModuleDemoApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,6 +93,7 @@
 				021D4FE61E80137700110823 /* User.swift */,
 				0219E7E11E812E5E00A67E2B /* Card.swift */,
 				0219E7E31E812F4F00A67E2B /* Transaction.swift */,
+				023D39AF1E8403AA007C9F52 /* Invoice.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -117,6 +128,8 @@
 		2C52194BC240D448025661C5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				02139E2A1E83F106009C1DC6 /* AVFoundation.framework */,
+				02139E2B1E83F106009C1DC6 /* AVKit.framework */,
 				88BC833EEC6128B0B0A8A5C8 /* Pods_PaymentModuleDemoApp.framework */,
 			);
 			name = Frameworks;
@@ -154,13 +167,14 @@
 				DD6141E61E7BEC4600CB84C8 /* MainViewController.swift */,
 				0219E7E51E817BA900A67E2B /* NewCardViewController.swift */,
 				DD779A291E7FC21D00FBF902 /* NewPaymentViewController.swift */,
+				02139E281E83F0A1009C1DC6 /* QRReader.swift */,
 				DD779A2B1E7FE16F00FBF902 /* CardSelectionViewController.swift */,
 				021D4FDB1E800CE200110823 /* Data Extensions.swift */,
 				DD6141E81E7BEC4600CB84C8 /* Main.storyboard */,
 				DD6141EB1E7BEC4600CB84C8 /* Assets.xcassets */,
 				DD6141ED1E7BEC4600CB84C8 /* LaunchScreen.storyboard */,
 				DD6141F01E7BEC4600CB84C8 /* Info.plist */,
-				DD59BD791E850B9C007E7D90 /* GoogleService-Info.plist */,
+				DDE63B0A1E8533B100D314EB /* GoogleService-Info.plist */,
 			);
 			path = PaymentModuleDemoApp;
 			sourceTree = "<group>";
@@ -206,6 +220,9 @@
 							com.apple.ApplePay = {
 								enabled = 0;
 							};
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -237,7 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD6141EF1E7BEC4600CB84C8 /* LaunchScreen.storyboard in Resources */,
-				DD59BD7A1E850B9C007E7D90 /* GoogleService-Info.plist in Resources */,
+				DDE63B0B1E8533B100D314EB /* GoogleService-Info.plist in Resources */,
 				DD6141EC1E7BEC4600CB84C8 /* Assets.xcassets in Resources */,
 				DD6141EA1E7BEC4600CB84C8 /* Main.storyboard in Resources */,
 			);
@@ -302,6 +319,7 @@
 				0219E7E01E812CE600A67E2B /* Channel.swift in Sources */,
 				021D4FE31E80107600110823 /* RestManager.swift in Sources */,
 				021D4FDC1E800CE200110823 /* Data Extensions.swift in Sources */,
+				02139E291E83F0A1009C1DC6 /* QRReader.swift in Sources */,
 				021D4FDA1E800CD100110823 /* Constants.swift in Sources */,
 				0219E7E61E817BA900A67E2B /* NewCardViewController.swift in Sources */,
 				DD6141E71E7BEC4600CB84C8 /* MainViewController.swift in Sources */,
@@ -314,6 +332,7 @@
 				021D4FE71E80137700110823 /* User.swift in Sources */,
 				0219E7DD1E81275700A67E2B /* PaymentPreviewViewController.swift in Sources */,
 				DD779A2A1E7FC21D00FBF902 /* NewPaymentViewController.swift in Sources */,
+				023D39B01E8403AA007C9F52 /* Invoice.swift in Sources */,
 				021D4FE91E8017C400110823 /* ParseManager.swift in Sources */,
 				0219E7E21E812E5E00A67E2B /* Card.swift in Sources */,
 			);
