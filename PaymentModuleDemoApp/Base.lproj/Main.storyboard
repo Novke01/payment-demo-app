@@ -233,13 +233,7 @@
                             <constraint firstItem="E1R-CW-KI0" firstAttribute="top" secondItem="Ca5-qZ-DWw" secondAttribute="bottom" id="Z7a-Jy-gxb"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Card Selection" id="Ybd-nS-zo0">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="D82-D9-eL2">
-                            <connections>
-                                <action selector="addNewCard:" destination="uqf-7S-bXu" id="goM-iQ-QUR"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Card Selection" id="Ybd-nS-zo0"/>
                     <connections>
                         <outlet property="cardsList" destination="Ca5-qZ-DWw" id="xrU-nu-W20"/>
                         <segue destination="akN-k9-KeA" kind="show" identifier="goToPaymentPreview" id="LVz-oq-cwa"/>

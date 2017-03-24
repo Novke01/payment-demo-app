@@ -29,10 +29,6 @@ class SignInViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func dismissKeyboard(){
-        self.view.endEditing(true)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == paymentDemoSegueId {
             let mainViewController = segue.destination as! MainViewController

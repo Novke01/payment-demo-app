@@ -8,4 +8,6 @@ target 'PaymentModuleDemoApp' do
   # Pods for PaymentModuleDemoApp
     pod "Alamofire"
     pod "ObjectMapper"
+    pod "Firebase/Core"
+    pod "Firebase/Messaging"
 end

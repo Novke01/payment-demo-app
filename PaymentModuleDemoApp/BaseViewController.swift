@@ -25,6 +25,10 @@ class BaseViewController: UIViewController {
         configAllTextFields(view: view)
     }
     
+    func dismissKeyboard() {
+        self.view.endEditing(true)
+    }
+    
     func configAllTextFields(view: UIView) {
         for subview in view.subviews {
             if let textField = subview as? UITextField {
