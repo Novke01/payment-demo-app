@@ -34,11 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             name: .firInstanceIDTokenRefresh,
             object: nil)
         
-//        NorificationCenter.default.addObserver(self,
-//            selector: #selector(self.messageSuccessNotification),
-//            name: .FIRMessagingSendSuccess,
-//            object: nil)
-        
         return true
     }
     
@@ -136,9 +131,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func tokenRefreshNotification(_ notification: Notification) {
-        if let refreshToken = FIRInstanceID.instanceID().token() {
-            print("• FIREBASE Instance token: \(refreshToken)")
-            self.instanceToken = refreshToken
+        if let refreshedToken = FIRInstanceID.instanceID().token() {
+            print("• FIREBASE Instance token: \(refreshedToken)")
+            self.instanceToken = refreshedToken
             
             connectToFcm()
         }
@@ -193,6 +188,14 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     
 }
 
+extension AppDelegate: FIRMessagingDelegate {
+    
+    func applicationReceivedRemoteMessage(_ remoteMessage: FIRMessagingRemoteMessage) {
+        print("FIR messaging delegate remote message: \(remoteMessage.appData)")
+    }
+    
+}
+
 extension AppDelegate {
     
     func showLockScreen(){
@@ -218,12 +221,4 @@ extension AppDelegate {
             return nil
         }
     }
-}
-
-extension AppDelegate: FIRMessagingDelegate {
-    
-    func applicationReceivedRemoteMessage(_ remoteMessage: FIRMessagingRemoteMessage) {
-        print("FIR messaging delegate remote message: \(remoteMessage.appData)")
-    }
-    
 }

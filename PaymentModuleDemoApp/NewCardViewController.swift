@@ -19,13 +19,12 @@ class NewCardViewController: UIViewController {
         
         webView = WKWebView()
         view = webView
+        webView?.navigationDelegate = self
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        checkoutId = "E1D80D156CA242D1B192F99ACC0824FE.sbg-vm-tx01"
         
         let url = URL(string:"http://mdhl.cloudapp.net/allPay/pay_form_new.html")
         let js = "var android = { " +
@@ -34,6 +33,7 @@ class NewCardViewController: UIViewController {
                  "    startRequest: function() { return 'startRequest'; }," +
                  "    fullPageLoaded: function() { return 'fullPageLoaded'; }" +
                  "};"
+        
         let req = URLRequest(url:url!)
         
         
@@ -47,5 +47,9 @@ class NewCardViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+}
+
+extension NewCardViewController: WKNavigationDelegate {
 
 }

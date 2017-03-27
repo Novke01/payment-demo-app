@@ -154,22 +154,23 @@ public class DataManager {
     ///Add new card
     public func addCard(channel: Channel, completion: @escaping (_ checkoutId: String?)->Void){
         let url = API.allSecureCheckout
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         let postBody = ""
             + "authentication.userId=\(channel.userId)"
             + "&authentication.password=\(channel.password)"
             + "&authentication.entityId=\(channel.entityId)"
+            + "&createRegistration=true"
+            + "&customParameters[SHOPPER_customerId]=\(appDelegate.user.email)"
+            + "&customParameters[SHOPPER_action]=createCard"
+            + "&customer.merchantCustomerId=\(appDelegate.user.email)"
+            + "&customer.email=\(appDelegate.user.email)"
             + "&amount=1.00"
             + "&currency=RSD"
             + "&paymentType=PA"
             + "&createRegistration=true"
-            + "&customParameters[SHOPPER_action]=createCard"
-            + "&customer.email=\((UIApplication.shared.delegate as! AppDelegate).user.email)"
-            + "&customer.merchantCustomerId=\((UIApplication.shared.delegate as! AppDelegate).user.email)"
-            + "&billing.postcode=0"
+            + "&billing.postcode=21000"
             + "&billing.country=RS"
-            + "&customer.phone=+38166066068"
-            + "&customer.givenName=Marko Stajic"
 
         
         let request = NSMutableURLRequest(url: URL(string: url)!)

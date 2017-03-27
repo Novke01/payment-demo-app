@@ -53,7 +53,7 @@ class SignInViewController: BaseViewController {
                 print("UUID String: \(identifier)")
                 
 //                let user = User(email: email, imei: identifier ?? "355330084909367", name: "Marko Stajic", phone: "+38166066068")
-                let user = User(email: email, imei: "355330084909367", name: "Marko Stajic", phone: "+38166066068")
+                let user = User(email: email, imei: "355330084909367", name: "Aleksandar Novakovic", phone: "+38166066068")
 
                 DataManager.sharedInstance.login(user: user, pin: pin, pushToken: appDelegate.instanceToken, completion: { loginResponse in
                     if loginResponse.success {
