@@ -18,13 +18,13 @@ public class Card: NSObject, Mappable {
     var brand : String?
     var userId : String?
     var merchantChannel : String?
-    var checkoutId : Int?
+    var checkoutId : String = ""
     var timestamp: TimeInterval = 0
     
     override init() {
     }
     
-    init(token:String,  holder: String, monthExp: String, yearExp: String, last4Digits: String, brand: String, userId: String, merchantChannel: String, checkoutId: Int?, timestamp: TimeInterval){
+    init(token:String,  holder: String, monthExp: String, yearExp: String, last4Digits: String, brand: String, userId: String, merchantChannel: String, checkoutId: String, timestamp: TimeInterval){
         self.token = token
         self.holder = holder
         self.monthExp = monthExp

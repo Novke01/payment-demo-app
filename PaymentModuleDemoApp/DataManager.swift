@@ -176,6 +176,11 @@ public class DataManager {
         request.httpMethod = "POST"
         
         request.httpBody = postBody.data(using: String.Encoding.utf8)
+        
+        print("• ADD NEW CARD\n: \(request.debugDescription)\n•")
+        print("ADD CARD BODY:")
+        print(NSString(data: request.httpBody!, encoding:String.Encoding.utf8.rawValue)!)
+        
         let task = URLSession.shared.dataTask(with: request as URLRequest) {
             data, response, error in
             

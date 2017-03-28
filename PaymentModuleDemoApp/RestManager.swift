@@ -130,7 +130,7 @@ class RestManager {
         let encodedUrl = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
         
         
-        self.manager.request(encodedUrl!, method: HTTPMethod.patch, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate()
+        self.manager.request(encodedUrl!, method: HTTPMethod.patch, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate().debugLog()
             .responseJSON(completionHandler: { (response) -> Void in
                 
                 switch response.result {

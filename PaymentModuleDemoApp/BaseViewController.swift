@@ -47,6 +47,13 @@ class BaseViewController: UIViewController {
         cameraUsageAlert.addAction(settingsAction)
         self.present(cameraUsageAlert, animated: true, completion: nil)
     }
+    
+    func setInvisibleNavigation(color: UIColor){
+        self.navigationController?.navigationBar.barStyle = .black
+        self.navigationController?.navigationBar.barTintColor = color
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+    }
 
     func configAllTextFields(view: UIView) {
         for subview in view.subviews {

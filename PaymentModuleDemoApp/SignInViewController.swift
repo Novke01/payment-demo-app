@@ -20,11 +20,17 @@ class SignInViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor.dhlYellow
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(tap)
         // Do any additional setup after loading the view.
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setInvisibleNavigation(color: UIColor.dhlYellow)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -80,21 +86,5 @@ class SignInViewController: BaseViewController {
             }
         }
         
-    }
-}
-
-extension UITextField {
-    func setDoneToolbar(){
-        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        
-        let toolbarRightButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(resignFirstResponder))
-        toolbarRightButton.setTitleTextAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: 17.0)], for: UIControlState.normal)
-        toolbar.barTintColor = UIColor.orange
-        toolbar.isTranslucent = false
-        
-        toolbarRightButton.tintColor = UIColor.white
-        toolbar.items = [flexibleSpace, toolbarRightButton]
-        inputAccessoryView = toolbar
     }
 }

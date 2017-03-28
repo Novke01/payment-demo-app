@@ -99,7 +99,7 @@ class MainViewController: BaseViewController {
     
     @IBAction func addNewCard(_ sender: UIButton) {
         
-        let channel = self.channels.filter{ $0.channelName == "PARENT" }.first
+        let channel = self.channels.filter{ $0.channelName == "3DS" }.first
 
         if let channel = channel {
             

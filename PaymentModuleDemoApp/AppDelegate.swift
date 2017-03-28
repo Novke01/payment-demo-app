@@ -198,8 +198,9 @@ extension AppDelegate {
     func showLockScreen(){
         if let vc = self.getVisibleViewController() {
             if !(vc is LockViewController) && !(vc is SignInViewController) {
-                let lockVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "lockViewController") as! UINavigationController
-                vc.present(lockVC, animated: true, completion: nil)
+                if let lockVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "lockViewController") as? UINavigationController {
+                    vc.present(lockVC, animated: true, completion: nil)
+                }
             }
         }
     }
