@@ -120,6 +120,68 @@ public class DataManager {
         }
     }
     
+    ///Get user transactions
+    public func getTransactions(email: String, page: Int, transactionCount: Int, completion: @escaping (TransactionsResponse)->Void){
+        let url = API.transactions + "/\(email)/\(page)/\(transactionCount)"
+        
+        RestManager.sharedInstance.GET(url: url) { (json, data, success) in
+            
+            if success {
+                if let jsonData = json, let jsonDictionary = jsonData as? [String:Any] {
+                    
+                    if let code = jsonDictionary["code"] as? Int, let message = jsonDictionary["message"] as? String {
+                        if Array(200..<300).contains(code) {
+                            if let jsonArray = jsonDictionary["data"] as? [[String:Any]], let transactions = ParseManager.sharedInstance.parseTransactions(jsonArray) {
+                                completion(TransactionsResponse(success: true, transacations: transactions, error: nil, message: "Ok"))
+                            }else{
+                                completion(TransactionsResponse(success: false, transacations: nil, error: nil, message: "Nije dobro"))
+                            }
+                        }else{
+                            completion(TransactionsResponse(success: false, transacations: nil, error: nil, message: "Transactions getting fail reason: \(message), Error code: \(code)"))
+                        }
+                    }else{
+                        completion(TransactionsResponse(success: false, transacations: nil, error: nil, message: "Transactions getting failed"))
+                    }
+                }else{
+                    completion(TransactionsResponse(success: false, transacations: nil, error: nil, message: "Response not parsed"))
+                }
+            }else{
+                completion(TransactionsResponse(success: false, transacations: nil, error: nil, message: "HTTP Request failed"))
+            }
+        }
+    }
+    
+    ///Get user transaction status
+    public func getTransactionByTrackingId(trackingId: String, completion: @escaping (TransactionResponse)->Void){
+        let url = API.transaction + "/\(trackingId)/status"
+        
+        RestManager.sharedInstance.GET(url: url) { (json, data, success) in
+            
+            if success {
+                if let jsonData = json, let jsonDictionary = jsonData as? [String:Any] {
+                    
+                    if let code = jsonDictionary["code"] as? Int, let message = jsonDictionary["message"] as? String {
+                        if Array(200..<300).contains(code) {
+                            if let jsonArray = jsonDictionary["data"] as? [String:Any], let transaction = ParseManager.sharedInstance.parseTransaction(jsonArray) {
+                                completion(TransactionResponse(success: true, transaction: transaction, error: nil, message: "Ok"))
+                            }else{
+                                completion(TransactionResponse(success: false, transaction: nil, error: nil, message: "Nije dobro"))
+                            }
+                        }else{
+                            completion(TransactionResponse(success: false, transaction: nil, error: nil, message: "Transaction getting fail reason: \(message), Error code: \(code)"))
+                        }
+                    }else{
+                        completion(TransactionResponse(success: false, transaction: nil, error: nil, message: "Transaction getting failed"))
+                    }
+                }else{
+                    completion(TransactionResponse(success: false, transaction: nil, error: nil, message: "Response not parsed"))
+                }
+            }else{
+                completion(TransactionResponse(success: false, transaction: nil, error: nil, message: "HTTP Request failed"))
+            }
+        }
+    }
+    
     ///Get user cards
     public func getChannels(completion: @escaping (ChannelsResponse)->Void){
         let url = API.channels

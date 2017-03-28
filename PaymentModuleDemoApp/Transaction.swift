@@ -10,54 +10,46 @@
 import Foundation
 import ObjectMapper
 
-//public class Transaction: NSObject, Mappable {
-//    
-//    var transactionId : String = ""
-//    var amount : String = ""
-//    var holder : String = ""
-//    var last4 : String = ""
-//    var last4Digits : String = ""
-//    var brand : String = ""
-//    var userId : String = ""
-//    var merchantChannel : String = ""
-//    var checkoutId : String = ""
-//    var timestamp: TimeInterval = 0
-//    
-//    override init() {
-//    }
-//    
-//    init(token: String, holder: String, monthExp: String, yearExp: String, last4Digits: String, brand: String, userId: String, merchantChannel: String, checkoutId: String, timestamp: TimeInterval){
-//        self.token = token
-//        self.monthExp = monthExp
-//        self.yearExp = yearExp
-//        self.last4Digits = last4Digits
-//        self.brand = brand
-//        self.userId = userId
-//        self.merchantChannel = merchantChannel
-//        self.checkoutId = checkoutId
-//        self.timestamp = timestamp
-//
-//    }
-//    
-//    required public init?(map: Map) {
-//        
-//    }
-//    
-//    public func mapping(map: Map) {
-//        token <- map["token"]
-//        holder <- map["holder"]
-//        monthExp <- map["month_exp"]
-//        yearExp <- map["year_exp"]
-//        last4Digits <- map["last_4_digits"]
-//        brand <- map["brand"]
-//        userId <- map["user_uid"]
-//        merchantChannel <- map["merchant_channel"]
-//        checkoutId <- map["checkoutId"]
-//        timestamp <- map["timestamp"]
-//    }
-//    
-//    public func toString() -> String{
-//        return "\nUser: \(name)\nEmail: \(email)"
-//    }
-//    
-//}
+public class Transaction : NSObject, Mappable {
+    
+    var transactionId: String = ""
+    var amount: String = ""
+    var holderName: String = ""
+    var last4digits: String = ""
+    var brand: String = ""
+    var month: String = ""
+    var year:  String = ""
+    var timestamp: Double = 0
+    var transactionDescription: String = ""
+    var trackingId: String = ""
+    var status: String = ""
+    var checkoutId: String = ""
+
+    override init() {
+        super.init()
+    }
+    
+    required public init?(map: Map) {
+        
+    }
+    
+    public func mapping(map: Map) {
+        transactionId <- map["transaction_id"]
+        amount <- map["amount"]
+        holderName <- map["holder_name"]
+        last4digits <- map["last4digits"]
+        brand <- map["brand"]
+        month <- map["month"]
+        year <- map["year"]
+        timestamp <- map["timestamp"]
+        transactionDescription <- map["description"]
+        trackingId <- map["tracking_id"]
+        status <- map["status"]
+        checkoutId <- map["checkoutId"]
+    }
+    
+    public func toString() -> String{
+        return "\nTransaction: \(trackingId)\nAmount: \(amount)\nHolder name: \(holderName)\nLast four digits: \(last4digits)\nExp data: \(month)/\(year)\nTransaction description: \(transactionDescription)\nStatus: \(status)\n"
+    }
+
+}

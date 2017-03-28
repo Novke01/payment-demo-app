@@ -26,6 +26,13 @@ public class ParseManager {
             return nil
         }
     }
+    open func parseTransaction(_ jsonDictionary: [String:Any]) -> Transaction? {
+        if let transaction = Mapper<Transaction>().map(JSONObject: jsonDictionary){
+            return transaction
+        }else{
+            return nil
+        }
+    }
     open func parseCards(_ jsonArray: [[String:Any]]) -> [Card]? {
         var cards = [Card]()
         for json in jsonArray {
@@ -43,6 +50,15 @@ public class ParseManager {
             }
         }
         return channels.count>0 ? channels:nil
+    }
+    open func parseTransactions(_ jsonArray: [[String:Any]]) -> [Transaction]? {
+        var transactions = [Transaction]()
+        for json in jsonArray {
+            if let transaction = Mapper<Transaction>().map(JSONObject: json){
+                transactions.append(transaction)
+            }
+        }
+        return transactions.count>0 ? transactions:nil
     }
 
 }

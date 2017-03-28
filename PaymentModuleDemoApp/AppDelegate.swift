@@ -21,13 +21,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let gcmMessageIDKey = "gcm.message_id"
     var user = User()
     var firstLaunch = true
-    var instanceToken: String = ""
+    var firebasePushToken: String = ""
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         registerForPushNotification(application: application)
         
         FIRApp.configure()
+        if let token = UserDefaults.standard.value(forKey: "firebaseToken") as? String {
+            self.firebasePushToken = token
+        }
         
         NotificationCenter.default.addObserver(self,
             selector: #selector(self.tokenRefreshNotification),
@@ -133,8 +136,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func tokenRefreshNotification(_ notification: Notification) {
         if let refreshedToken = FIRInstanceID.instanceID().token() {
             print("• FIREBASE Instance token: \(refreshedToken)")
-            self.instanceToken = refreshedToken
-            
+            self.firebasePushToken = refreshedToken
+            UserDefaults.standard.set(refreshedToken, forKey: "firebaseToken")
             connectToFcm()
         }
     }
@@ -191,7 +194,10 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 extension AppDelegate: FIRMessagingDelegate {
     
     func applicationReceivedRemoteMessage(_ remoteMessage: FIRMessagingRemoteMessage) {
+        
         if let notification = remoteMessage.appData as? [String: String] {
+        
+            print("********************************************************")
             print("FIR messaging delegate remote message: \(notification)")
             if let messageType = notification["messageType"], messageType == "createCard" {
                 print("messageType: " + messageType)
@@ -207,9 +213,9 @@ extension AppDelegate: FIRMessagingDelegate {
                 localNotification.soundName = UILocalNotificationDefaultSoundName
                 localNotification.applicationIconBadgeNumber = 5
                 localNotification.category = "Message"
-                
                 UIApplication.shared.scheduleLocalNotification(localNotification)
             }
+            print("********************************************************")
         }
         
     }

@@ -61,13 +61,15 @@ class SignInViewController: BaseViewController {
 //                let user = User(email: email, imei: identifier ?? "355330084909367", name: "Marko Stajic", phone: "+38166066068")
                 let user = User(email: email, imei: "355330084909367", name: "Aleksandar Novakovic", phone: "+38166066068")
 
-                DataManager.sharedInstance.login(user: user, pin: pin, pushToken: appDelegate.instanceToken, completion: { loginResponse in
+                print("••• PUSH TOKEN: \(appDelegate.firebasePushToken) •••")
+                
+                DataManager.sharedInstance.login(user: user, pin: pin, pushToken: appDelegate.firebasePushToken, completion: { loginResponse in
                     if loginResponse.success {
                         (UIApplication.shared.delegate as! AppDelegate).user = loginResponse.user!
 
                         print("USER: \(loginResponse.user!.toString())")
                         
-                        DataManager.sharedInstance.sendPushToken(pushToken: self.appDelegate.instanceToken, userEmail: user.email, completion: { generalResponse in
+                        DataManager.sharedInstance.sendPushToken(pushToken: self.appDelegate.firebasePushToken, userEmail: user.email, completion: { generalResponse in
                             print("SEND PUSH TOKEN: \(generalResponse)")
                             if generalResponse.success {
                                 self.saveCredentials(email: user.email, pin: pin)

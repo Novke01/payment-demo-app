@@ -56,7 +56,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iuX-Yz-Z9e">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="543"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Efn-Bk-nMb" userLabel="Email">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="marko.stajic@gmail.com" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Efn-Bk-nMb" userLabel="Email">
                                                 <rect key="frame" x="26" y="216" width="325" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Bbo-CQ-Rdm"/>
@@ -68,14 +68,14 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="dhlFont" value="textRegularBlack"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="PIN kod" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gtg-Qj-I0H" userLabel="Email">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="5159" placeholder="PIN kod" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gtg-Qj-I0H" userLabel="Email">
                                                 <rect key="frame" x="26" y="276" width="325" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="OFw-DO-WOI"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="dhlFont" value="textRegularBlack"/>
                                                 </userDefinedRuntimeAttributes>
@@ -136,10 +136,10 @@
             </objects>
             <point key="canvasLocation" x="-724" y="134.48275862068968"/>
         </scene>
-        <!--UIViewController-BYZ-38-t0r-->
+        <!--Main-->
         <scene sceneID="iCW-1B-SMf">
             <objects>
-                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="UIViewController-BYZ-38-t0r" id="zIp-aR-mcw" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Main" id="zIp-aR-mcw" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C3P-8r-lny" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>

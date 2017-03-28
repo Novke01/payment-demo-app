@@ -51,8 +51,18 @@ class BaseViewController: UIViewController {
     func setInvisibleNavigation(color: UIColor){
         self.navigationController?.navigationBar.barStyle = .black
         self.navigationController?.navigationBar.barTintColor = color
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
+    }
+    
+    func setVisibleNavigation(color: UIColor?){
+        if let color = color {
+            self.navigationController?.navigationBar.barTintColor = color
+        }
+        self.navigationController?.navigationBar.barStyle = .black
+        self.navigationController?.navigationBar.setBackgroundImage(nil, for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = nil
     }
 
     func configAllTextFields(view: UIView) {

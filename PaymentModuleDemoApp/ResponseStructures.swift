@@ -28,6 +28,20 @@ public struct CardsResponse {
     public let message: String
 }
 
+public struct TransactionsResponse {
+    public let success: Bool
+    public let transacations: [Transaction]?
+    public let error: Error?
+    public let message: String
+}
+
+public struct TransactionResponse {
+    public let success: Bool
+    public let transaction: Transaction?
+    public let error: Error?
+    public let message: String
+}
+
 public struct ChannelsResponse {
     public let success: Bool
     public let channels: [Channel]?

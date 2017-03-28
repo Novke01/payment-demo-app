@@ -15,11 +15,13 @@ class MainViewController: BaseViewController {
     let newPaymentSegueId = "goToNewPayment"
     let viewCardsSegueId = "goToCards"
     let scanQRCodeSegueId = "goToScanQRCode"
+    let viewTransactionsId = "goToTransactions"
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var user: User!
     var checkoutId = ""
     var channels = [Channel]()
+    var transactions = [Transaction]()
     var channel: Channel?
     var invoice : Invoice?
 
@@ -47,6 +49,10 @@ class MainViewController: BaseViewController {
             }
         }
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setVisibleNavigation(color: nil)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -65,6 +71,12 @@ class MainViewController: BaseViewController {
             cardsVC.channel = mainVC.channel
             cardsVC.user = mainVC.user
         }
+//        else if segue.identifier == viewTransactionsId {
+//            let transactionsVC = segue.destination as! TransactionsViewController
+//            let mainVC = sender as! MainViewController
+//            transactionsVC.transactions = mainVC.transactions
+//        }
+            
         else if segue.identifier == scanQRCodeSegueId {
             if let destVC = segue.destination as? QRReader {
                 destVC.delegate = self
@@ -115,6 +127,9 @@ class MainViewController: BaseViewController {
         performSegue(withIdentifier: newPaymentSegueId, sender: user)
     }
     
+    @IBAction func viewTransactions(_ sender: UIButton) {
+        performSegue(withIdentifier: viewTransactionsId, sender: self)
+    }
 }
 
 extension MainViewController : QRReaderDelegate {
