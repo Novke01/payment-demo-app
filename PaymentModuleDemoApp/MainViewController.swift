@@ -13,13 +13,14 @@ import AVKit
 class MainViewController: BaseViewController {
     
     let newPaymentSegueId = "goToNewPayment"
-    let addNewCardSegueId = "goToAddNewCard"
+    let viewCardsSegueId = "goToCards"
     let scanQRCodeSegueId = "goToScanQRCode"
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var user: User!
     var checkoutId = ""
     var channels = [Channel]()
+    var channel: Channel?
     var invoice : Invoice?
 
     override func viewDidLoad() {
@@ -58,10 +59,11 @@ class MainViewController: BaseViewController {
             newPaymentController.user = self.user
             newPaymentController.invoice = self.invoice
         }
-        else if segue.identifier == addNewCardSegueId {
-            if let destVC = segue.destination as? NewCardViewController {
-                destVC.checkoutId = self.checkoutId
-            }
+        else if segue.identifier == viewCardsSegueId {
+            let cardsVC = segue.destination as! CardsViewController
+            let mainVC = sender as! MainViewController
+            cardsVC.channel = mainVC.channel
+            cardsVC.user = mainVC.user
         }
         else if segue.identifier == scanQRCodeSegueId {
             if let destVC = segue.destination as? QRReader {
@@ -97,24 +99,15 @@ class MainViewController: BaseViewController {
         }
     }
     
-    @IBAction func addNewCard(_ sender: UIButton) {
+    @IBAction func viewCards(_ sender: UIButton) {
         
         let channel = self.channels.filter{ $0.channelName == "3DS" }.first
 
         if let channel = channel {
             
-            DataManager.sharedInstance.addCard(channel: channel, completion: { (checkoutId) in
-                if let id = checkoutId {
-                    print("Checkout id: \(id)")
-                    
-                    DispatchQueue.main.sync {
-                        
-                        self.checkoutId = id
-                        self.performSegue(withIdentifier: self.addNewCardSegueId, sender: self)
-                        
-                    }
-                }
-            })
+            self.channel = channel
+            
+            performSegue(withIdentifier: viewCardsSegueId, sender: self)
         }
     }
     

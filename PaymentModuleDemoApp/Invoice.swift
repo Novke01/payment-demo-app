@@ -83,7 +83,7 @@ class Invoice: NSObject, NSCopying {
     }
     
     override var description: String {
-        return "qrCodeRevision: \(qrCodeRevision), \nmerchantName: \(merchantName), \nmerchantAddress: \(merchantAddress), \nmerchantCity: \(merchantCity), \nmerchantExtra1: \(merchantExtra1), \nmerchantExtra2: \(merchantExtra2), \nbuyerName: \(buyerName), \nbuyerAddress: \(buyerAddress), \nbuyerCity: \(buyerCity), \nbuyerExtra1: \(buyerExtra1), \npaymentDescription: \(paymentDescription), \nprice: \(price), \npriceIsEditable: \(priceIsEditable), \ncurrency: \(currency), \ntransactionId: \(transactionId), \ncolorScheme: \(colorScheme), \nextra1: \(extra1), \nextra2: \(extra2), \nextra3: \(extra3), \nextra4: \(extra4))"
+        return "qrCodeRevision: \(qrCodeRevision), \nmerchantName: \(merchantName), \nmerchantAddress: \(merchantAddress), \nmerchantCity: \(merchantCity), \nmerchantExtra1: \(String(describing: merchantExtra1)), \nmerchantExtra2: \(String(describing: merchantExtra2)), \nbuyerName: \(String(describing: buyerName)), \nbuyerAddress: \(String(describing: buyerAddress)), \nbuyerCity: \(String(describing: buyerCity)), \nbuyerExtra1: \(String(describing: buyerExtra1)), \npaymentDescription: \(paymentDescription), \nprice: \(price), \npriceIsEditable: \(priceIsEditable), \ncurrency: \(currency), \ntransactionId: \(transactionId), \ncolorScheme: \(colorScheme), \nextra1: \(String(describing: extra1)), \nextra2: \(String(describing: extra2)), \nextra3: \(String(describing: extra3)), \nextra4: \(String(describing: extra4)))"
     }
     
     init(qrCodeString: String, separationCharacter: CharacterSet) {

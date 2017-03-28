@@ -24,12 +24,6 @@
 		021D4FE31E80107600110823 /* RestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021D4FE01E80107600110823 /* RestManager.swift */; };
 		021D4FE71E80137700110823 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021D4FE61E80137700110823 /* User.swift */; };
 		021D4FE91E8017C400110823 /* ParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021D4FE81E8017C400110823 /* ParseManager.swift */; };
-		0221AEAF1E8951FE00B95D1D /* DHLFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0221AEAE1E8951FE00B95D1D /* DHLFont.swift */; };
-		0221AEB21E89525800B95D1D /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0221AEB11E89525800B95D1D /* UIFontExtension.swift */; };
-		0221AEB51E89540700B95D1D /* DHLFontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0221AEB41E89540700B95D1D /* DHLFontManager.swift */; };
-		0221AEB71E89551F00B95D1D /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0221AEB61E89551F00B95D1D /* UITextFieldExtension.swift */; };
-		0221AEBE1E89562100B95D1D /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0221AEBC1E89562100B95D1D /* Registration.storyboard */; };
-		022B3D421E8A60760053B18A /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022B3D411E8A60760053B18A /* UIColorExtension.swift */; };
 		023D39B01E8403AA007C9F52 /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023D39AF1E8403AA007C9F52 /* Invoice.swift */; };
 		025849F01E8568E50028A85F /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 025849EF1E8568E50028A85F /* KeychainWrapper.m */; };
 		025849F21E8569650028A85F /* LockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025849F11E8569650028A85F /* LockViewController.swift */; };
@@ -41,6 +35,7 @@
 		DD6141EF1E7BEC4600CB84C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD6141ED1E7BEC4600CB84C8 /* LaunchScreen.storyboard */; };
 		DD779A2A1E7FC21D00FBF902 /* NewPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD779A291E7FC21D00FBF902 /* NewPaymentViewController.swift */; };
 		DD779A2C1E7FE16F00FBF902 /* CardSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD779A2B1E7FE16F00FBF902 /* CardSelectionViewController.swift */; };
+		DDC4CE391E8A40AA0040BD93 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC4CE381E8A40AA0040BD93 /* CardsViewController.swift */; };
 		DDE63B0B1E8533B100D314EB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDE63B0A1E8533B100D314EB /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -63,12 +58,6 @@
 		021D4FE01E80107600110823 /* RestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestManager.swift; sourceTree = "<group>"; };
 		021D4FE61E80137700110823 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		021D4FE81E8017C400110823 /* ParseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseManager.swift; sourceTree = "<group>"; };
-		0221AEAE1E8951FE00B95D1D /* DHLFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DHLFont.swift; sourceTree = "<group>"; };
-		0221AEB11E89525800B95D1D /* UIFontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
-		0221AEB41E89540700B95D1D /* DHLFontManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DHLFontManager.swift; sourceTree = "<group>"; };
-		0221AEB61E89551F00B95D1D /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
-		0221AEBD1E89562100B95D1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Registration.storyboard; sourceTree = "<group>"; };
-		022B3D411E8A60760053B18A /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		023D39AF1E8403AA007C9F52 /* Invoice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Invoice.swift; sourceTree = "<group>"; };
 		025849ED1E8568E40028A85F /* PaymentModuleDemoApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PaymentModuleDemoApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		025849EE1E8568E50028A85F /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
@@ -86,6 +75,7 @@
 		DD6141F01E7BEC4600CB84C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD779A291E7FC21D00FBF902 /* NewPaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPaymentViewController.swift; sourceTree = "<group>"; };
 		DD779A2B1E7FE16F00FBF902 /* CardSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardSelectionViewController.swift; sourceTree = "<group>"; };
+		DDC4CE381E8A40AA0040BD93 /* CardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
 		DDE63B0A1E8533B100D314EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,42 +112,6 @@
 				021D4FD91E800CD100110823 /* Constants.swift */,
 			);
 			name = Constants;
-			sourceTree = "<group>";
-		};
-		0221AEAC1E8951D700B95D1D /* Style */ = {
-			isa = PBXGroup;
-			children = (
-				0221AEB01E89523D00B95D1D /* Extensions */,
-				0221AEB31E8953E200B95D1D /* StyleManagers */,
-				0221AEAD1E8951DE00B95D1D /* Styles */,
-			);
-			name = Style;
-			sourceTree = "<group>";
-		};
-		0221AEAD1E8951DE00B95D1D /* Styles */ = {
-			isa = PBXGroup;
-			children = (
-				0221AEAE1E8951FE00B95D1D /* DHLFont.swift */,
-			);
-			name = Styles;
-			sourceTree = "<group>";
-		};
-		0221AEB01E89523D00B95D1D /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				0221AEB11E89525800B95D1D /* UIFontExtension.swift */,
-				0221AEB61E89551F00B95D1D /* UITextFieldExtension.swift */,
-				022B3D411E8A60760053B18A /* UIColorExtension.swift */,
-			);
-			name = Extensions;
-			sourceTree = "<group>";
-		};
-		0221AEB31E8953E200B95D1D /* StyleManagers */ = {
-			isa = PBXGroup;
-			children = (
-				0221AEB41E89540700B95D1D /* DHLFontManager.swift */,
-			);
-			name = StyleManagers;
 			sourceTree = "<group>";
 		};
 		027975CD1E800BD4005B9A39 /* Controllers */ = {
@@ -210,7 +164,6 @@
 		DD6141E31E7BEC4600CB84C8 /* PaymentModuleDemoApp */ = {
 			isa = PBXGroup;
 			children = (
-				0221AEAC1E8951D700B95D1D /* Style */,
 				021D4FDD1E80105600110823 /* PaymentModuleDemoApp.entitlements */,
 				021D4FE51E80112900110823 /* Constants */,
 				021D4FE41E80107A00110823 /* Model */,
@@ -220,6 +173,7 @@
 				0219E7DA1E81275700A67E2B /* PaymentPreviewViewController.swift */,
 				0219E7DB1E81275700A67E2B /* SignInViewController.swift */,
 				DD6141E61E7BEC4600CB84C8 /* MainViewController.swift */,
+				DDC4CE381E8A40AA0040BD93 /* CardsViewController.swift */,
 				0219E7E51E817BA900A67E2B /* NewCardViewController.swift */,
 				DD779A291E7FC21D00FBF902 /* NewPaymentViewController.swift */,
 				02139E281E83F0A1009C1DC6 /* QRReader.swift */,
@@ -229,7 +183,6 @@
 				025849EE1E8568E50028A85F /* KeychainWrapper.h */,
 				025849EF1E8568E50028A85F /* KeychainWrapper.m */,
 				DD6141E81E7BEC4600CB84C8 /* Main.storyboard */,
-				0221AEBC1E89562100B95D1D /* Registration.storyboard */,
 				DD6141EB1E7BEC4600CB84C8 /* Assets.xcassets */,
 				DD6141ED1E7BEC4600CB84C8 /* LaunchScreen.storyboard */,
 				DD6141F01E7BEC4600CB84C8 /* Info.plist */,
@@ -284,6 +237,9 @@
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -314,7 +270,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0221AEBE1E89562100B95D1D /* Registration.storyboard in Resources */,
 				DD6141EF1E7BEC4600CB84C8 /* LaunchScreen.storyboard in Resources */,
 				DDE63B0B1E8533B100D314EB /* GoogleService-Info.plist in Resources */,
 				DD6141EC1E7BEC4600CB84C8 /* Assets.xcassets in Resources */,
@@ -378,27 +333,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				0219E7DE1E81275700A67E2B /* SignInViewController.swift in Sources */,
-				0221AEB71E89551F00B95D1D /* UITextFieldExtension.swift in Sources */,
 				025849F21E8569650028A85F /* LockViewController.swift in Sources */,
 				0219E7E01E812CE600A67E2B /* Channel.swift in Sources */,
 				021D4FE31E80107600110823 /* RestManager.swift in Sources */,
 				021D4FDC1E800CE200110823 /* Data Extensions.swift in Sources */,
 				02139E291E83F0A1009C1DC6 /* QRReader.swift in Sources */,
-				0221AEAF1E8951FE00B95D1D /* DHLFont.swift in Sources */,
 				021D4FDA1E800CD100110823 /* Constants.swift in Sources */,
 				0219E7E61E817BA900A67E2B /* NewCardViewController.swift in Sources */,
 				DD6141E71E7BEC4600CB84C8 /* MainViewController.swift in Sources */,
-				0221AEB21E89525800B95D1D /* UIFontExtension.swift in Sources */,
 				0219E7E41E812F4F00A67E2B /* Transaction.swift in Sources */,
 				021D4FE11E80107600110823 /* DataManager.swift in Sources */,
-				022B3D421E8A60760053B18A /* UIColorExtension.swift in Sources */,
+				DDC4CE391E8A40AA0040BD93 /* CardsViewController.swift in Sources */,
 				0219E7DC1E81275700A67E2B /* BaseViewController.swift in Sources */,
 				DD779A2C1E7FE16F00FBF902 /* CardSelectionViewController.swift in Sources */,
 				DD6141E51E7BEC4600CB84C8 /* AppDelegate.swift in Sources */,
 				021D4FE21E80107600110823 /* ResponseStructures.swift in Sources */,
 				021D4FE71E80137700110823 /* User.swift in Sources */,
 				0219E7DD1E81275700A67E2B /* PaymentPreviewViewController.swift in Sources */,
-				0221AEB51E89540700B95D1D /* DHLFontManager.swift in Sources */,
 				DD779A2A1E7FC21D00FBF902 /* NewPaymentViewController.swift in Sources */,
 				023D39B01E8403AA007C9F52 /* Invoice.swift in Sources */,
 				025849F01E8568E50028A85F /* KeychainWrapper.m in Sources */,
@@ -410,14 +361,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		0221AEBC1E89562100B95D1D /* Registration.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0221AEBD1E89562100B95D1D /* Base */,
-			);
-			name = Registration.storyboard;
-			sourceTree = "<group>";
-		};
 		DD6141E81E7BEC4600CB84C8 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

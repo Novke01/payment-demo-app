@@ -34,11 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             name: .firInstanceIDTokenRefresh,
             object: nil)
         
-//        NorificationCenter.default.addObserver(self,
-//            selector: #selector(self.messageSuccessNotification),
-//            name: .FIRMessagingSendSuccess,
-//            object: nil)
-        
         return true
     }
     
@@ -136,9 +131,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func tokenRefreshNotification(_ notification: Notification) {
-        if let refreshToken = FIRInstanceID.instanceID().token() {
-            print("• FIREBASE Instance token: \(refreshToken)")
-            self.instanceToken = refreshToken
+        if let refreshedToken = FIRInstanceID.instanceID().token() {
+            print("• FIREBASE Instance token: \(refreshedToken)")
+            self.instanceToken = refreshedToken
             
             connectToFcm()
         }
@@ -159,7 +154,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FIRMessaging.messaging().connect { (error) in
             if error != nil {
-                print("Unable to connect with FCM. \(error)")
+                print("Unable to connect with FCM. \(String(describing: error))")
             }
             else {
                 print("Connected to FCM.")
@@ -193,6 +188,34 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     
 }
 
+extension AppDelegate: FIRMessagingDelegate {
+    
+    func applicationReceivedRemoteMessage(_ remoteMessage: FIRMessagingRemoteMessage) {
+        if let notification = remoteMessage.appData as? [String: String] {
+            print("FIR messaging delegate remote message: \(notification)")
+            if let messageType = notification["messageType"], messageType == "createCard" {
+                print("messageType: " + messageType)
+                if let navigationVC = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController,
+                    let currentVC = navigationVC.visibleViewController as? NewCardViewController {
+                    currentVC.back()
+                }
+                let localNotification = UILocalNotification()
+                localNotification.fireDate = NSDate(timeIntervalSinceNow: 3) as Date
+                localNotification.alertBody = notification["statusMessage"]
+                localNotification.timeZone = NSTimeZone.local
+                localNotification.userInfo = ["Important":"Data"]
+                localNotification.soundName = UILocalNotificationDefaultSoundName
+                localNotification.applicationIconBadgeNumber = 5
+                localNotification.category = "Message"
+                
+                UIApplication.shared.scheduleLocalNotification(localNotification)
+            }
+        }
+        
+    }
+    
+}
+
 extension AppDelegate {
     
     func showLockScreen(){
@@ -219,12 +242,4 @@ extension AppDelegate {
             return nil
         }
     }
-}
-
-extension AppDelegate: FIRMessagingDelegate {
-    
-    func applicationReceivedRemoteMessage(_ remoteMessage: FIRMessagingRemoteMessage) {
-        print("FIR messaging delegate remote message: \(remoteMessage.appData)")
-    }
-    
 }
