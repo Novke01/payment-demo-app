@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="30T-Rw-q3E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="30T-Rw-q3E">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -79,11 +79,11 @@
                                             <constraint firstAttribute="height" constant="80" id="fWo-EN-W7L"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
-                                        <state key="normal" title="Add New Card">
+                                        <state key="normal" title="View Cards">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="addNewCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bmp-fd-BPR"/>
+                                            <action selector="viewCards:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H5d-xr-lim"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -115,9 +115,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="M8J-w5-1GS" kind="show" identifier="goToAddNewCard" id="XDR-mS-idV"/>
                         <segue destination="X7B-Up-XK7" kind="show" identifier="goToNewPayment" id="JcD-xC-pGu"/>
                         <segue destination="ptn-V6-5Ow" kind="show" identifier="goToScanQRCode" id="q3S-OB-z8U"/>
+                        <segue destination="Emb-Mk-js0" kind="show" identifier="goToCards" id="cnX-In-2fM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -557,7 +557,48 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gjd-17-ruo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-50.399999999999999" y="923.38830584707648"/>
+            <point key="canvasLocation" x="-977" y="940"/>
+        </scene>
+        <!--Cards-->
+        <scene sceneID="prZ-C4-dmv">
+            <objects>
+                <viewController title="Cards" id="Emb-Mk-js0" customClass="CardsViewController" customModule="PaymentModuleDemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Zi4-kt-09l"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hh7-op-SfT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HgX-Mm-3uf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qPz-Be-ZAy">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qPz-Be-ZAy" firstAttribute="top" secondItem="Zi4-kt-09l" secondAttribute="bottom" constant="-64" id="Uku-K4-3m8"/>
+                            <constraint firstItem="qPz-Be-ZAy" firstAttribute="leading" secondItem="HgX-Mm-3uf" secondAttribute="leadingMargin" constant="-16" id="b7G-Zh-hWE"/>
+                            <constraint firstItem="Hh7-op-SfT" firstAttribute="top" secondItem="qPz-Be-ZAy" secondAttribute="bottom" id="iYA-hd-3Ie"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qPz-Be-ZAy" secondAttribute="trailing" constant="-16" id="wwu-CS-yeA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Cards" id="Bg6-Ox-11x">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5LA-WO-Gbo">
+                            <connections>
+                                <action selector="addNewCard:" destination="Emb-Mk-js0" id="e55-Ej-2AL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cardsTable" destination="qPz-Be-ZAy" id="4IF-ml-qVI"/>
+                        <segue destination="M8J-w5-1GS" kind="show" identifier="goToNewCard" id="lmp-je-8Ay"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kPI-JE-v3d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="997.15142428785612"/>
         </scene>
         <!--New Card-->
         <scene sceneID="gaa-oK-gTd">
@@ -574,8 +615,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="New Card" id="7iS-TK-6hz"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <segue destination="pyn-ay-9If" kind="unwind" identifier="goBack" unwindAction="unwindToCardsViewWithSegue:" id="DlA-cf-4Wh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AMs-mg-CzD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="pyn-ay-9If" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1120.8" y="998.95052473763121"/>
         </scene>
@@ -595,7 +640,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RrJ-3j-r2c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-740" y="924.28785607196414"/>
+            <point key="canvasLocation" x="-1666" y="940"/>
         </scene>
     </scenes>
     <resources>

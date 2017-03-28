@@ -11,15 +11,23 @@ import WebKit
 
 class NewCardViewController: UIViewController {
 
+    let startRequestMessage = "startRequest"
+    let handlerName = "requestSent"
+    let backSegueId = "goBack"
+    
     var webView: WKWebView?
     var checkoutId : String!
     
     override func loadView() {
         super.loadView()
         
-        webView = WKWebView()
+        let webConfig = WKWebViewConfiguration()
+        let userController = WKUserContentController()
+        userController.add(self, name: handlerName)
+        webConfig.userContentController = userController
+        
+        webView = WKWebView(frame: view.frame, configuration: webConfig)
         view = webView
-        webView?.navigationDelegate = self
         
     }
     
@@ -30,7 +38,10 @@ class NewCardViewController: UIViewController {
         let js = "var android = { " +
                  "    getCheckoutId: function() { return '\(checkoutId!)'; }," +
                  "    getShopperResultUrl: function() { return 'http://mdhl.cloudapp.net/securepay/shopperResultUrl'; }," +
-                 "    startRequest: function() { return 'startRequest'; }," +
+                 "    startRequest: function() { " +
+                 "        window.webkit.messageHandlers.\(handlerName).postMessage('\(startRequestMessage)');" +
+                 "        return 'startRequest';" +
+                 "    }," +
                  "    fullPageLoaded: function() { return 'fullPageLoaded'; }" +
                  "};"
         
@@ -47,9 +58,19 @@ class NewCardViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    func back() {
+        performSegue(withIdentifier: backSegueId, sender: nil)
+    }
+    
 }
 
-extension NewCardViewController: WKNavigationDelegate {
-
+extension NewCardViewController: WKScriptMessageHandler {
+    
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        if message.name == handlerName {
+            print("MESSAGE: " + message.name)
+        }
+    }
+    
 }

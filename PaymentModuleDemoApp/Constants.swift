@@ -13,6 +13,7 @@ struct API {
     static let login = mdhlBase + "authentication/pin"
     static let register = mdhlBase + "register/user"
     static let cards = mdhlBase + "cards"
+    static let removeCard = mdhlBase + "card/deactivate"
     static let channels = mdhlBase + "channels"
     static let oneClickPay = mdhlBase + "securepay/oneClickPay"
     static let sendPushToken = mdhlBase + "authentication/token"

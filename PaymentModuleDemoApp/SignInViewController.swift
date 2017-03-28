@@ -50,7 +50,7 @@ class SignInViewController: BaseViewController {
                 
                 //Take identifier for vendor instead of imei
                 let identifier = UIDevice.current.identifierForVendor?.uuidString
-                print("UUID String: \(identifier)")
+                print("UUID String: \(String(describing: identifier))")
                 
 //                let user = User(email: email, imei: identifier ?? "355330084909367", name: "Marko Stajic", phone: "+38166066068")
                 let user = User(email: email, imei: "355330084909367", name: "Aleksandar Novakovic", phone: "+38166066068")

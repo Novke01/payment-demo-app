@@ -35,6 +35,7 @@
 		DD6141EF1E7BEC4600CB84C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD6141ED1E7BEC4600CB84C8 /* LaunchScreen.storyboard */; };
 		DD779A2A1E7FC21D00FBF902 /* NewPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD779A291E7FC21D00FBF902 /* NewPaymentViewController.swift */; };
 		DD779A2C1E7FE16F00FBF902 /* CardSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD779A2B1E7FE16F00FBF902 /* CardSelectionViewController.swift */; };
+		DDC4CE391E8A40AA0040BD93 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC4CE381E8A40AA0040BD93 /* CardsViewController.swift */; };
 		DDE63B0B1E8533B100D314EB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDE63B0A1E8533B100D314EB /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		DD6141F01E7BEC4600CB84C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD779A291E7FC21D00FBF902 /* NewPaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPaymentViewController.swift; sourceTree = "<group>"; };
 		DD779A2B1E7FE16F00FBF902 /* CardSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardSelectionViewController.swift; sourceTree = "<group>"; };
+		DDC4CE381E8A40AA0040BD93 /* CardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
 		DDE63B0A1E8533B100D314EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -171,6 +173,7 @@
 				0219E7DA1E81275700A67E2B /* PaymentPreviewViewController.swift */,
 				0219E7DB1E81275700A67E2B /* SignInViewController.swift */,
 				DD6141E61E7BEC4600CB84C8 /* MainViewController.swift */,
+				DDC4CE381E8A40AA0040BD93 /* CardsViewController.swift */,
 				0219E7E51E817BA900A67E2B /* NewCardViewController.swift */,
 				DD779A291E7FC21D00FBF902 /* NewPaymentViewController.swift */,
 				02139E281E83F0A1009C1DC6 /* QRReader.swift */,
@@ -232,6 +235,9 @@
 								enabled = 0;
 							};
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
 								enabled = 1;
 							};
 							com.apple.Push = {
@@ -337,6 +343,7 @@
 				DD6141E71E7BEC4600CB84C8 /* MainViewController.swift in Sources */,
 				0219E7E41E812F4F00A67E2B /* Transaction.swift in Sources */,
 				021D4FE11E80107600110823 /* DataManager.swift in Sources */,
+				DDC4CE391E8A40AA0040BD93 /* CardsViewController.swift in Sources */,
 				0219E7DC1E81275700A67E2B /* BaseViewController.swift in Sources */,
 				DD779A2C1E7FE16F00FBF902 /* CardSelectionViewController.swift in Sources */,
 				DD6141E51E7BEC4600CB84C8 /* AppDelegate.swift in Sources */,

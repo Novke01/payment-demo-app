@@ -56,7 +56,7 @@ public class Card: NSObject, Mappable {
     }
     
     public func toString() -> String{
-        return "\nCard: \(brand)\nLast four digits: \(last4Digits)\nExp data: \(monthExp)/\(yearExp)"
+        return "\nCard: \(String(describing: brand))\nLast four digits: \(last4Digits)\nExp data: \(monthExp)/\(yearExp)"
     }
     
 }

@@ -181,7 +181,7 @@ public class DataManager {
             data, response, error in
             
             if error != nil {
-                print("error=\(error)")
+                print("error=\(String(describing: error))")
                 return
             }
             do {
@@ -200,6 +200,23 @@ public class DataManager {
             }
         }
         task.resume()
+        
+    }
+    
+    public func removeCard(cardId: String, completion: @escaping (GeneralResponse) -> Void) {
+        let url = API.removeCard + "?cardID=" + cardId
+        
+        RestManager.sharedInstance.PUT(url: url, completion: { (json, data, success) -> Void in
+            if success {
+                if let jsonData = json, let jsonDictionary = jsonData as? [String: Any] {
+                    if let code = jsonDictionary["code"] as? Int, let message = jsonDictionary["message"] as? String {
+                        if Array(200..<300).contains(code) {
+                            completion(GeneralResponse(success: true, error: nil, message: message))
+                        }
+                    }
+                }
+            }
+        })
         
     }
     
@@ -273,7 +290,7 @@ public class DataManager {
             data, response, error in
             
             if error != nil {
-                print("error=\(error)")
+                print("error=\(String(describing: error))")
                 return
             }
             
