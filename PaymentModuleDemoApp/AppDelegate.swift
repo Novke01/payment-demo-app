@@ -197,7 +197,7 @@ extension AppDelegate: FIRMessagingDelegate {
         
         if let notification = remoteMessage.appData as? [String: String] {
         
-            print("********************************************************")
+            print("••••••GOT NOTI•••••••")
             print("FIR messaging delegate remote message: \(notification)")
             if let messageType = notification["messageType"], messageType == "createCard" {
                 print("messageType: " + messageType)
@@ -205,6 +205,8 @@ extension AppDelegate: FIRMessagingDelegate {
                     let currentVC = navigationVC.visibleViewController as? NewCardViewController {
                     currentVC.back()
                 }
+                
+                
                 let localNotification = UILocalNotification()
                 localNotification.fireDate = NSDate(timeIntervalSinceNow: 3) as Date
                 localNotification.alertBody = notification["statusMessage"]
@@ -214,8 +216,14 @@ extension AppDelegate: FIRMessagingDelegate {
                 localNotification.applicationIconBadgeNumber = 5
                 localNotification.category = "Message"
                 UIApplication.shared.scheduleLocalNotification(localNotification)
+            }else if let messageType = notification["messageType"], messageType == "transactionData" {
+                if let navigationVC = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController, let currentVC = navigationVC.visibleViewController as? PaymentPreviewViewController {
+                    print("• Payment preview active")
+                    if let trackingId = notification["trackId"] {
+                        currentVC.pushToTransaction(trackingId: trackingId)
+                    }
+                }
             }
-            print("********************************************************")
         }
         
     }

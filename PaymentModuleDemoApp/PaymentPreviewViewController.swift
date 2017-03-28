@@ -15,6 +15,9 @@ class PaymentPreviewViewController: BaseViewController {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var cardLabel: UILabel!
     
+    
+    let showTransactionId = "showTransaction"
+    
     var user: User!
     var card: Card!
     var price: String!
@@ -35,14 +38,20 @@ class PaymentPreviewViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func pushToTransaction(trackingId: String){
+        self.performSegue(withIdentifier: showTransactionId, sender: trackingId)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == showTransactionId {
+            let transVC = segue.destination as! TransactionViewController
+            transVC.transactionTrackId = sender as! String
+        }
+    }
 
     @IBAction func oneClickPay(_ sender: UIButton) {
         DataManager.sharedInstance.oneClickPayment(billId: billId, price: price, currency: currency, card: card.token) { (GeneralResponse) in
-            if GeneralResponse.success {
-                self.showAlert(title: "Proces plaćanja započet", message: "")
-            }else{
-                self.showAlert(title: "Proces plaćanja nije započet", message: GeneralResponse.message)
-            }
+            print("Payment process started")
         }
     }
 }

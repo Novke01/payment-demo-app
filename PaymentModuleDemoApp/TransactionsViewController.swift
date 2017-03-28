@@ -39,7 +39,7 @@ class TransactionsViewController: BaseViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == viewTransactionId {
             let transVC = segue.destination as! TransactionViewController
-            transVC.transaction = sender as! Transaction
+            transVC.transactionTrackId = sender as! String
         }
     }
 
@@ -58,7 +58,7 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: viewTransactionId, sender: transactions[indexPath.row])
+        self.performSegue(withIdentifier: viewTransactionId, sender: transactions[indexPath.row].trackingId)
     }
 }
 
