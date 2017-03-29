@@ -53,7 +53,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iuX-Yz-Z9e">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="543"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Efn-Bk-nMb" userLabel="Email">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Efn-Bk-nMb" userLabel="Email" customClass="LeftPaddedTextField" customModule="PaymentModuleDemoApp" customModuleProvider="target">
                                                 <rect key="frame" x="26" y="216" width="325" height="50"/>
                                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <constraints>
@@ -67,7 +67,7 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="dhlStyle" value="grayAndRounded"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="PIN kod" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gtg-Qj-I0H" userLabel="Email">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="PIN kod" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gtg-Qj-I0H" userLabel="Email" customClass="LeftPaddedTextField" customModule="PaymentModuleDemoApp" customModuleProvider="target">
                                                 <rect key="frame" x="26" y="276" width="325" height="50"/>
                                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <constraints>
@@ -194,7 +194,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JHT-ed-ktv">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ime i prezime" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z6o-kb-pKL" userLabel="Email">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ime i prezime" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z6o-kb-pKL" userLabel="Email" customClass="LeftPaddedTextField" customModule="PaymentModuleDemoApp" customModuleProvider="target">
                                                 <rect key="frame" x="26" y="214" width="325" height="50"/>
                                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <constraints>
@@ -208,7 +208,7 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="dhlStyle" value="grayAndRounded"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mqx-8Y-GmZ" userLabel="Email">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mqx-8Y-GmZ" userLabel="Email" customClass="LeftPaddedTextField" customModule="PaymentModuleDemoApp" customModuleProvider="target">
                                                 <rect key="frame" x="26" y="274" width="325" height="50"/>
                                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <constraints>
@@ -253,7 +253,7 @@
                                                     <action selector="backToLogin:" destination="TBO-9l-nEg" eventType="touchUpInside" id="g64-LE-Lc1"/>
                                                 </connections>
                                             </button>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Telefonski broj" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UV9-ju-Us3" userLabel="Email">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Telefonski broj" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UV9-ju-Us3" userLabel="Email" customClass="LeftPaddedTextField" customModule="PaymentModuleDemoApp" customModuleProvider="target">
                                                 <rect key="frame" x="26.5" y="332" width="325" height="50"/>
                                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <constraints>

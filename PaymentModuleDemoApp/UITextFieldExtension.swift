@@ -37,9 +37,6 @@ private var dhlTextFieldStyleAssociationKey: UInt8 = 0
             guard let dhlStyleName = newValue else { return }
             objc_setAssociatedObject(self, &dhlTextFieldStyleAssociationKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
             guard let dhlStyle = DHLTextFieldStyleManager.style(name: dhlStyleName) else { return }
-            let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 8, height: 20))
-            self.leftView = paddingView
-            self.leftViewMode = UITextFieldViewMode.always
 
             self.borderStyle = dhlStyle.borderStyle
             self.layer.borderWidth = 1.0
