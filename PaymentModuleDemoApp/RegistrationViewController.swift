@@ -1,36 +1,37 @@
 //
-//  SignInViewController.swift
+//  RegistrationViewController.swift
 //  PaymentModuleDemoApp
 //
-//  Created by Aleksandar Novakovic on 3/20/17.
+//  Created by Marko Stajic on 3/29/17.
 //  Copyright © 2017 Execom. All rights reserved.
 //
 
 import UIKit
 
-class SignInViewController: BaseViewController {
+class RegistrationViewController: BaseViewController {
     
+    @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var pinTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
     let MyKeychainWrapper = KeychainWrapper()
     
     @IBOutlet weak var signInButton: UIButton!
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let paymentDemoSegueId = "goToPaymentDemo"
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         signInButton.layer.cornerRadius = 10.0
+        self.navigationItem.hidesBackButton = true
         self.view.backgroundColor = UIColor.dhlYellow
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(tap)
         
         // Do any additional setup after loading the view.
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setInvisibleNavigation(color: UIColor.dhlYellow)
     }
     
     override func didReceiveMemoryWarning() {
@@ -51,41 +52,28 @@ class SignInViewController: BaseViewController {
         MyKeychainWrapper.writeToKeychain()
         UserDefaults.standard.set(true, forKey: "hasLoginKey")
     }
+    @IBAction func backToLogin(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     @IBAction func signIn(_ sender: Any) {
-        if let email = emailTextField.text {
-            if let pin = pinTextField.text {
+        if let name = nameTextField.text, let email = emailTextField.text, let phone = phoneTextField.text {
                 
                 //Take identifier for vendor instead of imei
                 let identifier = UIDevice.current.identifierForVendor?.uuidString
                 print("UUID String: \(String(describing: identifier))")
                 
-                print("••• PUSH TOKEN: \(appDelegate.firebasePushToken) •••")
-                let imei = "355330084909367"
+                let user = User(email: email, imei: "355330084909367", name: name, phone: phone)
                 
-                DataManager.sharedInstance.login(email: email, pin: pin, pushToken: appDelegate.firebasePushToken, imei: identifier ?? imei, completion: { loginResponse in
-                    if loginResponse.success {
-                        (UIApplication.shared.delegate as! AppDelegate).user = loginResponse.user!
-
-                        print("USER: \(loginResponse.user!.toString())")
-                        
-                        DataManager.sharedInstance.sendPushToken(pushToken: self.appDelegate.firebasePushToken, userEmail: email, completion: { generalResponse in
-                            print("SEND PUSH TOKEN: \(generalResponse)")
-                            if generalResponse.success {
-                                self.saveCredentials(email: email, pin: pin)
-                                self.performSegue(withIdentifier: self.paymentDemoSegueId, sender: loginResponse.user!)
-                            }
-                            else {
-                                print("Error: \(generalResponse.message) ")
-                            }
-                        })
-                    }
-                    else {
-                        print("Error: \(loginResponse.message)")
-                        self.showAlert(title: "Prijavljivanje nije uspelo", message: loginResponse.message)
-                    }
-                })
-            }
+                print("••• PUSH TOKEN: \(appDelegate.firebasePushToken) •••")
+            
+            DataManager.sharedInstance.register(user: user, completion: { (GeneralResponse) in
+                if GeneralResponse.success {
+                    self.showAlertAndGoBack(title: "Registracija uspela", message: "Email sa PIN kodom će uskoro biti poslat")
+                }else{
+                    self.showAlert(title: "Registracija nije uspela", message: "Nešto nije u redu")
+                }
+            })
         }
         
     }

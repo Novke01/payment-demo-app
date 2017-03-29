@@ -77,7 +77,8 @@ extension CardSelectionViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let newCell: UITableViewCell = cardsList.dequeueReusableCell(withIdentifier: reusableCellIdentifier, for: indexPath) as UITableViewCell!
-        newCell.textLabel?.text = "xxxx-xxxx-xxxx-" + cards[indexPath.row].last4Digits
+        let exp = "  Exp: " + cards[indexPath.row].monthExp + "/" + cards[indexPath.row].yearExp
+        newCell.textLabel?.text = (cards[indexPath.row].brand ?? "") + "  " + "xxxx-xxxx-xxxx-" + cards[indexPath.row].last4Digits + exp
         return newCell
     }
     

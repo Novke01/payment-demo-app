@@ -139,6 +139,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.firebasePushToken = refreshedToken
             UserDefaults.standard.set(refreshedToken, forKey: "firebaseToken")
             connectToFcm()
+            updatePushTokenOnServer()
+        }
+    }
+    
+    func updatePushTokenOnServer(){
+        if self.user.email != "" {
+            DataManager.sharedInstance.sendPushToken(pushToken: self.firebasePushToken, userEmail: self.user.email, completion: { generalResponse in
+                print("SEND PUSH TOKEN: \(generalResponse)")
+                if generalResponse.success {
+                    print("• TOKEN UPDATE ON SERVER •")
+                }
+                else {
+                    print("Error: \(generalResponse.message) ")
+                }
+            })
         }
     }
     
@@ -234,7 +249,7 @@ extension AppDelegate {
     
     func showLockScreen(){
         if let vc = self.getVisibleViewController() {
-            if !(vc is LockViewController) && !(vc is SignInViewController) {
+            if !(vc is LockViewController) && !(vc is SignInViewController) && !(vc is RegistrationViewController) {
                 if let lockVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "lockViewController") as? UINavigationController {
                     vc.present(lockVC, animated: true, completion: nil)
                 }

@@ -24,9 +24,15 @@
 		021D4FE31E80107600110823 /* RestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021D4FE01E80107600110823 /* RestManager.swift */; };
 		021D4FE71E80137700110823 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021D4FE61E80137700110823 /* User.swift */; };
 		021D4FE91E8017C400110823 /* ParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021D4FE81E8017C400110823 /* ParseManager.swift */; };
+		0228B4041E8BE68100E0A728 /* DHLButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228B4031E8BE68100E0A728 /* DHLButtonStyle.swift */; };
+		0228B4061E8BE77200E0A728 /* DHLButtonStyleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228B4051E8BE77200E0A728 /* DHLButtonStyleManager.swift */; };
+		0228B4081E8BE7C400E0A728 /* UIButton Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228B4071E8BE7C400E0A728 /* UIButton Extension.swift */; };
 		023D39B01E8403AA007C9F52 /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023D39AF1E8403AA007C9F52 /* Invoice.swift */; };
 		025849F01E8568E50028A85F /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 025849EF1E8568E50028A85F /* KeychainWrapper.m */; };
 		025849F21E8569650028A85F /* LockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025849F11E8569650028A85F /* LockViewController.swift */; };
+		02F19C001E8BAC280050EB81 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F19BFF1E8BAC280050EB81 /* RegistrationViewController.swift */; };
+		02F19C021E8BD96C0050EB81 /* DHLTextFieldStyleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F19C011E8BD96C0050EB81 /* DHLTextFieldStyleManager.swift */; };
+		02F19C041E8BD9900050EB81 /* DHLTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F19C031E8BD9900050EB81 /* DHLTextFieldStyle.swift */; };
 		02FB5F391E8A7CC800C8CF40 /* DHLFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FB5F341E8A7CC800C8CF40 /* DHLFont.swift */; };
 		02FB5F3A1E8A7CC800C8CF40 /* DHLFontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FB5F351E8A7CC800C8CF40 /* DHLFontManager.swift */; };
 		02FB5F3B1E8A7CC800C8CF40 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FB5F361E8A7CC800C8CF40 /* UIColorExtension.swift */; };
@@ -66,11 +72,17 @@
 		021D4FE01E80107600110823 /* RestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestManager.swift; sourceTree = "<group>"; };
 		021D4FE61E80137700110823 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		021D4FE81E8017C400110823 /* ParseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseManager.swift; sourceTree = "<group>"; };
+		0228B4031E8BE68100E0A728 /* DHLButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DHLButtonStyle.swift; sourceTree = "<group>"; };
+		0228B4051E8BE77200E0A728 /* DHLButtonStyleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DHLButtonStyleManager.swift; sourceTree = "<group>"; };
+		0228B4071E8BE7C400E0A728 /* UIButton Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton Extension.swift"; sourceTree = "<group>"; };
 		023D39AF1E8403AA007C9F52 /* Invoice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Invoice.swift; sourceTree = "<group>"; };
 		025849ED1E8568E40028A85F /* PaymentModuleDemoApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PaymentModuleDemoApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		025849EE1E8568E50028A85F /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
 		025849EF1E8568E50028A85F /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
 		025849F11E8569650028A85F /* LockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockViewController.swift; sourceTree = "<group>"; };
+		02F19BFF1E8BAC280050EB81 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		02F19C011E8BD96C0050EB81 /* DHLTextFieldStyleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DHLTextFieldStyleManager.swift; sourceTree = "<group>"; };
+		02F19C031E8BD9900050EB81 /* DHLTextFieldStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DHLTextFieldStyle.swift; sourceTree = "<group>"; };
 		02FB5F341E8A7CC800C8CF40 /* DHLFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DHLFont.swift; sourceTree = "<group>"; };
 		02FB5F351E8A7CC800C8CF40 /* DHLFontManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DHLFontManager.swift; sourceTree = "<group>"; };
 		02FB5F361E8A7CC800C8CF40 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
@@ -130,6 +142,37 @@
 			name = Constants;
 			sourceTree = "<group>";
 		};
+		0228B4001E8BE62300E0A728 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				02FB5F361E8A7CC800C8CF40 /* UIColorExtension.swift */,
+				0228B4071E8BE7C400E0A728 /* UIButton Extension.swift */,
+				02FB5F371E8A7CC800C8CF40 /* UIFontExtension.swift */,
+				02FB5F381E8A7CC800C8CF40 /* UITextFieldExtension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		0228B4011E8BE63600E0A728 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				02FB5F341E8A7CC800C8CF40 /* DHLFont.swift */,
+				02F19C031E8BD9900050EB81 /* DHLTextFieldStyle.swift */,
+				0228B4031E8BE68100E0A728 /* DHLButtonStyle.swift */,
+			);
+			name = Styles;
+			sourceTree = "<group>";
+		};
+		0228B4021E8BE64100E0A728 /* Style Managers */ = {
+			isa = PBXGroup;
+			children = (
+				02FB5F351E8A7CC800C8CF40 /* DHLFontManager.swift */,
+				02F19C011E8BD96C0050EB81 /* DHLTextFieldStyleManager.swift */,
+				0228B4051E8BE77200E0A728 /* DHLButtonStyleManager.swift */,
+			);
+			name = "Style Managers";
+			sourceTree = "<group>";
+		};
 		027975CD1E800BD4005B9A39 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,11 +186,9 @@
 		02FB5F331E8A7CB300C8CF40 /* Style */ = {
 			isa = PBXGroup;
 			children = (
-				02FB5F341E8A7CC800C8CF40 /* DHLFont.swift */,
-				02FB5F351E8A7CC800C8CF40 /* DHLFontManager.swift */,
-				02FB5F361E8A7CC800C8CF40 /* UIColorExtension.swift */,
-				02FB5F371E8A7CC800C8CF40 /* UIFontExtension.swift */,
-				02FB5F381E8A7CC800C8CF40 /* UITextFieldExtension.swift */,
+				0228B4011E8BE63600E0A728 /* Styles */,
+				0228B4021E8BE64100E0A728 /* Style Managers */,
+				0228B4001E8BE62300E0A728 /* Extensions */,
 			);
 			name = Style;
 			sourceTree = "<group>";
@@ -209,6 +250,7 @@
 				DD779A291E7FC21D00FBF902 /* NewPaymentViewController.swift */,
 				02139E281E83F0A1009C1DC6 /* QRReader.swift */,
 				DD779A2B1E7FE16F00FBF902 /* CardSelectionViewController.swift */,
+				02F19BFF1E8BAC280050EB81 /* RegistrationViewController.swift */,
 				021D4FDB1E800CE200110823 /* Data Extensions.swift */,
 				025849F11E8569650028A85F /* LockViewController.swift */,
 				025849EE1E8568E50028A85F /* KeychainWrapper.h */,
@@ -371,18 +413,24 @@
 				021D4FE31E80107600110823 /* RestManager.swift in Sources */,
 				021D4FDC1E800CE200110823 /* Data Extensions.swift in Sources */,
 				02139E291E83F0A1009C1DC6 /* QRReader.swift in Sources */,
+				0228B4081E8BE7C400E0A728 /* UIButton Extension.swift in Sources */,
+				02F19C021E8BD96C0050EB81 /* DHLTextFieldStyleManager.swift in Sources */,
+				02F19C041E8BD9900050EB81 /* DHLTextFieldStyle.swift in Sources */,
 				021D4FDA1E800CD100110823 /* Constants.swift in Sources */,
 				02FB5F391E8A7CC800C8CF40 /* DHLFont.swift in Sources */,
+				02F19C001E8BAC280050EB81 /* RegistrationViewController.swift in Sources */,
 				0219E7E61E817BA900A67E2B /* NewCardViewController.swift in Sources */,
 				02FB5F421E8A819C00C8CF40 /* TransactionsViewController.swift in Sources */,
 				02FB5F3D1E8A7CC800C8CF40 /* UITextFieldExtension.swift in Sources */,
 				DD6141E71E7BEC4600CB84C8 /* MainViewController.swift in Sources */,
 				0219E7E41E812F4F00A67E2B /* Transaction.swift in Sources */,
+				0228B4041E8BE68100E0A728 /* DHLButtonStyle.swift in Sources */,
 				021D4FE11E80107600110823 /* DataManager.swift in Sources */,
 				DDC4CE391E8A40AA0040BD93 /* CardsViewController.swift in Sources */,
 				0219E7DC1E81275700A67E2B /* BaseViewController.swift in Sources */,
 				DD779A2C1E7FE16F00FBF902 /* CardSelectionViewController.swift in Sources */,
 				DD6141E51E7BEC4600CB84C8 /* AppDelegate.swift in Sources */,
+				0228B4061E8BE77200E0A728 /* DHLButtonStyleManager.swift in Sources */,
 				021D4FE21E80107600110823 /* ResponseStructures.swift in Sources */,
 				021D4FE71E80137700110823 /* User.swift in Sources */,
 				0219E7DD1E81275700A67E2B /* PaymentPreviewViewController.swift in Sources */,

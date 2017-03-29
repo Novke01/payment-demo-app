@@ -26,3 +26,4 @@ public class DHLFont {
         return DHLFont(font: UIFont.dhlRegular(), color: UIColor.black, fontName: "textRegularBlack")
     }
 }
+

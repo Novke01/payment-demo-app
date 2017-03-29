@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -118,18 +118,18 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tYg-YV-HKM">
                                 <rect key="frame" x="16" y="145" width="343" height="324"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ciD-cx-h4x">
+                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ciD-cx-h4x">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="80"/>
                                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="2MQ-ZL-bmV"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
-                                        <state key="normal" title="Make Payment">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <state key="normal" title="Scan QR and Make payment">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="makePayment:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rMF-9R-9d8"/>
+                                            <action selector="scanQRCode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iUj-Zy-hCo"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ci4-U9-l50">
@@ -138,7 +138,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="X0V-L7-juw"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <state key="normal" title="View Cards">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -152,7 +152,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="0Id-ss-ZFK"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <state key="normal" title="View Transactions">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -183,14 +183,7 @@
                             <constraint firstAttribute="leadingMargin" secondItem="tYg-YV-HKM" secondAttribute="leading" id="ikn-qB-zWL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Payment Demo" id="Ik6-Kh-xDJ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="Qhd-fv-5EZ">
-                            <color key="tintColor" red="1" green="0.57724332810000001" blue="0.0070654610169999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="scanQRCode:" destination="BYZ-38-t0r" id="hei-yf-4A7"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Payment Demo" id="Ik6-Kh-xDJ"/>
                     <connections>
                         <segue destination="X7B-Up-XK7" kind="show" identifier="goToNewPayment" id="JcD-xC-pGu"/>
                         <segue destination="ptn-V6-5Ow" kind="show" identifier="goToScanQRCode" id="q3S-OB-z8U"/>
@@ -235,31 +228,31 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="70q-Ts-TBN">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="588"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Bill Id" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ybS-lh-JVO">
-                                                <rect key="frame" x="8" y="8" width="359" height="30"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bill Id" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ybS-lh-JVO">
+                                                <rect key="frame" x="8" y="8" width="359" height="50"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="OjK-jr-Kig"/>
+                                                    <constraint firstAttribute="height" constant="50" id="OjK-jr-Kig"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Cart Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nqp-XX-AkU">
-                                                <rect key="frame" x="8" y="46" width="359" height="30"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cart Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nqp-XX-AkU">
+                                                <rect key="frame" x="8" y="66" width="359" height="50"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="ewx-qM-zOo"/>
+                                                    <constraint firstAttribute="height" constant="50" id="ewx-qM-zOo"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Currency" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YAu-3a-usz">
-                                                <rect key="frame" x="8" y="84" width="359" height="30"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Currency" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YAu-3a-usz">
+                                                <rect key="frame" x="8" y="124" width="359" height="50"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="bUv-oG-bXm"/>
+                                                    <constraint firstAttribute="height" constant="50" id="bUv-oG-bXm"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
@@ -374,19 +367,19 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bill Id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bE6-hc-Vjf">
-                                <rect key="frame" x="16" y="28" width="157" height="21"/>
+                                <rect key="frame" x="16" y="28" width="157" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="157" id="07t-mT-bYR"/>
-                                    <constraint firstAttribute="height" constant="21" id="QQl-tu-Ktx"/>
+                                    <constraint firstAttribute="height" constant="30" id="QQl-tu-Ktx"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJj-k4-ZfD">
-                                <rect key="frame" x="16" y="57" width="157" height="21"/>
+                                <rect key="frame" x="16" y="66" width="157" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="1Rb-LG-raD"/>
+                                    <constraint firstAttribute="height" constant="30" id="1Rb-LG-raD"/>
                                     <constraint firstAttribute="width" constant="157" id="ibo-Gb-zt8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -394,19 +387,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4x-oa-Ozl">
-                                <rect key="frame" x="16" y="86" width="157" height="21"/>
+                                <rect key="frame" x="16" y="104" width="157" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="157" id="GG8-Cz-76d"/>
-                                    <constraint firstAttribute="height" constant="21" id="Lou-T3-3vj"/>
+                                    <constraint firstAttribute="height" constant="30" id="Lou-T3-3vj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtU-tM-vzg">
-                                <rect key="frame" x="16" y="115" width="157" height="21"/>
+                                <rect key="frame" x="16" y="142" width="157" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="qch-LE-NNR"/>
+                                    <constraint firstAttribute="height" constant="30" id="qch-LE-NNR"/>
                                     <constraint firstAttribute="width" constant="157" id="zuo-uk-W9r"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -414,25 +407,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dMS-kK-BIV">
-                                <rect key="frame" x="181" y="28" width="178" height="21"/>
+                                <rect key="frame" x="181" y="28" width="178" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="es6-4T-zX5">
-                                <rect key="frame" x="181" y="57" width="178" height="21"/>
+                                <rect key="frame" x="181" y="66" width="178" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K57-Zd-vB8">
-                                <rect key="frame" x="181" y="86" width="178" height="21"/>
+                                <rect key="frame" x="181" y="104" width="178" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYj-Zt-idn">
-                                <rect key="frame" x="181" y="115" width="178" height="21"/>
+                                <rect key="frame" x="181" y="142" width="178" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -500,21 +493,22 @@
                                     <action selector="loginWithTouchId:" destination="KIg-t5-COG" eventType="touchUpInside" id="TFT-0u-L15"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f7J-BA-T2x">
-                                <rect key="frame" x="97" y="325" width="180" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f7J-BA-T2x">
+                                <rect key="frame" x="97" y="315" width="180" height="50"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="im0-yq-ZT9"/>
+                                    <constraint firstAttribute="height" constant="50" id="im0-yq-ZT9"/>
                                     <constraint firstAttribute="width" constant="180" id="zNh-GN-xOh"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="KIg-t5-COG" id="S79-yR-V6g"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unesite vaš PIN kod:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fS-Yy-HoK">
-                                <rect key="frame" x="16" y="289.5" width="343" height="21"/>
+                                <rect key="frame" x="16" y="279.5" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                 <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>

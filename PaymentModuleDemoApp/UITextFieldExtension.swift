@@ -10,6 +10,7 @@ import UIKit
 import Foundation
 
 private var dhlFontAssociationKey: UInt8 = 0
+private var dhlTextFieldStyleAssociationKey: UInt8 = 0
 
 @IBDesignable extension UITextField {
     
@@ -24,8 +25,29 @@ private var dhlFontAssociationKey: UInt8 = 0
             guard let dhlFont = DHLFontManager.font(name: dhlFontName) else { return }
             self.font = dhlFont.font
             self.textColor = dhlFont.color
-            self.backgroundColor = UIColor.dhlBlackTransparent
-            self.layer.cornerRadius = 10.0
+            self.tintColor = dhlFont.color
+        }
+    }
+    @IBInspectable var dhlStyle: String? {
+        get {
+            return objc_getAssociatedObject(self, &dhlTextFieldStyleAssociationKey) as? String
+        }
+        
+        set {
+            guard let dhlStyleName = newValue else { return }
+            objc_setAssociatedObject(self, &dhlTextFieldStyleAssociationKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+            guard let dhlStyle = DHLTextFieldStyleManager.style(name: dhlStyleName) else { return }
+            let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 8, height: 20))
+            self.leftView = paddingView
+            self.leftViewMode = UITextFieldViewMode.always
+
+            self.borderStyle = dhlStyle.borderStyle
+            self.layer.borderWidth = 1.0
+            self.layer.borderColor = UIColor.clear.cgColor
+            self.clipsToBounds = true
+            self.backgroundColor = dhlStyle.backgroundColor
+            self.layer.cornerRadius = dhlStyle.cornerRadius
+
         }
     }
 }

@@ -141,7 +141,6 @@ class RestManager {
                 case .failure(let error):
                     
                     print("Alamofire Automatic validation not successful!\nError: \(error)")
-                    
                     if let data = response.data {
                         completion(nil, data, false)
                     }else{

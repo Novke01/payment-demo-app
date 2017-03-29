@@ -13,6 +13,7 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.setStatusBarColor(dark: true)
         // Do any additional setup after loading the view.
     }
 
@@ -22,7 +23,7 @@ class BaseViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        configAllTextFields(view: view)
+//        configAllTextFields(view: view)
     }
     
     func dismissKeyboard() {
@@ -34,6 +35,23 @@ class BaseViewController: UIViewController {
         let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: nil)
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showAlertAndGoBack(title: String, message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel) { (UIAlertAction) in
+            self.navigationController?.popViewController(animated: true)
+        }
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func setStatusBarColor(dark: Bool){
+        if dark {
+            UIApplication.shared.statusBarStyle = .default
+        }else{
+            UIApplication.shared.statusBarStyle = .lightContent
+        }
     }
     
     func showSettingsAlert(title: String, message: String){
@@ -51,6 +69,7 @@ class BaseViewController: UIViewController {
     func setInvisibleNavigation(color: UIColor){
         self.navigationController?.navigationBar.barStyle = .black
         self.navigationController?.navigationBar.barTintColor = color
+        self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()

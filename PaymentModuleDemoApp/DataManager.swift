@@ -53,10 +53,10 @@ public class DataManager {
     }
     
     ///Get authentication token and put it in HTTP Request Header
-    public func login(user: User, pin: String, pushToken: String, completion: @escaping (LoginResponse)->Void){
+    public func login(email: String, pin: String, pushToken: String, imei: String, completion: @escaping (LoginResponse)->Void){
         
         let url = API.login
-        let parameters = ["pin":pin, "uid": user.email, "pushToken": pushToken, "imei": user.imei]
+        let parameters = ["pin":pin, "uid": email, "pushToken": pushToken, "imei": imei]
         
         RestManager.sharedInstance.POST(url: url, parameters: parameters, completion: { (json, data, success) in
             

@@ -84,7 +84,7 @@ class MainViewController: BaseViewController {
         }
     }
     
-    @IBAction func scanQRCode(_ sender: UIBarButtonItem) {
+    @IBAction func scanQRCode(_ sender: Any) {
         if AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) ==  AVAuthorizationStatus.authorized
         {
             // Already Authorized
@@ -123,9 +123,9 @@ class MainViewController: BaseViewController {
         }
     }
     
-    @IBAction func makePayment(_ sender: Any) {
-        performSegue(withIdentifier: newPaymentSegueId, sender: user)
-    }
+//    @IBAction func makePayment(_ sender: Any) {
+//        performSegue(withIdentifier: newPaymentSegueId, sender: user)
+//    }
     
     @IBAction func viewTransactions(_ sender: UIButton) {
         performSegue(withIdentifier: viewTransactionsId, sender: self)
