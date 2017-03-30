@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CardsViewController: BaseViewController {
+class CardsViewController: UIViewController {
 
     @IBOutlet weak var cardsTable: UITableView!
     
@@ -30,9 +30,7 @@ class CardsViewController: BaseViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        startLoading()
         DataManager.sharedInstance.getCards(email: user.email, completion: { (cardsResponse) -> Void in
-            self.stopLoading()
             if cardsResponse.success {
                 self.cards = cardsResponse.cards!
                 self.cardsTable.reloadData()
@@ -54,9 +52,7 @@ class CardsViewController: BaseViewController {
     
     @IBAction func addNewCard(_ sender: Any) {
         
-        startLoading()
         DataManager.sharedInstance.addCard(channel: channel, completion: { (checkoutId) in
-            self.stopLoading()
             if let id = checkoutId {
                 print("Checkout id: \(id)")
                 DispatchQueue.main.sync {
@@ -87,10 +83,10 @@ extension CardsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         let index = indexPath.row
         if editingStyle == .delete {
-            startLoading()
             DataManager.sharedInstance.removeCard(cardId: cards[index].token, completion: { (generalResponse) -> Void in
-                self.stopLoading()
-                self.cards.remove(at: index)
+                if index < self.cards.count {
+                    self.cards.remove(at: index)
+                }
                 self.cardsTable.reloadData()
             })
         }

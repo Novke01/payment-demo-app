@@ -119,7 +119,7 @@ class MainViewController: BaseViewController {
     
     @IBAction func viewCards(_ sender: UIButton) {
         
-        let channel = self.channels.filter{ $0.channelName == "3DS" }.first
+        let channel = self.channels.filter{ $0.channelName == "PARENT" }.first
 
         if let channel = channel {
             
