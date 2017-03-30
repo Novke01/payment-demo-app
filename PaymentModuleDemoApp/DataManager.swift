@@ -230,7 +230,6 @@ public class DataManager {
             + "&amount=1.00"
             + "&currency=RSD"
             + "&paymentType=PA"
-            + "&createRegistration=true"
             + "&billing.postcode=21000"
             + "&billing.country=RS"
 
