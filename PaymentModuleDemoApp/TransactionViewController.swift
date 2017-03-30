@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TransactionViewController: UIViewController {
+class TransactionViewController: BaseViewController {
 
     @IBOutlet weak var transactionLabel: UILabel!
     var transactionTrackId : String!
@@ -24,7 +24,9 @@ class TransactionViewController: UIViewController {
     }
     
     func checkTransaction(){
+        self.startLoading()
         DataManager.sharedInstance.getTransactionByTrackingId(trackingId: self.transactionTrackId) { (TransactionResponse) in
+            self.stopLoading()
             if TransactionResponse.success {
                 self.transactionLabel.text = TransactionResponse.transaction!.toString()
                 print("Timestamp: \(TransactionResponse.transaction!.timestamp)")

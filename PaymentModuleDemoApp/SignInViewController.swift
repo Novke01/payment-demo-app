@@ -63,6 +63,7 @@ class SignInViewController: BaseViewController {
                 print("••• PUSH TOKEN: \(appDelegate.firebasePushToken) •••")
                 let imei = "355330084909367"
                 
+                self.startLoading()
                 DataManager.sharedInstance.login(email: email, pin: pin, pushToken: appDelegate.firebasePushToken, imei: identifier ?? imei, completion: { loginResponse in
                     if loginResponse.success {
                         (UIApplication.shared.delegate as! AppDelegate).user = loginResponse.user!
@@ -70,6 +71,7 @@ class SignInViewController: BaseViewController {
                         print("USER: \(loginResponse.user!.toString())")
                         
                         DataManager.sharedInstance.sendPushToken(pushToken: self.appDelegate.firebasePushToken, userEmail: email, completion: { generalResponse in
+                            self.stopLoading()
                             print("SEND PUSH TOKEN: \(generalResponse)")
                             if generalResponse.success {
                                 self.saveCredentials(email: email, pin: pin)
@@ -81,6 +83,7 @@ class SignInViewController: BaseViewController {
                         })
                     }
                     else {
+                        self.stopLoading()
                         print("Error: \(loginResponse.message)")
                         self.showAlert(title: "Prijavljivanje nije uspelo", message: loginResponse.message)
                     }

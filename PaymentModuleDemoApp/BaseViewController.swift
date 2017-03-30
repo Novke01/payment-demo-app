@@ -10,11 +10,27 @@ import UIKit
 
 class BaseViewController: UIViewController {
 
+    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        activityIndicator.isHidden = true
+        activityIndicator.center = self.view.center
+        self.view.addSubview(activityIndicator)
 
         self.setStatusBarColor(dark: true)
         // Do any additional setup after loading the view.
+    }
+    
+    func startLoading(){
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+    }
+    
+    func stopLoading(){
+        activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
     }
 
     override func didReceiveMemoryWarning() {

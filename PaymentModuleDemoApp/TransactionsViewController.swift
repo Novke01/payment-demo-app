@@ -20,7 +20,9 @@ class TransactionsViewController: BaseViewController {
 
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: reusableCellId)
         
+        startLoading()
         DataManager.sharedInstance.getTransactions(email: (UIApplication.shared.delegate as! AppDelegate).user.email, page: 0, transactionCount: 20) { (TransactionsResponse) in
+            self.stopLoading()
             if TransactionsResponse.success {
                 for i in TransactionsResponse.transacations! {
                     self.transactions.append(i)

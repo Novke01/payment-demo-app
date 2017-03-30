@@ -34,7 +34,9 @@ class CardSelectionViewController: BaseViewController {
         cardsList.delegate = self;
         cardsList.dataSource = self;
         
+        startLoading()
         DataManager.sharedInstance.getCards(email: user.email, completion: { (cardsResponse) in
+            self.stopLoading()
             if cardsResponse.success {
                 self.cards = cardsResponse.cards!
                 self.cardsList.reloadData()

@@ -50,7 +50,9 @@ class PaymentPreviewViewController: BaseViewController {
     }
 
     @IBAction func oneClickPay(_ sender: UIButton) {
+        startLoading()
         DataManager.sharedInstance.oneClickPayment(billId: billId, price: price, currency: currency, card: card.token) { (GeneralResponse) in
+            self.stopLoading()
             print("Payment process started")
         }
     }

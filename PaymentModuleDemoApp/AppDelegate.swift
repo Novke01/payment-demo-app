@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         if let token = UserDefaults.standard.value(forKey: "firebaseToken") as? String {
             self.firebasePushToken = token
+            print("• SAVED FIREBASE TOKEN: \(self.firebasePushToken)")
         }
         
         NotificationCenter.default.addObserver(self,
@@ -74,9 +75,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        
+        if let firebaseToken = FIRInstanceID.instanceID().token() {
+            print("FIREBASE InstanceID token: \(firebaseToken)")
+            
+        }
+        
         FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.sandbox)
         self.deviceToken = deviceToken.base64EncodedString()
         //        let deviceString = deviceToken.hexEncodedString()
+//        connectToFcm()
         print("Device string: \(self.deviceToken)")
     }
     
@@ -146,7 +154,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func updatePushTokenOnServer(){
         if self.user.email != "" {
             DataManager.sharedInstance.sendPushToken(pushToken: self.firebasePushToken, userEmail: self.user.email, completion: { generalResponse in
-                print("SEND PUSH TOKEN: \(generalResponse)")
+                
+                print("SEND PUSH TOKEN ZA KORISNIKA \(self.user.email): \(generalResponse)")
                 if generalResponse.success {
                     print("• TOKEN UPDATE ON SERVER •")
                 }

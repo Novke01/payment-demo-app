@@ -32,22 +32,28 @@ class MainViewController: BaseViewController {
     }
 
     func getAllChannels(){
+        startLoading()
         DataManager.sharedInstance.getChannels(completion: { (ChannelsResponse) in
             if ChannelsResponse.success {
+                
+                DataManager.sharedInstance.getCards(email: (UIApplication.shared.delegate as! AppDelegate).user.email) { (CardsResponse) in
+                    self.stopLoading()
+                    if CardsResponse.success {
+                        for i in CardsResponse.cards! {
+                            print("\(i.toString())")
+                        }
+                    }
+                }
+
                 self.channels = ChannelsResponse.channels!
                 for channel in ChannelsResponse.channels! {
                     print("\(channel.toString())")
                 }
+            }else{
+                self.stopLoading()
             }
         })
     
-        DataManager.sharedInstance.getCards(email: (UIApplication.shared.delegate as! AppDelegate).user.email) { (CardsResponse) in
-            if CardsResponse.success {
-                for i in CardsResponse.cards! {
-                    print("\(i.toString())")
-                }
-            }
-        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

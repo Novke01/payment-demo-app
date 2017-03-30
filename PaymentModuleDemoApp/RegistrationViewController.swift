@@ -67,7 +67,9 @@ class RegistrationViewController: BaseViewController {
                 
                 print("••• PUSH TOKEN: \(appDelegate.firebasePushToken) •••")
             
+            startLoading()
             DataManager.sharedInstance.register(user: user, completion: { (GeneralResponse) in
+                self.stopLoading()
                 if GeneralResponse.success {
                     self.showAlertAndGoBack(title: "Registracija uspela", message: "Email sa PIN kodom će uskoro biti poslat")
                 }else{
