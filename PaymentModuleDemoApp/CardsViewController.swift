@@ -84,7 +84,9 @@ extension CardsViewController: UITableViewDelegate, UITableViewDataSource {
         let index = indexPath.row
         if editingStyle == .delete {
             DataManager.sharedInstance.removeCard(cardId: cards[index].token, completion: { (generalResponse) -> Void in
-                self.cards.remove(at: index)
+                if index < self.cards.count {
+                    self.cards.remove(at: index)
+                }
                 self.cardsTable.reloadData()
             })
         }
