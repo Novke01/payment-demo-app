@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CardsViewController: UIViewController {
+class CardsViewController: BaseViewController {
 
     @IBOutlet weak var cardsTable: UITableView!
     
@@ -30,7 +30,9 @@ class CardsViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        startLoading()
         DataManager.sharedInstance.getCards(email: user.email, completion: { (cardsResponse) -> Void in
+            self.stopLoading()
             if cardsResponse.success {
                 self.cards = cardsResponse.cards!
                 self.cardsTable.reloadData()

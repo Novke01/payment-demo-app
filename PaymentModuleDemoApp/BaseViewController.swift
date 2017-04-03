@@ -98,6 +98,7 @@ class BaseViewController: UIViewController {
         self.navigationController?.navigationBar.barStyle = .black
         self.navigationController?.navigationBar.setBackgroundImage(nil, for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = nil
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.black]
     }
 
     func configAllTextFields(view: UIView) {

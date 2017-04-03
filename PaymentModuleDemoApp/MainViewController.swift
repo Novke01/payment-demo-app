@@ -18,7 +18,7 @@ class MainViewController: BaseViewController {
     let viewTransactionsId = "goToTransactions"
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    var user: User!
+    var user: User = (UIApplication.shared.delegate as! AppDelegate).user
     var checkoutId = ""
     var channels = [Channel]()
     var transactions = [Transaction]()
@@ -28,7 +28,7 @@ class MainViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getAllChannels()
-        
+        self.navigationController?.navigationItem.title = "Novi račun"
     }
 
     func getAllChannels(){
@@ -57,7 +57,7 @@ class MainViewController: BaseViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setVisibleNavigation(color: nil)
+        setVisibleNavigation(color: UIColor.dhlYellow)
     }
     
     override func didReceiveMemoryWarning() {

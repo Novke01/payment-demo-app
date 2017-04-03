@@ -38,12 +38,12 @@ class SignInViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == paymentDemoSegueId {
-            let mainViewController = segue.destination as! MainViewController
-            mainViewController.user = sender as! User
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == paymentDemoSegueId {
+//            let mainViewController = segue.destination as! MainViewController
+//            mainViewController.user = sender as! User
+//        }
+//    }
     
     func saveCredentials(email: String, pin: String){
         MyKeychainWrapper.mySetObject(pin, forKey: kSecValueData)
@@ -75,7 +75,19 @@ class SignInViewController: BaseViewController {
                             print("SEND PUSH TOKEN: \(generalResponse)")
                             if generalResponse.success {
                                 self.saveCredentials(email: email, pin: pin)
-                                self.performSegue(withIdentifier: self.paymentDemoSegueId, sender: loginResponse.user!)
+                                
+                                let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                                let rootController = mainStoryboard.instantiateInitialViewController() as! UITabBarController
+                                rootController.selectedIndex = 2
+                                rootController.tabBar.tintColor = UIColor.dhlRed
+                                (UIApplication.shared.delegate as! AppDelegate).window?.rootViewController = rootController
+                                (UIApplication.shared.delegate as! AppDelegate).window?.makeKeyAndVisible()
+                                
+//                                self.performSegue(withIdentifier: self.paymentDemoSegueId, sender: loginResponse.user!)
+//                                if let tabBarController = (UIApplication.shared.delegate as! AppDelegate).window?.rootViewController as? UITabBarController {
+//                                    tabBarController.selectedIndex = 2
+//                                }
+
                             }
                             else {
                                 print("Error: \(generalResponse.message) ")

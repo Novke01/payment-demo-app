@@ -53,7 +53,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iuX-Yz-Z9e">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="543"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Efn-Bk-nMb" userLabel="Email" customClass="LeftPaddedTextField" customModule="PaymentModuleDemoApp" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="mstajic@execom.eu" borderStyle="roundedRect" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Efn-Bk-nMb" userLabel="Email" customClass="LeftPaddedTextField" customModule="PaymentModuleDemoApp" customModuleProvider="target">
                                                 <rect key="frame" x="26" y="216" width="325" height="50"/>
                                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <constraints>
@@ -67,7 +67,7 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="dhlStyle" value="grayAndRounded"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="PIN kod" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gtg-Qj-I0H" userLabel="Email" customClass="LeftPaddedTextField" customModule="PaymentModuleDemoApp" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="3777" borderStyle="roundedRect" placeholder="PIN kod" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gtg-Qj-I0H" userLabel="Email" customClass="LeftPaddedTextField" customModule="PaymentModuleDemoApp" customModuleProvider="target">
                                                 <rect key="frame" x="26" y="276" width="325" height="50"/>
                                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <constraints>
@@ -161,7 +161,7 @@
                         <outlet property="emailTextField" destination="Efn-Bk-nMb" id="KHp-E8-25Z"/>
                         <outlet property="pinTextField" destination="Gtg-Qj-I0H" id="FFk-GC-Ma0"/>
                         <outlet property="signInButton" destination="oKL-z7-ILF" id="CiH-et-1uN"/>
-                        <segue destination="zIp-aR-mcw" kind="show" identifier="goToPaymentDemo" id="phA-Cz-69j"/>
+                        <segue destination="zIp-aR-mcw" kind="presentation" identifier="goToPaymentDemo" id="phA-Cz-69j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zCL-zR-343" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -322,7 +322,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="52L-z4-8z9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-724" y="828.93553223388312"/>
+            <point key="canvasLocation" x="-724" y="872"/>
         </scene>
     </scenes>
     <resources>
